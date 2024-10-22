@@ -15,6 +15,9 @@ return {
         end
       end)
     end)
+
+    map("n", "gh", "<cmd>diffget //2<cr>") -- changes from left
+    map("n", "gl", "<cmd>diffget //3<cr>") -- changes from right
     -- if vim.bo.filetype == "fugitive" then
     --   vim.keymap.set("n", "q", "<cmd>if bufnr('$') == 1|quit|else|bdelete|endif<cr>")
     --   vim.keymap.set("n", "<Tab>", "<cmd>execute <SNR>69_StageInline('toggle',line('.'),v:count)<cr>")

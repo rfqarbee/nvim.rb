@@ -27,7 +27,7 @@ map("n", "<leader>ql", function()
 end, { desc = "Copen" })
 -- more binds
 map("n", "<C-q>", "<cmd>qa<CR>", { desc = "Quit Neovim" })
-map("n", "<M-q>", "<cmd>q<CR>", { desc = "Quit Buffer/window/tabs/anything" })
+map("n", "<M-q>", "<cmd>bd<CR>", { desc = "Quit Buffer/window/tabs/anything" })
 map("i", "jk", "<Esc>", { desc = "Insert to normal mode" })
 
 -- navigating quickfix
