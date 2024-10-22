@@ -2,7 +2,7 @@ return {
   "mfussenegger/nvim-lint",
   enabled = true,
   cond = function()
-    local work = os.getenv("WORK_DIR")
+    local work = os.getenv("WORK")
     local exp = work .. "/contract-root"
     local cur = vim.fn.getcwd()
     if exp == cur then
