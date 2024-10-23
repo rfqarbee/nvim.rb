@@ -15,7 +15,7 @@ return {
     local telescope = require("telescope")
     local builtin = require("telescope.builtin")
     local helper = require("helper.config_telescope")
-    local map = require("utils.utils")
+    local map = require("custom.utils").map
 
     telescope.setup({
       defaults = {

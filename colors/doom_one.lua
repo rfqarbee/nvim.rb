@@ -68,6 +68,7 @@ local palettes = {
 }
 
 local groups = {
+  QfixStatus = { fg = palettes.purple },
   ["@variable"] = { fg = palettes.variable },
   Normal = { fg = palettes.fg, bg = palettes.bg5 }, -- normal text and background color
   SignColumn = { fg = palettes.fg, bg = palettes.bg1 },
@@ -110,7 +111,12 @@ local groups = {
   SpellCap = { fg = palettes.blue, bg = palettes.none, style = "italic,undercurl" },
   SpellLocal = { fg = palettes.cyan, bg = palettes.none, style = "italic,undercurl" },
   SpellRare = { fg = palettes.cyan, bg = palettes.none, style = "italic,undercurl" },
-  StatusLine = { fg = palettes.blue, bg = palettes.bg0 },
+  StatusLine = { fg = palettes.fav_purple, bg = palettes.bg1 },
+  StatusLineInsert = { fg = palettes.green, bg = palettes.bg1 },
+  StatusLineExtra = { fg = palettes.fav_purple, bg = palettes.bg1 },
+  StatusLineVisual = { fg = palettes.yellow, bg = palettes.bg1 },
+  StatusLineReplace = { fg = palettes.red, bg = palettes.bg1 },
+  StatusLineCmd = { fg = "#7aa2f7", bg = palettes.bg1 },
   StatusLineNC = { fg = palettes.gray },
   StatusLineTerm = { fg = palettes.fg, bg = palettes.bg3 },
   StatusLineTermNC = { fg = palettes.fg, bg = palettes.bg3 },
@@ -323,6 +329,7 @@ local groups = {
   diffLine = { fg = palettes.yellow },
   diffIndexLine = { fg = palettes.purple },
   gitcommitBlank = { fg = palettes.fav_purple },
+  gitbranch = { fg = palettes.h1, bg = palettes.info_bg },
 
   -- Neogit
   -- NeogitBranch = { fg = palettes.gray_alt },

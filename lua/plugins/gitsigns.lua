@@ -42,17 +42,17 @@ return {
         end
 
         -- Navigation
-        map("n", "[c", function()
+        map("n", "]c", function()
           if vim.wo.diff then
-            vim.cmd.normal({ "[h", bang = true })
+            vim.cmd.normal({ "]c", bang = true })
           else
             gitsigns.nav_hunk("next")
           end
         end, { desc = "Next Hunk" })
 
-        map("n", "]c", function()
+        map("n", "[c", function()
           if vim.wo.diff then
-            vim.cmd.normal({ "[h", bang = true })
+            vim.cmd.normal({ "[c", bang = true })
           else
             gitsigns.nav_hunk("prev")
           end

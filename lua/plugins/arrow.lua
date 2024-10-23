@@ -1,5 +1,6 @@
 return {
   "otavioschwanck/arrow.nvim",
+  lazy = true,
   opts = function(_, opts)
     opts.hide_handbook = false
     opts.show_icons = true

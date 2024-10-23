@@ -1,3 +1,6 @@
+-- unlikely be using this again, but
+-- just incase switch to telescope again
+-- these are the configs that i like
 local M = {}
 
 local previewers = require("telescope.previewers")

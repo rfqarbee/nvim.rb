@@ -10,7 +10,7 @@ vim.filetype.add({
   },
 })
 
-opt.showtabline = 2
+opt.showtabline = 1
 
 opt.termguicolors = true
 opt.background = "dark"
@@ -41,6 +41,7 @@ opt.cursorline = true
 opt.signcolumn = "yes"
 opt.colorcolumn = "80"
 opt.showmode = false --disable show mode cuz status line already show
+opt.laststatus = 3 -- set statusline to global window
 
 opt.clipboard:append("unnamedplus")
 

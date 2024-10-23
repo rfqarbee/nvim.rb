@@ -23,7 +23,7 @@ return {
     config = function()
       local luasnip = require("luasnip")
       local autopairs = require("nvim-autopairs.completion.cmp")
-      local icons = require("helper.icons")
+      local icons = require("custom.icons")
       local cmp = require("cmp")
       require("snippets")
 
@@ -35,13 +35,10 @@ return {
         },
         window = {
           completion = cmp.config.window.bordered({
-            -- border = { "'", "", "'", "", "'", "", "'", "" },
             border = "double",
-            -- border = "none",
           }),
           documentation = cmp.config.window.bordered({
             border = "double",
-            -- border = "none",
           }),
         },
         view = {
@@ -102,8 +99,8 @@ return {
         sources = cmp.config.sources({
           { name = "nvim_lsp", group_index = 1 },
           { name = "luasnip", group_index = 2 },
-          { name = "path", group_index = 3 },
           -- { name = "buffer", group_index = 3 },
+          { name = "path", group_index = 4 },
         }),
       })
 

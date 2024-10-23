@@ -3,12 +3,16 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local fzf = require("fzf-lua")
-    local map = require("utils.utils")
-    local helper = require("helper.config_fzf")
+    local map = require("custom.utils").map
+    local actions = require("fzf-lua.actions")
 
     fzf.setup({
       fzf_colors = true,
-      grep = helper.grep_opts,
+      grep_opts = {
+        rg_glob = true,
+        glob_flag = "--iglob",
+        glob_separator = "%s%-%-",
+      },
       keymap = {
         fzf = {
           false, -- do not inherit from defaults
@@ -25,7 +29,15 @@ return {
         },
       },
       actions = {
-        files = helper.files,
+        files = {
+          ["enter"] = actions.file_edit_or_qf,
+          ["ctrl-s"] = actions.file_split,
+          ["ctrl-v"] = actions.file_vsplit,
+          ["ctrl-t"] = actions.file_tabedit,
+          ["alt-q"] = { fn = actions.file_edit_or_qf, prefix = "select-all+" },
+          ["ctrl-q"] = actions.file_sel_to_qf,
+          ["ctrl-a"] = actions.file_sel_to_ll,
+        },
       },
       files = {
         cwd_prompt = false,

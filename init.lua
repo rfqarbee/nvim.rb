@@ -1,7 +1,20 @@
+require("custom.statusline")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- setup colorscheme
+vim.api.nvim_exec2(
+  [[
+  augroup Statusline
+  au!
+  au WinEnter,BufEnter * setlocal statusline=%!v:lua.Statusline.active()
+  au WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline.inactive()
+  au WinEnter,BufEnter,FileType oil setlocal statusline=%!v:lua.Statusline.oil()
+  au WinEnter,BufEnter,FileType fzf setlocal statusline=%!v:lua.Statusline.fzf()
+  augroup END
+]],
+  { output = true }
+)
+
 vim.cmd("colorscheme doom_one") -- i'll use mine after im done actually creating the colorscheme
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

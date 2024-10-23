@@ -1,9 +1,11 @@
-local utils = require("helper.config_lualine")
+-- trying out my own status line
+-- local utils = require("helper.config_lualine")
 local arrow_status = require("arrow.statusline")
 
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
+  enabled = false,
   opts = {
     options = {
       theme = "auto",
@@ -25,33 +27,6 @@ return {
             return arrow_status.text_for_statusline_with_icons()
           end,
         },
-        {
-          -- shamelessly stolen from reddit
-          function()
-            local hasloclist = utils.loclist_item()
-            return "󰏬 " .. hasloclist
-          end,
-
-          cond = function()
-            local hasloclist = utils.loclist_item()
-            if hasloclist then
-              return true
-            end
-          end,
-        },
-        {
-          function()
-            local hasqfix = utils.qfix_item()
-            return "󰏬 " .. hasqfix
-          end,
-          cond = function()
-            local hasqfix = utils.qfix_item()
-            if hasqfix then
-              return true
-            end
-          end,
-          -- padding = { left = 20 },
-        },
       },
       lualine_x = { "encoding", "fileformat", "filetype" },
       lualine_y = { "progress" },
@@ -59,12 +34,10 @@ return {
         { "location" },
       },
     },
-    -- extensions = { "fugitive", "trouble", "mason", "lazy" },
     tabline = {
       lualine_a = {
         {
           "tabs",
-          -- NOTE: doom color
           tabs_color = {
             inactive = { bg = "#23272e", fg = "#a9a1e1" },
             active = { bg = "#3f444a", fg = "#98be75" },

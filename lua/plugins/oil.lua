@@ -5,7 +5,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       local oil = require("oil")
-      local map = require("utils.utils")
+      local map = require("custom.utils").map
 
       oil.setup({
         columns = {

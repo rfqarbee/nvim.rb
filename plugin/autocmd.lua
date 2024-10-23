@@ -6,7 +6,6 @@ local SaveAll = vim.api.nvim_create_augroup("SaveAll", { clear = true })
 local resizeWin = vim.api.nvim_create_augroup("resizeWin", { clear = true })
 local Quickfix = vim.api.nvim_create_augroup("Quickfix", { clear = true })
 
-
 autocmd("BufWritePre", {
   desc = "Delete trailing whitespace",
   pattern = "*",
@@ -39,19 +38,14 @@ autocmd("VimResized", {
 })
 
 usercmd("ToggleDiagnostics", function()
-  if vim.g.diagnostics_enabled == nil then
-    vim.g.diagnostics_enabled = false
-    vim.diagnostic.enable(not vim.diagnostic.is_enabled())
-  elseif vim.g.diagnostics_enabled then
-    vim.g.diagnostics_enabled = false
+  if vim.diagnostic.is_enabled() then
     vim.diagnostic.enable(not vim.diagnostic.is_enabled())
   else
-    vim.g.diagnostics_enabled = true
     vim.diagnostic.enable(not vim.diagnostic.is_enabled())
   end
 end, {})
 
--- TODO: rewrite this ass 
+-- TODO: rewrite this ass
 autocmd("BufWritePost", {
   desc = "Save modified files",
   group = SaveAll,
