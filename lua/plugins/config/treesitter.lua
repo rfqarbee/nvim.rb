@@ -4,30 +4,35 @@ return {
   build = ":TSUpdate",
   config = function()
     local ensure_installed = {
-      "json",
-      "typescript",
-      "javascript",
       "html",
       "css",
+      "json",
       "tsx",
+      "typescript",
+      "javascript",
       "svelte",
       "prisma",
-      "bash",
-      "c",
-      "make",
-      "dart",
-      "go",
-      "sql",
-      "http",
-      "gitignore",
-      "dockerfile",
       "graphql",
+
       "toml",
       "yaml",
+
       "lua",
+      "c",
+      "make",
+
+      "dart",
+
+      "go",
+      "rust",
+      "http",
+      "sql",
+      "dockerfile",
+      "gitignore",
+
+      "bash",
       "luadoc",
       "vimdoc",
-      "rust",
       "markdown_inline",
       "markdown",
     }

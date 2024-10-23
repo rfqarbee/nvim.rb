@@ -3,7 +3,7 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local fzf = require("fzf-lua")
-    local map = require("utils.mapkey")
+    local map = require("utils.utils")
     local helper = require("helper.config_fzf")
 
     fzf.setup({

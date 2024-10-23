@@ -3,7 +3,7 @@ return {
   version = false,
   enabled = false, -- bug due to hardtimes
   config = function()
-    local map = require("utils.mapkey")
+    local map = require("utils.utils")
     local mini = require("mini.files")
     mini.setup({
       mappings = {

@@ -2,7 +2,7 @@ return {
   "tpope/vim-fugitive",
   enabled = true,
   config = function()
-    local map = require("utils.mapkey")
+    local map = require("utils.utils")
     map("n", "gs", "<cmd>Git<cr>", { silent = true, desc = "Git status" })
     map("n", "<leader>gd", "<cmd>Gvdiffsplit!<cr>", { silent = true, desc = "Git status" })
     map("n", "<leader>gl", "<cmd>Gllog<cr>", { silent = true, desc = "Git Log" })

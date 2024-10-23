@@ -1,6 +1,5 @@
 return {
   "mfussenegger/nvim-lint",
-  enabled = true,
   cond = function()
     local work = os.getenv("WORK")
     local exp = work .. "/contract-root"

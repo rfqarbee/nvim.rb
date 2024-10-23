@@ -5,7 +5,6 @@ return {
     priority = 1000,
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       {
         "L3MON4D3/LuaSnip",
@@ -57,7 +56,7 @@ return {
             vim_item.menu = ({
               -- nvim_lsp = "[LSP]",
               -- luasnip = "[LuaSnip]",
-              buffer = "[Buffer]",
+              -- buffer = "[Buffer]",
             })[entry.source.name]
             return vim_item
           end,
@@ -103,8 +102,8 @@ return {
         sources = cmp.config.sources({
           { name = "nvim_lsp", group_index = 1 },
           { name = "luasnip", group_index = 2 },
-          { name = "buffer", group_index = 3 },
-          { name = "path", group_index = 4 },
+          { name = "path", group_index = 3 },
+          -- { name = "buffer", group_index = 3 },
         }),
       })
 

@@ -5,7 +5,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       local oil = require("oil")
-      local map = require("utils.mapkey")
+      local map = require("utils.utils")
 
       oil.setup({
         columns = {
@@ -40,7 +40,7 @@ return {
           ["<M-p>"] = "actions.preview",
           ["q"] = "actions.close",
           ["<space>r"] = "actions.refresh", -- refresh list
-          -- ["<space>-"] = "actions.parent", -- enabled after not using hardtimes and using mini files
+          -- ["<space>-"] = "actions.parent",
           ["-"] = "actions.parent",
           ["_"] = "actions.open_cwd",
           ["."] = "actions.cd", -- change project directory
