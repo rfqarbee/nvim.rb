@@ -1,10 +1,38 @@
 local autocmd = vim.api.nvim_create_autocmd
 local usercmd = vim.api.nvim_create_user_command
+
 local WhiteSpace = vim.api.nvim_create_augroup("replaceGroup", { clear = true })
 local YankGroup = vim.api.nvim_create_augroup("HiglightYank", { clear = true })
 local SaveAll = vim.api.nvim_create_augroup("SaveAll", { clear = true })
 local resizeWin = vim.api.nvim_create_augroup("resizeWin", { clear = true })
 local Quickfix = vim.api.nvim_create_augroup("Quickfix", { clear = true })
+local Statusline = vim.api.nvim_create_augroup("Statusline", { clear = true })
+local status_events = {
+  "BufEnter",
+  "WinEnter",
+  "FileType",
+  "VimResized",
+  "BufWritePost",
+  "FileChangedShellPost",
+  "SessionLoadPost",
+  "CursorMoved",
+  "CursorMovedI",
+  "ModeChanged",
+}
+
+autocmd(status_events, {
+  desc = "Status line",
+  group = Statusline,
+  callback = function()
+    if vim.bo.filetype == "oil" then
+      vim.opt_local.statusline = "%!v:lua.Statusline.oil()"
+    elseif vim.bo.filetype == "fzf" then
+      vim.opt_local.statusline = "%!v:lua.Statusline.fzf()"
+    else
+      vim.opt_local.statusline = "%!v:lua.Statusline.active()"
+    end
+  end,
+})
 
 autocmd("BufWritePre", {
   desc = "Delete trailing whitespace",
