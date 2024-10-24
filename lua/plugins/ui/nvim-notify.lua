@@ -9,7 +9,7 @@ return {
     local notify = require("notify")
     vim.notify = notify
     notify.setup({
-      render = "compact",
+      render = "wrapped-compact",
       fps = 240,
       stages = "static",
       top_down = true,
