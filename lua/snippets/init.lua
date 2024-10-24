@@ -1,1 +1,1 @@
-require("snippets.typescript")
+require("snippets.tssnippet")
