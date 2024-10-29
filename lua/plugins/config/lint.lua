@@ -10,6 +10,7 @@ return {
       return true
     end
   end,
+  lazy = true,
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local lint = require("lint")
@@ -32,12 +33,12 @@ return {
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
       group = vim.api.nvim_create_augroup("LintGroup", { clear = true }),
       callback = function()
-        lint.try_lint()
+        lint.try_lint(nil, { ignore_errors = true })
       end,
     })
 
-    map("n", "<leader>ll", function()
-      lint.try_lint()
+    vim.keymap.set("n", "<leader>ll", function()
+      lint.try_lint(nil, { ignore_errors = true })
     end, { desc = "Linting" })
   end,
 }

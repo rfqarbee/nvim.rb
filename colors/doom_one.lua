@@ -71,7 +71,7 @@ local groups = {
   QfixStatus = { fg = palettes.purple },
   ["@variable"] = { fg = palettes.variable },
   Normal = { fg = palettes.fg, bg = palettes.bg5 }, -- normal text and background color
-  SignColumn = { fg = palettes.fg, bg = palettes.bg1 },
+  SignColumn = { fg = palettes.fg, bg = palettes.bg5 },
   EndOfBuffer = { fg = palettes.disabled }, -- ~ lines at the end of a buffer
   NormalFloat = { fg = palettes.variable, bg = palettes.bg5 }, -- normal text and background color for floating windows
   FloatBorder = { fg = palettes.fav_purple, bg = palettes.bg5 },

@@ -9,6 +9,10 @@ return {
         width = 0.70,
       },
       plugins = {
+        options = {
+          showcmd = true,
+          laststatus = 3,
+        },
         twilight = { enabled = false },
         tmux = { enabled = false },
         todo = { enabled = false },
