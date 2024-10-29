@@ -8,7 +8,7 @@ return {
   },
   opts = {
     focus = false,
-    warn_no_results = false,
+    warn_no_results = true,
     open_no_results = false,
     follow = true,
     win = {

@@ -11,17 +11,12 @@ return {
     end,
   },
   {
-    "szw/vim-maximizer",
-    keys = {
-      { "<leader>wm", "<cmd>MaximizerToggle<cr>", "Maximze" },
-    },
-  },
-  {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
     opts = {},
   },
+  -- TODO: remove after finish colorscheme
   {
     "NvChad/nvim-colorizer.lua",
     keys = {

@@ -49,6 +49,7 @@ return {
     end,
     ft = "markdown",
     config = function()
+      local map = require("custom.utils").map
       require("obsidian").setup({
         workspaces = {
           {
@@ -133,13 +134,8 @@ return {
           },
         },
       })
-      vim.keymap.set("v", "<leader>ol", ":ObsidianLinkNew<cr>", { desc = "Create obsidian link", buffer = true })
-      vim.keymap.set(
-        "v",
-        "<leader>oe",
-        ":ObsidianExtractNote<cr>",
-        { desc = "Extract note and create links", buffer = true }
-      )
+      map("v", "<leader>ol", ":ObsidianLinkNew<cr>", { desc = "Create obsidian link", buffer = true })
+      map("v", "<leader>oe", ":ObsidianExtractNote<cr>", { desc = "Extract note and create links", buffer = true })
     end,
   },
 }

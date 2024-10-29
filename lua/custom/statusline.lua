@@ -84,13 +84,7 @@ local function lineinfo()
 end
 
 local function custominfo()
-  local arrowlist = require("arrow.statusline").text_for_statusline_with_icons()
-
-  if string.len(arrowlist) == 0 then
-    return ""
-  else
-    return " " .. arrowlist .. " "
-  end
+  return ""
 end
 
 local function vcs()

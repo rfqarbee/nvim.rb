@@ -13,6 +13,7 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local lint = require("lint")
+    local map = require("custom.utils").map
     lint.linters_by_ft = {
       javascript = { "eslint_d", "eslint" },
       typescript = { "eslint_d", "eslint" },
@@ -35,7 +36,7 @@ return {
       end,
     })
 
-    vim.keymap.set("n", "<leader>ll", function()
+    map("n", "<leader>ll", function()
       lint.try_lint()
     end, { desc = "Linting" })
   end,
