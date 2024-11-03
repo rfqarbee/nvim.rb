@@ -62,7 +62,7 @@ return {
           end,
         },
         completion = { completeopt = "menu,menuone,noinsert" },
-        mapping = cmp.mapping.preset.insert({
+        mapping = {
           ["<C-Space>"] = cmp.mapping.complete({}),
           ["<C-e>"] = cmp.mapping.abort(),
           ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -72,9 +72,9 @@ return {
           ["<C-y>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               if luasnip.expandable() then
-                luasnip.expand()
+                return luasnip.expand()
               else
-                cmp.confirm({
+                return cmp.confirm({
                   behavior = cmp.ConfirmBehavior.Insert,
                   select = true,
                 })
@@ -83,21 +83,21 @@ return {
               fallback()
             end
           end, { "i", "s" }),
-          ["<C-k>"] = cmp.mapping(function(fallback)
+          ["<Tab>"] = cmp.mapping(function(fallback)
             if luasnip.locally_jumpable(1) then
               luasnip.jump(1)
             else
               fallback()
             end
           end, { "i", "s" }),
-          ["<C-j>"] = cmp.mapping(function(fallback)
+          ["<S-Tab>"] = cmp.mapping(function(fallback)
             if luasnip.locally_jumpable(-1) then
-              luasnip.jump(-1)
+              return luasnip.jump(-1)
             else
               fallback()
             end
           end, { "i", "s" }),
-        }),
+        },
 
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
