@@ -73,7 +73,7 @@ return {
         map("<leader>rn", vim.lsp.buf.rename, "Rename var")
         map("<leader>ca", vim.lsp.buf.code_action, "Code action")
         map("<M-e>", function()
-          vim.diagnostic.open_float({ border = "rounded", source = "if_many", focusable = false })
+          vim.diagnostic.open_float({ border = "rounded", source = "if_many" })
         end, "Diagnostics open float")
         map("<leader>lh", function()
           vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
