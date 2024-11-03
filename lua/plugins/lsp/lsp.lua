@@ -72,7 +72,9 @@ return {
         map("<leader>lw", fzf.lsp_workspace_symbols, "Workspace symbols")
         map("<leader>rn", vim.lsp.buf.rename, "Rename var")
         map("<leader>ca", vim.lsp.buf.code_action, "Code action")
-        map("<M-d>", vim.diagnostic.open_float, "Diagnostics open float")
+        map("<M-e>", function()
+          vim.diagnostic.open_float({ border = "rounded", source = "if_many", focusable = false })
+        end, "Diagnostics open float")
         map("<leader>lh", function()
           vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
         end, "InlayHints")
@@ -80,6 +82,12 @@ return {
         local filetype = vim.bo[bufnr].filetype
         if disable_semantic_tokens[filetype] then
           client.server_capabilities.semanticTokensProvider = nil
+        end
+
+        if client and client.server_capabilities.hoverProvider then
+          vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+            border = "rounded",
+          })
         end
 
         if client and client.server_capabilities.documentHighlightProvider then

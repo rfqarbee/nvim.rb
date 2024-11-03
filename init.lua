@@ -1,4 +1,3 @@
-require("custom.statusline")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 

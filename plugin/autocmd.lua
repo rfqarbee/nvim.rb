@@ -1,12 +1,15 @@
+-- need to call due to nvim calls plugin/ first
+require("custom.statusline")
+require("custom.tabline")
 local autocmd = vim.api.nvim_create_autocmd
 local usercmd = vim.api.nvim_create_user_command
-
 local WhiteSpace = vim.api.nvim_create_augroup("replaceGroup", { clear = true })
 local YankGroup = vim.api.nvim_create_augroup("HiglightYank", { clear = true })
 local SaveAll = vim.api.nvim_create_augroup("SaveAll", { clear = true })
 local resizeWin = vim.api.nvim_create_augroup("resizeWin", { clear = true })
 local Quickfix = vim.api.nvim_create_augroup("Quickfix", { clear = true })
 local Statusline = vim.api.nvim_create_augroup("Statusline", { clear = true })
+local TablineGroup = vim.api.nvim_create_augroup("Tabline", { clear = true })
 local status_events = {
   "BufEnter",
   "WinEnter",
@@ -19,6 +22,30 @@ local status_events = {
   "CursorMovedI",
   "ModeChanged",
 }
+local tab_events = {
+  "BufEnter",
+  "WinEnter",
+  "VimResized",
+  "SessionLoadPost",
+  "TabEnter",
+  "TabLeave",
+  "TabNew",
+}
+
+autocmd("QuickFixCmdPost", {
+  group = Quickfix,
+  callback = function()
+    vim.cmd([[bot copen]])
+  end,
+})
+
+autocmd(tab_events, {
+  desc = "Tab line",
+  group = TablineGroup,
+  callback = function()
+    vim.opt_local.tabline = "%!v:lua.Tabline.line()"
+  end,
+})
 
 autocmd(status_events, {
   desc = "Status line",
@@ -120,12 +147,5 @@ autocmd("BufWritePost", {
         end)
       end
     end
-  end,
-})
-
-autocmd("QuickFixCmdPost", {
-  group = Quickfix,
-  callback = function()
-    vim.cmd([[bot copen]])
   end,
 })

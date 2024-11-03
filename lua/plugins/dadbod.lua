@@ -18,6 +18,8 @@ return {
     vim.g.db_ui_win_position = "left"
     local map = require("custom.utils").map
 
-    map("n", "<leader>do", "<cmd>DBUIToggle<cr>")
+    map("n", "<leader>db", "<cmd>tab DBUI<cr>")
+    map("n", "<leader>do", "<cmd>tab DBUIToggle<cr>")
+    map("n", "<leader>dr", "<cmd>DBUIRenameBuffer<cr>")
   end,
 }

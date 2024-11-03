@@ -1,5 +1,6 @@
 return {
   "rmagatti/auto-session",
+  enabled = true,
   lazy = false,
   opts = function(_, opts)
     local map = require("custom.utils").map
@@ -13,8 +14,9 @@ return {
       load_on_setup = false,
     }
 
-    -- map("n","<leader>wl","<cmd>Session")
     map("n", "<leader>ws", "<cmd>SessionSave<cr>")
     map("n", "<leader>wr", "<cmd>SessionRestore<cr>")
+    map("n", "<leader>wl", "<cmd>Autosession search<cr>")
+    map("n", "<leader>wd", "<cmd>Autosession delete<cr>")
   end,
 }

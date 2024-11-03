@@ -76,15 +76,41 @@ local function file()
 end
 
 local function filetype()
-  return string.format(" ft=%s ", vim.bo.filetype)
+  return string.format(" %s ", vim.bo.filetype)
 end
 
 local function lineinfo()
-  return " %P %l:%c "
+  return " %l:%c %P "
 end
 
 local function custominfo()
-  return ""
+  --local arrowlist = require("arrow.statusline").text_for_statusline_with_icons()
+  --if string.len(arrowlist) == 0 then
+    return ""
+  --else
+    --return " " .. arrowlist .. " "
+  --end
+end
+
+local function fsize()
+  local size = vim.fn.wordcount().bytes
+  local kb = size / 1024
+  local mb = kb / 1024
+  local gb = mb / 1024
+
+  local function remain(val)
+    return math.floor(val % 1024)
+  end
+
+  if remain(kb) > 0 then
+    return " " .. string.format("%.2f", kb) .. "K "
+  elseif remain(mb) > 0 then
+    return " " .. string.format("%.2f", mb) .. "M "
+  elseif remain(gb) > 0 then
+    return " " .. string.format("%.2f", gb) .. "G "
+  else
+    return " " .. size .. "B "
+  end
 end
 
 local function vcs()
@@ -96,7 +122,7 @@ local function vcs()
     return ""
   else
     if head == "" and detach == "" then
-      return " Detached "
+      return ""
     elseif head ~= "" then
       return "  " .. head .. " "
     else
@@ -116,15 +142,18 @@ Statusline.active = function()
     "%#gitbranch#",
     vcs(),
     "%#gitbranch#",
-    "%#QfixStatus#",
+    "%#StatusLineQF#",
     qf_stats.qfix(),
-    "%#QfixStatus#",
+    "%#StatusLineQF#",
     "%#Normal#",
     custominfo(),
     file(),
     "%#Normal#",
     "%=%#StatusLineExtra#",
     filetype(),
+    "|",
+    fsize(),
+    "|",
     lineinfo(),
   })
 end

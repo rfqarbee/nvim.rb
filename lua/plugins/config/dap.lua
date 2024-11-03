@@ -151,7 +151,7 @@ dap.configurations.rust = dap.configurations.cpp
       dap.disconnect({ terminateDebuggee = false })
     end, { desc = "Restart" })
 
-    map("n", "<leader>dd", function()
+    map("n", "<M-d>", function()
       dapui.toggle()
     end, { desc = "Dap-ui" })
 

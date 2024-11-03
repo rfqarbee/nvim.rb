@@ -1,1 +1,1 @@
-require("snippets.tssnippet")
+require("snippets.ts")

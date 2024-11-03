@@ -25,7 +25,7 @@ ls.add_snippets("typescript", {
 })
 
 ls.add_snippets("typescript", {
-  s("tagc", fmt("<{t}/>", { t = i(1) })),
+  s("tagc", fmt("<{t} />", { t = i(1) })),
 })
 
 ls.filetype_extend("typescriptreact", { "typescript" })
