@@ -17,11 +17,11 @@ end, { desc = "Copen" })
 
 map("n", "<C-q>", "<cmd>qa<CR>", { desc = "Quit Neovim" })
 map("n", "<M-q>", "<cmd>bd<CR>", { desc = "Delete Buffer" })
-map("i", "jk", "<Esc>", { desc = "Insert to normal mode" })
-map("i", "<c-c>", "<Esc>", { desc = "Insert to normal mode" })
+map({ "i", "s" }, "jk", "<Esc>", { desc = "Insert to normal mode" })
+map({ "i", "s" }, "<c-c>", "<Esc>", { desc = "Insert to normal mode" })
 
-map("n", "<m-j>", "<cmd>cnext<cr>zz", { desc = "Next quickfix item" })
-map("n", "<m-k>", "<cmd>cprev<cr>zz", { desc = "Prev quickfix item" })
+map("n", "<m-n>", "<cmd>cnext<cr>zz", { desc = "Next quickfix item" })
+map("n", "<m-p>", "<cmd>cprev<cr>zz", { desc = "Prev quickfix item" })
 
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "[b", "<cmd>bprev<cr>", { desc = "Prev Buffer" })

@@ -140,7 +140,7 @@ local groups = {
   healthSuccess = { fg = palettes.green },
   healthWarning = { fg = palettes.warn_fg },
 
-  RenderMarkdownCode = { bg = palettes.bg_darker },
+  RenderMarkdownCode = { bg = palettes.bg_darkest },
   --common
   Type = { fg = palettes.orange }, -- int, long, char, etpalettes.
   Keyword = { fg = palettes.blue, bg = palettes.none }, -- italic for, do, while, etc.
