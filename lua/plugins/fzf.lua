@@ -83,7 +83,7 @@ return {
     -- misc
     map("n", "<leader>pp", fzf.builtin, { desc = "Builtin" })
     map("n", "<leader>pr", fzf.resume, { desc = "resume last " })
-    map("n", "<leader>bi", fzf.buffers, { desc = "Fuzzy find current buffer" })
+    map("n", "<leader>bo", fzf.buffers, { desc = "Find opened buffers" })
     map("n", "<leader>ph", fzf.helptags, { desc = "Project file" })
   end,
 }
