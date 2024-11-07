@@ -72,23 +72,10 @@ autocmd("TextYankPost", {
   desc = "Highlight when yank",
   group = YankGroup,
   callback = function()
-    vim.hl.on_yank({
+    vim.highlight.on_yank({
       higroup = "Yank",
       timeout = 50,
     })
-  end,
-})
-
-autocmd("VimResized", {
-  desc = "Readjust windows if vim resize",
-  group = resizeWin,
-  pattern = "*",
-  callback = function()
-    local ft = vim.bo.filetype
-    vim.cmd("wincmd =")
-    if ft == "fugitive" then
-      vim.cmd("resize 32")("fugitive?")
-    end
   end,
 })
 

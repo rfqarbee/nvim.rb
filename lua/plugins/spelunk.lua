@@ -2,8 +2,7 @@ return {
   {
     'EvWilson/spelunk.nvim',
     dependencies = {
-      'nvim-lua/plenary.nvim', -- For window drawing tilities
-      'nvim-telescope/telescope.nvim',
+      'nvim-lua/plenary.nvim',
     },
     config = function()
       local map = require("custom.utils").map
@@ -11,10 +10,10 @@ return {
         base_mappings = {
           toggle = '\\',
           add = '<leader>a',
-          next_bookmark = '<M-h>',
-          prev_bookmark = '<M-l',
-          search_bookmarks = '<leader>bf',
-          search_current_bookmarks = '<leader>bc',
+          next_bookmark = '<M-k>',
+          prev_bookmark = '<M-j>',
+          -- search_bookmarks = '<leader>bf',
+          -- search_current_bookmarks = '<leader>bc',
         },
         window_mappings = {
           cursor_down = 'j',
