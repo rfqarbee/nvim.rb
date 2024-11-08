@@ -78,7 +78,7 @@ return {
     map("n", "<leader>sp", function()
       fzf.live_grep({ resume = true })
     end, { desc = "Project live grep" })
-    map("n", "<leader>sb", fzf.grep_curbuf, { desc = "Fuzzy find current buffer" })
+    map("n", "<leader>/", fzf.grep_curbuf, { desc = "Fuzzy find current buffer" })
     map("n", "<leader>sl", fzf.blines, { desc = "Current Buffer lines" })
     -- misc
     map("n", "<leader>pp", fzf.builtin, { desc = "Builtin" })

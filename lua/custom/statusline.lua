@@ -84,12 +84,15 @@ local function lineinfo()
 end
 
 local function custominfo()
-  --local arrowlist = require("arrow.statusline").text_for_statusline_with_icons()
-  --if string.len(arrowlist) == 0 then
+  local grapple = require("grapple")
+  local status = grapple.statusline()
+  local statusline = "< " .. status .. " > "
+
+  if grapple.exists() then
+    return statusline
+  else
     return ""
-  --else
-    --return " " .. arrowlist .. " "
-  --end
+  end
 end
 
 local function fsize()

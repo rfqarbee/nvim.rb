@@ -4,7 +4,7 @@ return {
   cmd = "Trouble",
   keys = {
     { "<leader>qd", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Current diagnostics" },
-    { "<leader>qw", "<cmd>Trouble diagnostics toggle<cr>", "Project diagnostics" },
+    { "<leader>qw", "<cmd>Trouble diagnostics toggle<cr>",              "Project diagnostics" },
   },
   opts = {
     focus = false,
