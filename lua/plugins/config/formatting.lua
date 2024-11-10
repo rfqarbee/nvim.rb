@@ -13,13 +13,10 @@ return {
         typescriptreact = { "prettierd", "prettier" },
         javascriptreact = { "prettierd", "prettier" },
         svelte = { "prettierd", "prettier" },
-        css = { "prettierd", "prettier" },
-        html = { "prettierd", "prettier" },
         json = { "prettierd", "prettier" },
         yaml = { "prettierd", "prettier" },
         markdown = { "prettierd", "prettier" },
         graphql = { "prettierd", "prettier" },
-        dart = { "prettierd", "prettier" },
       },
     })
 
