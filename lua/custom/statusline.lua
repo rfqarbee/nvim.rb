@@ -86,9 +86,9 @@ end
 local function custominfo()
   local grapple = require("grapple")
   local status = grapple.statusline()
-  local statusline = "< " .. status .. " > "
+  local statusline = "[ " .. status .. " ] "
 
-  if grapple.exists() then
+  if string.len(status) > 5 then
     return statusline
   else
     return ""
