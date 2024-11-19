@@ -166,7 +166,8 @@ function Statusline.inactive()
 end
 
 function Statusline.oil()
-  return "%#StatusLine#   Oil"
+  local dirPath = vim.fn.fnamemodify(vim.fn.expand("%"), ":s?oil://??:~:.")
+  return "%#StatusLine#   " .. dirPath
 end
 
 function Statusline.fzf()
