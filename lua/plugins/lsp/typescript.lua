@@ -9,7 +9,11 @@ return {
       single_file_support = false,
       root_dir = function()
         local root = vim.fs.root(0, ".git")
-        return root
+        if root == nil then
+          return vim.fs.root(0, 'index.js')
+        else
+          return root
+        end
       end,
       settings = {
         separate_diagnostic_server = true,
