@@ -5,9 +5,9 @@ vim.g.have_nerd_font = true
 -- vim.g.loaded_netrwPlugin = 1
 
 vim.filetype.add({
-  extension = {
-    ["http"] = "http",
-  },
+    extension = {
+        ["http"] = "http",
+    },
 })
 
 opt.showtabline = 1
@@ -29,9 +29,9 @@ opt.autoindent = true
 opt.smartindent = true
 opt.breakindent = true --:h breakindent if u forgot what this is already
 
-opt.wrap = false -- word wrap
+opt.wrap = false       -- word wrap
 
-opt.hlsearch = true --highlight when searching
+opt.hlsearch = true    --highlight when searching
 opt.incsearch = true
 opt.ignorecase = true
 opt.inccommand = "split"
@@ -41,15 +41,15 @@ opt.cursorline = true
 opt.signcolumn = "yes"
 opt.colorcolumn = "80"
 opt.showmode = false --disable show mode cuz status line already show
-opt.laststatus = 3 -- set statusline to global window
+opt.laststatus = 3   -- set statusline to global window
 
 opt.clipboard:append("unnamedplus")
 
 opt.splitright = true
 opt.splitbelow = true
 opt.list = true
-opt.listchars = { tab = "» ", trail = "-", nbsp = "␣", space = " ", precedes = "⇠", extends = "⇢" } -- ·
-opt.fillchars:append({ eob = " " })
+opt.listchars = { tab = "» ", trail = "-", nbsp = "␣", space = " ", precedes = "⇠", extends = "⇢", } -- ·
+opt.fillchars:append({ eob = " ", })
 opt.scrolloff = 6
 
 opt.completeopt = { "menuone", "noselect", "menu" }
@@ -63,3 +63,5 @@ opt.updatetime = 50
 
 opt.spell = false
 opt.spelllang = { "en_us", "en" }
+
+opt.foldmethod = "indent"
