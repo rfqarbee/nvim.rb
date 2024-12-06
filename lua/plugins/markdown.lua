@@ -1,37 +1,5 @@
 return {
   {
-    "MeanderingProgrammer/markdown.nvim",
-    ft = "markdown",
-    name = "render-markdown", -- Only needed if you have another plugin named markdown.nvim
-    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("render-markdown").setup({
-        checkbox = {
-          enabled = true,
-          unchecked = {
-            icon = "󰄱 ",
-            highlight = "NormalNC",
-          },
-          checked = {
-            icon = " ",
-            highlight = "FloatFooter",
-          },
-          custom = {
-            todo = { raw = "[/]", rendered = "󰥔 ", highlight = "RenderMarkdownTodo" },
-            placeholder = { raw = "[>]", rendered = " ", highlight = "RenderMarkdownTodo" },
-            priority = { raw = "[!]", rendered = " ", highlight = "WarningMsg" },
-            cancel = { raw = "[~]", rendered = "󰜺 ", highlight = "ErrorMsg" },
-          },
-        },
-        win_options = {
-          conceallevel = {
-            rendered = 2,
-          },
-        },
-      })
-    end,
-  },
-  {
     "epwalsh/obsidian.nvim",
     version = "*",
     dependencies = {

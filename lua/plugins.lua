@@ -1,8 +1,5 @@
 return {
   {
-    "tpope/vim-sleuth",
-  },
-  {
     "mistweaverco/kulala.nvim",
     ft = "http",
     opts = function(_, opts)

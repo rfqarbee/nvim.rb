@@ -76,17 +76,17 @@ local function file()
 end
 
 local function filetype()
-  return string.format(" %s ", vim.bo.filetype)
+  return string.format("[%s] ", vim.bo.filetype)
 end
 
 local function lineinfo()
-  return " %l:%c %P "
+  return "[%l : %c] "
 end
 
 local function custominfo()
   local grapple = require("grapple")
   local status = grapple.statusline()
-  local statusline = "[ " .. status .. " ] "
+  local statusline = " {" .. status .. "} "
 
   if string.len(status) > 5 then
     return statusline
@@ -106,13 +106,13 @@ local function fsize()
   end
 
   if remain(kb) > 0 then
-    return " " .. string.format("%.2f", kb) .. "K "
+    return "[" .. string.format("%.2f", kb) .. "K] "
   elseif remain(mb) > 0 then
-    return " " .. string.format("%.2f", mb) .. "M "
+    return "[" .. string.format("%.2f", mb) .. "M] "
   elseif remain(gb) > 0 then
-    return " " .. string.format("%.2f", gb) .. "G "
+    return "[" .. string.format("%.2f", gb) .. "G] "
   else
-    return " " .. size .. "B "
+    return "[" .. size .. "B] "
   end
 end
 
@@ -138,25 +138,23 @@ Statusline = {}
 
 Statusline.active = function()
   return table.concat({
+    "%#gitbranch#",
+    vcs(),
+    "%#gitbranch#",
     "%#Statusline#",
     update_mode_colors(),
     mode(),
     "%#Statusline#",
-    "%#gitbranch#",
-    vcs(),
-    "%#gitbranch#",
     "%#StatusLineQF#",
     qf_stats.qfix(),
     "%#StatusLineQF#",
-    "%#Normal#",
-    custominfo(),
+    "%#StatusLineNormal#",
     file(),
-    "%#Normal#",
+    "%#StatusLineNormal#",
     "%=%#StatusLineExtra#",
+    custominfo(),
     filetype(),
-    "|",
     fsize(),
-    "|",
     lineinfo(),
   })
 end

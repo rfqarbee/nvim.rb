@@ -71,15 +71,15 @@ local groups = {
   ["@variable"] = { fg = palettes.variable },
   ["@variable.member"] = { fg = palettes.variable },
   ["@tag.attribute"] = { fg = palettes.doom_purp },
-  Normal = { fg = palettes.fg, bg = palettes.bg_darker },            -- normal text and background color
+  Normal = { fg = palettes.fg, bg = palettes.bg_darker }, -- normal text and background color
   SignColumn = { fg = palettes.fg, bg = palettes.bg },
-  EndOfBuffer = { fg = palettes.disabled },                          -- ~ lines at the end of a buffer
+  EndOfBuffer = { fg = palettes.disabled }, -- ~ lines at the end of a buffer
   NormalFloat = { fg = palettes.variable, bg = palettes.bg_darker }, -- normal text and background color for floating windows
   FloatBorder = { fg = palettes.doom_purp, bg = palettes.bg_darker },
-  ColorColumn = { fg = palettes.none, bg = palettes.bg_darkest },    --  used for the columns set with 'colorcolumn'
-  Conceal = { fg = palettes.gray },                                  -- placeholder characters substituted for concealed text (see 'conceallevel')
-  Directory = { fg = palettes.dark_pink, bg = palettes.none },       -- directory names (and other special names in listings)
-  ErrorMsg = { fg = palettes.error_fg, style = "bold" },             -- error messages
+  ColorColumn = { fg = palettes.none, bg = palettes.bg_darkest }, --  used for the columns set with 'colorcolumn'
+  Conceal = { fg = palettes.gray }, -- placeholder characters substituted for concealed text (see 'conceallevel')
+  Directory = { fg = palettes.dark_pink, bg = palettes.none }, -- directory names (and other special names in listings)
+  ErrorMsg = { fg = palettes.error_fg, style = "bold" }, -- error messages
   Folded = { fg = palettes.h3_md, bg = palettes.h1bg, style = "italic" },
   FoldColumn = { fg = palettes.blue },
   Yank = { bg = palettes.dark_pink, style = "bold" },
@@ -108,8 +108,9 @@ local groups = {
   SpellRare = { fg = palettes.cyan, bg = palettes.none, style = "italic,undercurl" },
   StatusLineQF = { fg = palettes.purple },
   StatusLine = { fg = palettes.h1_md, bg = palettes.bg_dark },
+  StatusLineNormal = { fg = palettes.yellow, bg = palettes.bg_dark },
   StatusLineInsert = { fg = palettes.green, bg = palettes.bg_dark },
-  StatusLineExtra = { fg = palettes.doom_purp, bg = palettes.bg_dark },
+  StatusLineExtra = { fg = palettes.h1_md, bg = palettes.bg_dark },
   StatusLineVisual = { fg = palettes.yellow, bg = palettes.bg_dark },
   StatusLineReplace = { fg = palettes.red, bg = palettes.bg_dark },
   StatusLineCmd = { fg = "#7aa2f7", bg = palettes.bg_dark },
@@ -142,41 +143,41 @@ local groups = {
 
   RenderMarkdownCode = { bg = palettes.bg_darkest },
   --common
-  Type = { fg = palettes.orange },                             -- int, long, char, etpalettes.
-  Keyword = { fg = palettes.blue, bg = palettes.none },        -- italic for, do, while, etc.
-  Repeat = { fg = palettes.blue, bg = palettes.none },         -- italic any other keyword
-  StorageClass = { fg = palettes.blue },                       -- static, register, volatile, etpalettes.
-  Structure = { fg = palettes.blue },                          -- struct, union, enum, etpalettes.
-  Statement = { fg = palettes.blue },                          -- any statement
-  Label = { fg = palettes.blue },                              -- case, default, etpalettes.
-  PreProc = { fg = palettes.blue },                            -- generic Preprocessor
-  Define = { fg = palettes.blue },                             -- preprocessor #define
-  Macro = { fg = palettes.blue },                              -- same as Define
-  Typedef = { fg = palettes.blue },                            -- A typedef
-  Conditional = { fg = palettes.blue, bg = palettes.none },    -- italic if, then, else, endif, switch, etc.
-  Constant = { fg = palettes.dark_blue },                      -- any constant
+  Type = { fg = palettes.orange }, -- int, long, char, etpalettes.
+  Keyword = { fg = palettes.blue, bg = palettes.none }, -- italic for, do, while, etc.
+  Repeat = { fg = palettes.blue, bg = palettes.none }, -- italic any other keyword
+  StorageClass = { fg = palettes.blue }, -- static, register, volatile, etpalettes.
+  Structure = { fg = palettes.blue }, -- struct, union, enum, etpalettes.
+  Statement = { fg = palettes.blue }, -- any statement
+  Label = { fg = palettes.blue }, -- case, default, etpalettes.
+  PreProc = { fg = palettes.blue }, -- generic Preprocessor
+  Define = { fg = palettes.blue }, -- preprocessor #define
+  Macro = { fg = palettes.blue }, -- same as Define
+  Typedef = { fg = palettes.blue }, -- A typedef
+  Conditional = { fg = palettes.blue, bg = palettes.none }, -- italic if, then, else, endif, switch, etc.
+  Constant = { fg = palettes.dark_blue }, -- any constant
   Comment = { fg = palettes.gray, bg = palettes.none, style = "italic" },
   Boolean = { fg = palettes.dark_orange, bg = palettes.none }, -- true , false
   Function = { fg = palettes.purple_dark, bg = palettes.none },
-  Identifier = { fg = palettes.blue, bg = palettes.none },     -- any variable name
-  String = { fg = palettes.green, bg = palettes.none },        -- Any string
-  Character = { fg = palettes.green },                         -- any character constant: 'c', '\n'
-  Number = { fg = palettes.dark_orange },                      -- a number constant: 5
-  Float = { fg = palettes.dark_orange },                       -- a floating point constant: 2.3e10
-  PreCondit = { fg = palettes.blue },                          -- preprocessor #if, #else, #endif, etpalettes.
-  Operator = { fg = palettes.none },                           -- sizeof", "+", "*", etpalettes.
-  Exception = { fg = palettes.purple },                        -- try, catch, throw
-  Include = { fg = palettes.purple },                          -- preprocessor #include
-  Special = { fg = palettes.yellow, bg = palettes.none },      -- any special symbol
-  SpecialChar = { fg = palettes.yellow },                      -- special character in a constant
+  Identifier = { fg = palettes.blue, bg = palettes.none }, -- any variable name
+  String = { fg = palettes.green, bg = palettes.none }, -- Any string
+  Character = { fg = palettes.green }, -- any character constant: 'c', '\n'
+  Number = { fg = palettes.dark_orange }, -- a number constant: 5
+  Float = { fg = palettes.dark_orange }, -- a floating point constant: 2.3e10
+  PreCondit = { fg = palettes.blue }, -- preprocessor #if, #else, #endif, etpalettes.
+  Operator = { fg = palettes.none }, -- sizeof", "+", "*", etpalettes.
+  Exception = { fg = palettes.purple }, -- try, catch, throw
+  Include = { fg = palettes.purple }, -- preprocessor #include
+  Special = { fg = palettes.yellow, bg = palettes.none }, -- any special symbol
+  SpecialChar = { fg = palettes.yellow }, -- special character in a constant
   Tag = { fg = palettes.orange },
   fugitiveHelpTag = { fg = palettes.red },
-  SpecialComment = { fg = palettes.blue, style = "italic" },                        -- special things inside a comment
-  Debug = { fg = palettes.red },                                                    -- debugging statements
-  Underlined = { fg = palettes.cyan, bg = palettes.none, style = "underline" },     -- text that stands out, HTML links
-  Ignore = { fg = palettes.gray_alt },                                              -- left blank, hidden
+  SpecialComment = { fg = palettes.blue, style = "italic" }, -- special things inside a comment
+  Debug = { fg = palettes.red }, -- debugging statements
+  Underlined = { fg = palettes.cyan, bg = palettes.none, style = "underline" }, -- text that stands out, HTML links
+  Ignore = { fg = palettes.gray_alt }, -- left blank, hidden
   Error = { fg = palettes.error_fg, bg = palettes.none, style = "bold,undercurl" }, -- any erroneous construct
-  Todo = { fg = palettes.info_fg, bg = palettes.none, style = "bold,italic" },      -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+  Todo = { fg = palettes.info_fg, bg = palettes.none, style = "bold,italic" }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
   -- HTML
   htmlArg = { fg = palettes.orange },
@@ -197,13 +198,20 @@ local groups = {
   htmlH5 = { fg = palettes.blue, style = "bold" },
 
   -- Markdown
-  ['@markup.heading.1.markdown'] = { fg = palettes.h1_md, style = "bold" },
-  ['@markup.heading.2.markdown'] = { fg = palettes.h2_md, style = "bold" },
-  ['@markup.heading.3.markdown'] = { fg = palettes.h3_md, style = "bold" },
-  ['@markup.heading.4.markdown'] = { fg = palettes.h4_md, style = "bold" },
-  ['@markup.heading.5.markdown'] = { fg = palettes.h5_md, style = "bold" },
-  ['@markup.heading.6.markdown'] = { fg = palettes.h6_md, style = "bold" },
-  -- ['@punctuation.special.markdown'] = { fg = "white", style = "bold" },
+  ["@markup.heading.1.markdown"] = { fg = palettes.h1_md, style = "bold" },
+  ["@markup.heading.2.markdown"] = { fg = palettes.h2_md, style = "bold" },
+  ["@markup.heading.3.markdown"] = { fg = palettes.h3_md, style = "bold" },
+  ["@markup.heading.4.markdown"] = { fg = palettes.h4_md, style = "bold" },
+  ["@markup.heading.5.markdown"] = { fg = palettes.h5_md, style = "bold" },
+  ["@markup.heading.6.markdown"] = { fg = palettes.h6_md, style = "bold" },
+  ["@markup.quote.markdown"] = { fg = palettes.fg, style = "bold" },
+  ["@markup.raw.markdown_inline"] = { fg = palettes.doom_purp, bg = palettes.bg_darkest, style = "bold" },
+  ["@markup.list.markdown"] = { fg = palettes.dark_orange, style = "bold" },
+  ["@markup.list.checked.markdown"] = { fg = palettes.info_fg, style = "bold" },
+  ["@markup.link.label.markdown_inline"] = { fg = palettes.dark_cyan, style = "bold" },
+  ["@markup.link.markdown_inline"] = { fg = palettes.dark_cyan, style = "bold" },
+  ["@markup.link.url.markdown_inline"] = { fg = palettes.dark_cyan, style = "bold" },
+  ["@punctuation.special.markdown"] = { fg = palettes.hint_fg, style = "bold" },
   markdownH1 = { fg = palettes.h1_md, bg = palettes.h1bg, style = "bold" },
   markdownH2 = { fg = palettes.h2_md, bg = palettes.h2bg, style = "bold" },
   markdownH3 = { fg = palettes.h3_md, bg = palettes.h3bg, style = "bold" },
@@ -282,48 +290,48 @@ local groups = {
   --TSNone =                    { },    -- TODO: docs
 
   -- Lsp highlight groups
-  LspDiagnosticsDefaultError = { fg = palettes.error_fg, style = "undercurl", cterm = "undercurl" },     -- used for "Error" diagnostic virtual text
-  LspDiagnosticsSignError = { fg = palettes.error_fg },                                                  -- used for "Error" diagnostic signs in sign column
-  LspDiagnosticsFloatingError = { fg = palettes.error_fg, style = "bold" },                              -- used for "Error" diagnostic messages in the diagnostics float
+  LspDiagnosticsDefaultError = { fg = palettes.error_fg, style = "undercurl", cterm = "undercurl" }, -- used for "Error" diagnostic virtual text
+  LspDiagnosticsSignError = { fg = palettes.error_fg }, -- used for "Error" diagnostic signs in sign column
+  LspDiagnosticsFloatingError = { fg = palettes.error_fg, style = "bold" }, -- used for "Error" diagnostic messages in the diagnostics float
   LspDiagnosticsVirtualTextError = { fg = palettes.error_fg, style = "undercurl", cterm = "undercurl" }, -- Virtual text "Error"
   LspDiagnosticsUnderlineError = {
     fg = palettes.error_fg,
     style = "undercurl",
     cterm = "undercurl",
     sp = palettes.error_fg,
-  },                                                                                                   -- used to underline "Error" diagnostics.
-  LspDiagnosticsDefaultWarning = { fg = palettes.warn_fg },                                            -- used for "Warning" diagnostic signs in sign column
-  LspDiagnosticsSignWarning = { fg = palettes.warn_fg },                                               -- used for "Warning" diagnostic signs in sign column
+  }, -- used to underline "Error" diagnostics.
+  LspDiagnosticsDefaultWarning = { fg = palettes.warn_fg }, -- used for "Warning" diagnostic signs in sign column
+  LspDiagnosticsSignWarning = { fg = palettes.warn_fg }, -- used for "Warning" diagnostic signs in sign column
   LspDiagnosticsFloatingWarning = { fg = palettes.warn_fg, style = "undercurl", cterm = "undercurl" }, -- used for "Warning" diagnostic messages in the diagnostics float
-  LspDiagnosticsVirtualTextWarning = { fg = palettes.warn_fg, style = "bold" },                        -- Virtual text "Warning"
+  LspDiagnosticsVirtualTextWarning = { fg = palettes.warn_fg, style = "bold" }, -- Virtual text "Warning"
   LspDiagnosticsUnderlineWarning = {
     fg = palettes.warn_fg,
     style = "undercurl",
     cterm = "undercurl",
     sp = palettes.warn_fg,
-  },                                                                                -- used to underline "Warning" diagnostics.
-  LspDiagnosticsDefaultInformation = { fg = palettes.info_fg },                     -- used for "Information" diagnostic virtual text
-  LspDiagnosticsSignInformation = { fg = palettes.info_fg },                        -- used for "Information" diagnostic signs in sign column
-  LspDiagnosticsFloatingInformation = { fg = palettes.info_fg, style = "bold" },    -- used for "Information" diagnostic messages in the diagnostics float
+  }, -- used to underline "Warning" diagnostics.
+  LspDiagnosticsDefaultInformation = { fg = palettes.info_fg }, -- used for "Information" diagnostic virtual text
+  LspDiagnosticsSignInformation = { fg = palettes.info_fg }, -- used for "Information" diagnostic signs in sign column
+  LspDiagnosticsFloatingInformation = { fg = palettes.info_fg, style = "bold" }, -- used for "Information" diagnostic messages in the diagnostics float
   LspDiagnosticsVirtualTextInformation = { fg = palettes.info_fg, style = "bold" }, -- Virtual text "Information"
   LspDiagnosticsUnderlineInformation = {
     fg = palettes.info_fg,
     style = "undercurl",
     cterm = "undercurl",
     sp = palettes.info_fg,
-  },                                                                         -- used to underline "Information" diagnostics.
-  LspDiagnosticsDefaultHint = { fg = palettes.hint_fg },                     -- used for "Hint" diagnostic virtual text
-  LspDiagnosticsSignHint = { fg = palettes.hint_fg },                        -- used for "Hint" diagnostic signs in sign column
-  LspDiagnosticsFloatingHint = { fg = palettes.hint_fg, style = "bold" },    -- used for "Hint" diagnostic messages in the diagnostics float
+  }, -- used to underline "Information" diagnostics.
+  LspDiagnosticsDefaultHint = { fg = palettes.hint_fg }, -- used for "Hint" diagnostic virtual text
+  LspDiagnosticsSignHint = { fg = palettes.hint_fg }, -- used for "Hint" diagnostic signs in sign column
+  LspDiagnosticsFloatingHint = { fg = palettes.hint_fg, style = "bold" }, -- used for "Hint" diagnostic messages in the diagnostics float
   LspDiagnosticsVirtualTextHint = { fg = palettes.hint_fg, style = "bold" }, -- Virtual text "Hint"
   LspDiagnosticsUnderlineHint = {
     fg = palettes.hint_fg,
     style = "undercurl",
     cterm = "undercurl",
     sp = palettes.hint_fg,
-  },                                                               -- used to underline "Hint" diagnostics.
-  LspReferenceText = { fg = palettes.none, bg = palettes.bg_hl },  -- used for highlighting "text" references
-  LspReferenceRead = { fg = palettes.none, bg = palettes.bg_hl },  -- used for highlighting "read" references
+  }, -- used to underline "Hint" diagnostics.
+  LspReferenceText = { fg = palettes.none, bg = palettes.bg_hl }, -- used for highlighting "text" references
+  LspReferenceRead = { fg = palettes.none, bg = palettes.bg_hl }, -- used for highlighting "read" references
   LspReferenceWrite = { fg = palettes.none, bg = palettes.bg_hl }, -- used for highlighting "write" references
 
   DiagnosticError = { fg = palettes.error_fg },
@@ -350,10 +358,10 @@ local groups = {
   LspTroubleCount = { fg = palettes.blue, bg = palettes.bg_hl },
   LspTroubleNormal = { fg = palettes.fg, bg = palettes.bg },
   -- Diff
-  DiffAdd = { fg = palettes.diff_new, bg = palettes.bg_hl },         -- diff mode: Added line
+  DiffAdd = { fg = palettes.diff_new, bg = palettes.bg_hl }, -- diff mode: Added line
   DiffChange = { fg = palettes.diff_modified, bg = palettes.bg_hl }, --  diff mode: Changed line
-  DiffDelete = { fg = palettes.diff_change, bg = palettes.bg_hl },   -- diff mode: Deleted line
-  DiffText = { fg = palettes.diff_text, bg = palettes.bg_hl },       -- diff mode: Changed text within a changed line
+  DiffDelete = { fg = palettes.diff_change, bg = palettes.bg_hl }, -- diff mode: Deleted line
+  DiffText = { fg = palettes.diff_text, bg = palettes.bg_hl }, -- diff mode: Changed text within a changed line
   diffAdded = { fg = palettes.diff_new },
   diffRemoved = { fg = palettes.diff_change },
   diffChanged = { fg = palettes.diff_modified },
