@@ -19,7 +19,11 @@ return {
     keys = {
       { "<leader>ch", "<cmd>ColorizerToggle<cr>", "show color" },
     },
-    opts = {},
+    opts = {
+      user_default_options = {
+        names = false,
+      }
+    },
   },
   {
     "stevearc/dressing.nvim",

@@ -37,10 +37,10 @@ return {
         },
         window = {
           completion = cmp.config.window.bordered({
-            border = "double",
+            border = "single",
           }),
           documentation = cmp.config.window.bordered({
-            border = "double",
+            border = "single",
           }),
         },
         view = {

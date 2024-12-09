@@ -1,19 +1,19 @@
 -- stole this from reddit
 local qf_stats = require("custom.utils")
 local modes = {
-  ["n"] = "NORMAL",
-  ["no"] = "NORMAL",
-  ["v"] = "VISUAL",
-  ["V"] = "VISUAL LINE",
-  ["\22"] = "VISUAL BLOCK",
+  ["n"] = "N",
+  ["no"] = "N",
+  ["v"] = "V",
+  ["V"] = "VL",
+  ["\22"] = "VB",
   ["s"] = "SELECT",
   ["S"] = "SELECT LINE",
   [""] = "SELECT BLOCK",
-  ["i"] = "INSERT",
-  ["ic"] = "INSERT",
-  ["R"] = "REPLACE",
+  ["i"] = "I",
+  ["ic"] = "I",
+  ["R"] = "R",
   ["Rv"] = "VISUAL REPLACE",
-  ["c"] = "COMMAND",
+  ["c"] = "CMD",
   ["cv"] = "VIM EX",
   ["ce"] = "EX",
   ["r"] = "PROMPT",
@@ -76,17 +76,17 @@ local function file()
 end
 
 local function filetype()
-  return string.format("[%s] ", vim.bo.filetype)
+  return string.format("%s | ", vim.bo.filetype)
 end
 
 local function lineinfo()
-  return "[%l : %c] "
+  return "| %l:%c | "
 end
 
 local function custominfo()
   local grapple = require("grapple")
   local status = grapple.statusline()
-  local statusline = " {" .. status .. "} "
+  local statusline = " <" .. status .. "> "
 
   if string.len(status) > 5 then
     return statusline
@@ -106,13 +106,13 @@ local function fsize()
   end
 
   if remain(kb) > 0 then
-    return "[" .. string.format("%.2f", kb) .. "K] "
+    return "" .. string.format("%.2f", kb) .. "K "
   elseif remain(mb) > 0 then
-    return "[" .. string.format("%.2f", mb) .. "M] "
+    return "" .. string.format("%.2f", mb) .. "M "
   elseif remain(gb) > 0 then
-    return "[" .. string.format("%.2f", gb) .. "G] "
+    return "" .. string.format("%.2f", gb) .. "G "
   else
-    return "[" .. size .. "B] "
+    return "" .. size .. "B "
   end
 end
 
@@ -148,11 +148,13 @@ Statusline.active = function()
     "%#StatusLineQF#",
     qf_stats.qfix(),
     "%#StatusLineQF#",
+    "%#Normal#",
+    custominfo(),
+    "%#Normal#",
     "%#StatusLineNormal#",
     file(),
     "%#StatusLineNormal#",
     "%=%#StatusLineExtra#",
-    custominfo(),
     filetype(),
     fsize(),
     lineinfo(),
