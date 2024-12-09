@@ -22,7 +22,6 @@ require("lazy").setup({
     { import = "plugins" },
     { import = "plugins.config" },
     { import = "plugins.lsp" },
-    { import = "plugins.ui" },
   },
   change_detection = { notify = false },
   checker = {

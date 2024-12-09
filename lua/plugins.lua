@@ -1,5 +1,8 @@
 return {
   {
+    "tpope/vim-sleuth",
+  },
+  {
     "mistweaverco/kulala.nvim",
     ft = "http",
     opts = function(_, opts)
@@ -12,18 +15,6 @@ return {
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
     opts = {},
-  },
-  -- TODO: remove after finish colorscheme
-  {
-    "NvChad/nvim-colorizer.lua",
-    keys = {
-      { "<leader>ch", "<cmd>ColorizerToggle<cr>", "show color" },
-    },
-    opts = {
-      user_default_options = {
-        names = false,
-      }
-    },
   },
   {
     "stevearc/dressing.nvim",

@@ -30,9 +30,9 @@ end
 
 local function update_mode_colors()
   local current_mode = vim.api.nvim_get_mode().mode
-  local mode_color = "%#StatusLine#"
+  local mode_color = "%#StatusLineCustom#"
   if current_mode == "n" then
-    mode_color = "%#StatusLine#"
+    mode_color = "%#StatusLineCustom#"
   elseif current_mode == "i" or current_mode == "ic" then
     mode_color = "%#StatusLineInsert#"
   elseif current_mode == "v" or current_mode == "V" or current_mode == "\22" then
@@ -42,7 +42,7 @@ local function update_mode_colors()
   elseif current_mode == "c" then
     mode_color = "%#StatusLineCmd#"
   else
-    mode_color = "%#StatusLine#"
+    mode_color = "%#StatusLineReverse#"
   end
   return mode_color
 end
@@ -76,7 +76,7 @@ local function file()
 end
 
 local function filetype()
-  return string.format("%s | ", vim.bo.filetype)
+  return string.format(" %s | ", vim.bo.filetype)
 end
 
 local function lineinfo()
@@ -138,13 +138,16 @@ Statusline = {}
 
 Statusline.active = function()
   return table.concat({
+    "%#Normal#",
+    "  ",
+    "%#Normal#",
+    "%#StatusLineCustom#",
+    update_mode_colors(),
+    mode(),
+    "%#StatusLineCustom#",
     "%#gitbranch#",
     vcs(),
     "%#gitbranch#",
-    "%#Statusline#",
-    update_mode_colors(),
-    mode(),
-    "%#Statusline#",
     "%#StatusLineQF#",
     qf_stats.qfix(),
     "%#StatusLineQF#",
@@ -155,6 +158,7 @@ Statusline.active = function()
     file(),
     "%#StatusLineNormal#",
     "%=%#StatusLineExtra#",
+    update_mode_colors(),
     filetype(),
     fsize(),
     lineinfo(),

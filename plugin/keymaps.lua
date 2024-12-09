@@ -3,9 +3,6 @@ local map = vim.keymap.set
 map({ "n", "v" }, "Q", "<nop>")
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight on search when Esc in normal mode" })
 
--- NOTE: remove this after complete my own colorscheme
-map("n", "<leader>i", ":Inspect<cr>")
-
 map("n", "<leader>ql", function()
   local qf_win = vim.fn.getqflist({ winid = 0 }).winid
   if qf_win ~= 0 then
