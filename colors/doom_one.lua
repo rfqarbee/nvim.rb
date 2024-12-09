@@ -368,7 +368,7 @@ local groups = {
   FzfLuaFzfPrompt = { fg = palettes.info_fg },
   FzfLuaFzfCursorLine = { fg = palettes.green, bg = palettes.bg2 },
   FzfLuaFzfPointer = { fg = palettes.green, bg = palettes.bg2 },
-  FzfLuaFzfNormal = { fg = palettes.fg_txt, bg = palettes.bg0 },
+  FzfLuaFzfNormal = { fg = palettes.blue, bg = palettes.bg0 },
 
   -- Nvim dap
   DapBreakpoint = { fg = palettes.red },
