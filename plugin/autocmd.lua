@@ -82,6 +82,13 @@ autocmd("TextYankPost", {
   end,
 })
 
+autocmd("VimResized", {
+  desc = "Resize",
+  pattern = "*",
+  group = vim.api.nvim_create_augroup("ResizeWin", { clear = true }),
+  command = "horizontal wincmd = | vertical wincmd =",
+})
+
 usercmd("ToggleDiagnostics", function()
   if vim.diagnostic.is_enabled() then
     vim.diagnostic.enable(not vim.diagnostic.is_enabled())
