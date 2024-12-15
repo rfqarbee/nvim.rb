@@ -2,6 +2,7 @@ return {
   {
     "hrsh7th/nvim-cmp",
     lazy = false,
+    enabled = false,
     priority = 1000,
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",

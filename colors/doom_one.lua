@@ -16,6 +16,7 @@ local function highlight(group, color)
 end
 
 local palettes = {
+  black = "#000000",
   diff_change = "#fb4934",
   diff_new = "#8ec07c",
   diff_modified = "#458588",
@@ -92,7 +93,7 @@ local groups = {
   ErrorMsg = { fg = palettes.error_fg, style = "bold" }, -- error messages
   Folded = { fg = palettes.h3_md, bg = palettes.h1_bg, style = "italic" },
   FoldColumn = { fg = palettes.blue },
-  IncSearch = { fg = palettes.dark_pink, style = "reverse,bold", bg = "black" },
+  IncSearch = { fg = palettes.dark_pink, style = "reverse,bold", bg = palettes.none },
   LineNr = { fg = palettes.disabled },
   CursorLineNr = { fg = palettes.cyan },
   MatchParen = { fg = palettes.dark_pink, bg = palettes.bg_hl },
@@ -100,9 +101,9 @@ local groups = {
   ModeMsg = { fg = palettes.cyan, style = "bold" },
   MoreMsg = { fg = palettes.cyan, style = "bold" },
   NonText = { fg = palettes.bg_hl },
-  Pmenu = { fg = palettes.white, bg = palettes.bg0 },
-  PmenuSel = { fg = palettes.fg_txt, bg = palettes.h5_bg, style = "bold" },
-  PmenuSbar = { fg = palettes.white, bg = palettes.black },
+  Pmenu = { fg = palettes.none, bg = palettes.bg0 },
+  PmenuSel = { fg = palettes.none, bg = palettes.h5_bg, style = "bold" },
+  PmenuSbar = { fg = palettes.white, bg = palettes.none },
   PmenuThumb = { fg = palettes.red, bg = palettes.bg3 },
   Question = { fg = palettes.green, style = "bold" },
   QuickFixLine = { fg = palettes.blue, bg = palettes.white, style = "bold,italic" },
@@ -145,7 +146,7 @@ local groups = {
   healthSuccess = { fg = palettes.green },
   healthWarning = { fg = palettes.warn_fg },
   Yank = { bg = palettes.dark_pink, style = "bold" },
-  CurSearch = { fg = palettes.dark_pink, style = "reverse,bold", bg = "black" },
+  CurSearch = { fg = palettes.dark_pink, style = "reverse,bold", bg = palettes.none },
 
   --common
   Type = { fg = palettes.orange }, -- int, long, char, etpalettes.
@@ -386,6 +387,9 @@ local groups = {
   CmpItemKindKeyword = { fg = palettes.blue },
   CmpItemKindProperty = { fg = palettes.blue },
   CmpItemKindUnit = { fg = palettes.blue },
+
+  BlinkCmpMenuBorder = { fg = palettes.h5_bg, bg = palettes.bg0 },
+  BlinkCmpLabelDeprecated = { style = "strikethrough" },
 }
 
 for group, value in pairs(groups) do

@@ -61,7 +61,6 @@ return {
     "chrishrb/gx.nvim",
     keys = { { "gx", "<cmd>Browse<cr>", mode = { "n", "x" } } },
     cmd = { "Browse" },
-    enabled = true,
     init = function()
       vim.g.netrw_nogx = 1
     end,

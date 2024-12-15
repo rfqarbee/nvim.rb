@@ -1,32 +1,69 @@
 local M = {}
 
 M.completion_icons = {
+  kind_icons = {
+    Text = "󰉿 ",
+    Method = "󰊕 ",
+    Function = "󰊕 ",
+    Constructor = "󰒓 ",
+
+    Field = "󰜢 ",
+    Variable = "󰆦 ",
+    Property = "󰖷 ",
+
+    Class = "󱡠 ",
+    Interface = "󱡠 ",
+    Struct = "󱡠 ",
+    Module = "󰅩 ",
+
+    Unit = "󰪚 ",
+    Value = "󰦨 ",
+    Enum = "󰦨 ",
+    EnumMember = "󰦨 ",
+
+    Keyword = "󰻾 ",
+    Constant = "󰏿 ",
+
+    Snippet = "󱄽 ",
+    Color = "󰏘 ",
+    File = "󰈔 ",
+    Reference = "󰬲 ",
+    Folder = "󰉋 ",
+    Event = "󱐋 ",
+    Operator = "󰪚 ",
+    TypeParameter = "󰬛 ",
+  },
   my_icons = {
     Text = " ",
     Method = "󰆧 ",
     Function = "󰊕 ",
     Constructor = " ",
+
     Field = "󰜢 ",
     Variable = "󰀫 ",
+    Property = "󰖷 ",
+
     Class = "󰠱 ",
     Interface = " ",
-    Module = " ",
-    Property = " ",
-    Unit = " ",
+    Struct = "󱡠 ",
+    Module = "󰅩 ",
+
+    Unit = "󰪚 ",
     Value = "󰎠 ",
     Enum = " ",
+    EnumMember = " ",
+
     Keyword = "󰌋 ",
+    Constant = "󰏿 ",
+
     Snippet = " ",
     Color = "󰏘 ",
     File = "󰈙 ",
     Reference = " ",
     Folder = "󰉋 ",
-    EnumMember = " ",
-    Constant = "󰏿 ",
-    Struct = "󰙅 ",
     Event = " ",
     Operator = "󰆕 ",
-    TypeParameter = " ",
+    TypeParameter = "󰬛 ",
   },
   cmp_icons = {
     Text = " ",

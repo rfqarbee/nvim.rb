@@ -10,12 +10,15 @@ return {
     local lspconfig = require("lspconfig")
     local servers = require("plugins.lsp.config.customlsp").servers
 
-    if pcall(require, "cmp_nvim_lsp") then
-      capabilities = require("cmp_nvim_lsp").default_capabilities()
+    -- if pcall(require, "cmp_nvim_lsp") then
+    --   capabilities = require("cmp_nvim_lsp").default_capabilities()
+    -- end
+
+    if pcall(require, "blink.cmp") then
+      capabilities = require("blink.cmp").get_lsp_capabilities()
     end
 
     local signs = require("custom.icons").lsp_signs
-
     vim.diagnostic.config({
       signs = {
         text = {
@@ -23,8 +26,8 @@ return {
           [vim.diagnostic.severity.WARN] = signs.Warn,
           [vim.diagnostic.severity.INFO] = signs.Info,
           [vim.diagnostic.severity.HINT] = signs.Hint,
-        }
-      }
+        },
+      },
     })
     require("mason").setup()
 
