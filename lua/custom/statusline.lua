@@ -138,16 +138,13 @@ Statusline = {}
 
 Statusline.active = function()
   return table.concat({
-    "%#Normal#",
-    "  ",
-    "%#Normal#",
+    "%#gitbranch#",
+    vcs(),
+    "%#gitbranch#",
     "%#StatusLineCustom#",
     update_mode_colors(),
     mode(),
     "%#StatusLineCustom#",
-    "%#gitbranch#",
-    vcs(),
-    "%#gitbranch#",
     "%#StatusLineQF#",
     qf_stats.qfix(),
     "%#StatusLineQF#",
