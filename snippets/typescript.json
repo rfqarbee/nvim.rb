@@ -1,0 +1,34 @@
+{
+  "Comment jsx": {
+    "body": "{/*${0}*/}",
+    "prefix": "gb"
+  },
+  "TODO": {
+    "body": "// ${1}: ${0}",
+    "prefix": "td"
+  },
+  "Debugger": {
+    "body": "debugger;",
+    "prefix": "db"
+  },
+  "ESLint Disable": {
+    "body": "/* eslint-disable */",
+    "prefix": "ed"
+  },
+  "ESLint Ignore": {
+    "body": "/* eslint-ignore ${0} */",
+    "prefix": "ei"
+  },
+  "Ternary": {
+    "body": "${1} ? ${2} : ${0}",
+    "prefix": "ter"
+  },
+  "Tag open": {
+    "body": "<${1}>${0}</${1}>",
+    "prefix": "tag"
+  },
+  "Tag Close": {
+    "body": "<${0} />",
+    "prefix": "tagc"
+  }
+}

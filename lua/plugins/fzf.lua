@@ -8,7 +8,8 @@ return {
 
     fzf.setup({
       fzf_colors = true,
-      grep_opts = {
+      grep = {
+        input_prompt = 'Grep String❯ ',
         rg_glob = true,
         glob_flag = "--iglob",
         glob_separator = "%s%-%-",
@@ -34,14 +35,17 @@ return {
           ["ctrl-s"] = actions.file_split,
           ["ctrl-v"] = actions.file_vsplit,
           ["ctrl-t"] = actions.file_tabedit,
-          ["alt-q"] = { fn = actions.file_edit_or_qf, prefix = "select-all+" },
-          ["ctrl-q"] = actions.file_sel_to_qf,
+          ["alt-q"] = actions.file_sel_to_qf,
+          ["ctrl-q"] = { fn = actions.file_edit_or_qf, prefix = "select-all+" },
           ["ctrl-a"] = actions.file_sel_to_ll,
         },
       },
       files = {
         cwd_prompt = false,
         prompt = "Files > ",
+      },
+      oldfiles = {
+        include_current_session = true,
       },
       winopts = {
         border = "single",
@@ -66,7 +70,7 @@ return {
     map("n", "<leader>pl", fzf.loclist_stack, { desc = "loclist stack" })
     -- grep
     map("n", "<leader>pS", function()
-      vim.ui.input({ prompt = "Grep > " }, function(search)
+      vim.ui.input({ prompt = "Grep❯", }, function(search)
         if search ~= nil then
           fzf.grep({ search = search, no_esc = true })
         end
@@ -76,7 +80,7 @@ return {
     map("n", "<leader>pw", fzf.grep_cword, { desc = "grep cword" })
     map("v", "<leader>ps", fzf.grep_visual, { desc = "Grep visual" })
     map("n", "<leader>ps", function()
-      fzf.live_grep({ resume = true })
+      fzf.live_grep_glob({ resume = true })
     end, { desc = "Project live grep" })
     map("n", "<leader>/", fzf.grep_curbuf, { desc = "Fuzzy find current buffer" })
     map("n", "<leader>sl", fzf.blines, { desc = "Current Buffer lines" })

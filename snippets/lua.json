@@ -1,0 +1,6 @@
+{
+  "Export Module": {
+    "body": "local M = {${0}}\n\nreturn M",
+    "prefix": "em"
+  }
+}
