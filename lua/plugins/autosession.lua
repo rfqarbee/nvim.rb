@@ -1,6 +1,5 @@
 return {
   "rmagatti/auto-session",
-  enabled = true,
   lazy = false,
   opts = function(_, opts)
     local map = require("custom.utils").map

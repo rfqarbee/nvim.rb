@@ -1,0 +1,10 @@
+{
+  "Has Err": {
+    "body": "if err != nil {\n\t${0}\n}",
+    "prefix": "ifn"
+  },
+  "TODO": {
+    "body": "// ${1}: ${0}",
+    "prefix": "td"
+  }
+}
