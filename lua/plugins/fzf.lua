@@ -8,12 +8,6 @@ return {
 
     fzf.setup({
       fzf_colors = true,
-      grep = {
-        input_prompt = 'Grep String❯ ',
-        rg_glob = true,
-        glob_flag = "--iglob",
-        glob_separator = "%s%-%-",
-      },
       keymap = {
         fzf = {
           false, -- do not inherit from defaults
@@ -40,6 +34,19 @@ return {
           ["ctrl-a"] = actions.file_sel_to_ll,
         },
       },
+      lsp = {
+        code_actions = {
+          winopts = { fullscreen = false },
+        },
+      },
+      builtin = {
+        winopts = { fullscreen = false },
+      },
+      grep = {
+        rg_glob = true,
+        glob_flag = "--iglob",
+        glob_separator = "%s%-%-",
+      },
       files = {
         cwd_prompt = false,
         prompt = "Files > ",
@@ -47,12 +54,13 @@ return {
       oldfiles = {
         include_current_session = true,
       },
+      helptags = { winopts = { fullscreen = false } },
       winopts = {
-        border = "single",
+        fullscreen = true,
         preview = {
-          hidden = "hidden",
+          hidden = "nohidden",
           default = "bat",
-          horizontal = "right:50%",
+          horizontal = "right:40%",
         },
       },
     })
@@ -70,7 +78,7 @@ return {
     map("n", "<leader>pl", fzf.loclist_stack, { desc = "loclist stack" })
     -- grep
     map("n", "<leader>pS", function()
-      vim.ui.input({ prompt = "Grep❯", }, function(search)
+      vim.ui.input({ prompt = "Grep❯" }, function(search)
         if search ~= nil then
           fzf.grep({ search = search, no_esc = true })
         end
@@ -87,7 +95,7 @@ return {
     -- misc
     map("n", "<leader>pp", fzf.builtin, { desc = "Builtin" })
     map("n", "<leader>pr", fzf.resume, { desc = "resume last " })
-    map("n", "<leader>bo", fzf.buffers, { desc = "Find opened buffers" })
+    map("n", "<leader><leader>", fzf.buffers, { desc = "Find opened buffers" })
     map("n", "<leader>ph", fzf.helptags, { desc = "Project file" })
   end,
 }

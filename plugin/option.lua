@@ -51,7 +51,7 @@ opt.listchars = { tab = "» ", trail = "-", nbsp = "␣", space = " ", precedes 
 opt.fillchars:append({ eob = " " })
 opt.scrolloff = 6
 
-opt.completeopt = { "menuone", "noselect", "menu" }
+opt.completeopt = { "menuone", "noselect", "menu", "noinsert" }
 
 opt.swapfile = false
 opt.backup = false
