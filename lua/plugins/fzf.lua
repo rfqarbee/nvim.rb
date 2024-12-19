@@ -9,18 +9,23 @@ return {
     fzf.setup({
       fzf_colors = true,
       keymap = {
+        builtin = {
+          false,
+          ["<M-p>"]   = "toggle-preview",
+          ["<Tab>"]   = "preview-page-down",
+          ["<S-Tab>"] = "preview-page-up",
+        },
         fzf = {
           false, -- do not inherit from defaults
-          ["tab"] = "",
-          ["shift-tab"] = "",
-          ["ctrl-c"] = "abort",
-          ["ctrl-d"] = "half-page-down",
-          ["ctrl-u"] = "half-page-up",
-          ["ctrl-f"] = "toggle",
-          ["ctrl-y"] = "toggle-all",
-          ["alt-p"] = "toggle-preview",
-          ["ctrl-j"] = "preview-page-down",
-          ["ctrl-k"] = "preview-page-up",
+          ["shift-tab"] = "preview-page-up",
+          ["tab"]       = "preview-page-down",
+          ["ctrl-o"]    = "unix-line-discard",
+          ["ctrl-c"]    = "abort",
+          ["ctrl-d"]    = "half-page-down",
+          ["ctrl-u"]    = "half-page-up",
+          ["ctrl-f"]    = "toggle",
+          ["ctrl-y"]    = "toggle-all",
+          ["alt-p"]     = "toggle-preview",
         },
       },
       actions = {
@@ -30,14 +35,24 @@ return {
           ["ctrl-v"] = actions.file_vsplit,
           ["ctrl-t"] = actions.file_tabedit,
           ["alt-q"] = actions.file_sel_to_qf,
-          ["ctrl-q"] = { fn = actions.file_edit_or_qf, prefix = "select-all+" },
           ["ctrl-a"] = actions.file_sel_to_ll,
+          ["ctrl-q"] = { fn = actions.file_edit_or_qf, prefix = "select-all+" },
         },
+      },
+      buffers = {
+        sort_lastused = false,
       },
       lsp = {
         code_actions = {
           winopts = { fullscreen = false },
         },
+      },
+      lines = {
+        actions = {
+          ["alt-q"] = actions.file_sel_to_qf,
+          ["ctrl-a"] = actions.file_sel_to_ll,
+          ["ctrl-q"] = { fn = actions.file_edit_or_qf, prefix = "select-all+" },
+        }
       },
       builtin = {
         winopts = { fullscreen = false },
@@ -58,8 +73,7 @@ return {
       winopts = {
         fullscreen = true,
         preview = {
-          hidden = "nohidden",
-          default = "bat",
+          vertical = "down:35%",
           horizontal = "right:40%",
         },
       },
@@ -91,7 +105,7 @@ return {
       fzf.live_grep_glob({ resume = true })
     end, { desc = "Project live grep" })
     map("n", "<leader>/", fzf.grep_curbuf, { desc = "Fuzzy find current buffer" })
-    map("n", "<leader>sl", fzf.blines, { desc = "Current Buffer lines" })
+    map("n", "<leader>sl", fzf.lines, { desc = "Current Buffer lines" })
     -- misc
     map("n", "<leader>pp", fzf.builtin, { desc = "Builtin" })
     map("n", "<leader>pr", fzf.resume, { desc = "resume last " })
