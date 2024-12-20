@@ -59,14 +59,22 @@ return {
       },
       grep = {
         rg_glob = true,
-        glob_flag = "--iglob",
-        glob_separator = "%s%-%-",
+        rg_glob_fn = function(query, opts)
+          local regex, flags = query:match("^(.-)%s%-%-(.*)$")
+          return (regex or query), flags
+        end,
       },
       files = {
         cwd_prompt = false,
         prompt = "Files > ",
       },
+      git = {
+        files = {
+          cmd = "git ls-files --exclude-standard --recurse-submodules"
+        }
+      },
       oldfiles = {
+        cwd_only = true,
         include_current_session = true,
       },
       helptags = { winopts = { fullscreen = false } },
@@ -78,38 +86,33 @@ return {
         },
       },
     })
+    -- using fzflua as the ui for select
+    fzf.register_ui_select({ winopts = { fullscreen = false } })
 
     -- files
     map("n", "<leader>pf", fzf.files, { desc = "Project file" })
-    map("n", "<leader>po", fzf.oldfiles, { desc = "old files" })
+    map("n", "<leader>po", fzf.oldfiles, { desc = "Old Files" })
     -- git
-    map("n", "<C-p>", fzf.git_files, { desc = "Git files" })
+    map("n", "<C-p>", fzf.git_files, { desc = "Open Git files" })
     map("n", "<leader>pb", fzf.git_branches, { desc = "Git branches" })
-    map("n", "<leader>pc", fzf.git_bcommits, { desc = "Git Current Buffer Commits" })
-    map("n", "<leader>pC", fzf.git_commits, { desc = "PWD Git commits" })
+    map("n", "<leader>pc", fzf.git_bcommits, { desc = "Git Current Buffer/File Commits" })
+    map("n", "<leader>pC", fzf.git_commits, { desc = "Project Commits" })
     -- qf
-    map("n", "<leader>pq", fzf.quickfix_stack, { desc = "qf stack" })
-    map("n", "<leader>pl", fzf.loclist_stack, { desc = "loclist stack" })
-    -- grep
-    map("n", "<leader>pS", function()
-      vim.ui.input({ prompt = "Grep❯" }, function(search)
-        if search ~= nil then
-          fzf.grep({ search = search, no_esc = true })
-        end
-      end)
-    end, { desc = "Grep" })
-    map("n", "<leader>pW", fzf.grep_cWORD, { desc = "grep cWORD" })
-    map("n", "<leader>pw", fzf.grep_cword, { desc = "grep cword" })
+    map("n", "<leader>pq", fzf.quickfix_stack, { desc = "Quickfix stack" })
+    map("n", "<leader>pl", fzf.loclist_stack, { desc = "Location list stack" })
+    map("n", "<leader>pS", fzf.grep, { desc = "Grep string" })
+    map("n", "<leader>pW", fzf.grep_cWORD, { desc = "Grep cWORD" })
+    map("n", "<leader>pw", fzf.grep_cword, { desc = "Grep cword" })
     map("v", "<leader>ps", fzf.grep_visual, { desc = "Grep visual" })
     map("n", "<leader>ps", function()
       fzf.live_grep_glob({ resume = true })
-    end, { desc = "Project live grep" })
-    map("n", "<leader>/", fzf.grep_curbuf, { desc = "Fuzzy find current buffer" })
+    end, { desc = "Live Grep" })
+    map("n", "<leader>/", fzf.grep_curbuf, { desc = "Current Buffer Grep" })
     map("n", "<leader>sl", fzf.lines, { desc = "Current Buffer lines" })
     -- misc
-    map("n", "<leader>pp", fzf.builtin, { desc = "Builtin" })
-    map("n", "<leader>pr", fzf.resume, { desc = "resume last " })
-    map("n", "<leader><leader>", fzf.buffers, { desc = "Find opened buffers" })
-    map("n", "<leader>ph", fzf.helptags, { desc = "Project file" })
+    map("n", "<leader>pp", fzf.builtin, { desc = "FzfLua Builtin" })
+    map("n", "<leader>pr", fzf.resume, { desc = "Resume last FzfLua Action" })
+    map("n", "<leader><leader>", fzf.buffers, { desc = "Current Opened Buffers" })
+    map("n", "<leader>ph", fzf.helptags, { desc = "Help tags" })
   end,
 }

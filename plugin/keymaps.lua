@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
 map({ "n", "v" }, "Q", "<nop>")
-map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight on search when Esc in normal mode" })
+map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
 
 map("n", "<leader>ql", function()
   local qf_win = vim.fn.getqflist({ winid = 0 }).winid
@@ -12,45 +12,45 @@ map("n", "<leader>ql", function()
   end
 end, { desc = "Copen" })
 
-map("n", "<C-q>", "<cmd>qa<CR>", { desc = "Quit Neovim" })
+map("n", "<C-q>", "<cmd>qa<CR>", { desc = "Quit" })
 map("n", "<M-q>", "<cmd>bd<CR>", { desc = "Delete Buffer" })
-map({ "i", "s" }, "<c-c>", "<Esc>", { desc = "Insert to normal mode" })
+map({ "i", "s" }, "<c-c>", "<Esc>", { desc = "<Esc> alias" })
 
-map("n", "<m-j>", "<cmd>cnext<cr>zz", { desc = "Next quickfix item" })
-map("n", "<m-k>", "<cmd>cprev<cr>zz", { desc = "Prev quickfix item" })
+map("n", "<m-j>", "<cmd>cnext<cr>zz", { desc = "Next qf" })
+map("n", "<m-k>", "<cmd>cprev<cr>zz", { desc = "Prev qf" })
 
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "[b", "<cmd>bprev<cr>", { desc = "Prev Buffer" })
 
-map("n", "<leader>t.", "<cmd>+tabmove<cr>", { desc = "Move tab to right" })
-map("n", "<leader>t,", "<cmd>-tabmove<cr>", { desc = "Move tab to left" })
-map("n", "<leader>tn", "<cmd>tabnew<cr>", { desc = "Create new tab" })
+map("n", "<leader>t.", "<cmd>+tabmove<cr>", { desc = "Tab to right" })
+map("n", "<leader>t,", "<cmd>-tabmove<cr>", { desc = "Tab to left" })
+map("n", "<leader>tn", "<cmd>tabnew<cr>", { desc = "New Tab" })
 
 map({ "n", "v" }, "L", "$", { desc = "End of line" })
 map({ "n", "v" }, "H", "^", { desc = "Start of line" })
 
 map("n", "<M-,>", "<C-w>5>", { desc = "Shift left window size" })
 map("n", "<M-.>", "<C-w>5<", { desc = "Shift right window size" })
-map("n", "<M-->", "<C-w>2-", { desc = "Decrease window size" })
-map("n", "<M-=>", "<C-w>2+", { desc = "Increase window size" })
+map("n", "<M-->", "<C-w>2-", { desc = "Decrease Window Size" })
+map("n", "<M-=>", "<C-w>2+", { desc = "Increase Window Size" })
 
 map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Selected Line Below" })
-map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Selected Line Below" })
+map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Selected Line Above" })
 
-map("n", "J", "mzJ`z")
+map("n", "J", "mzJ`z", { desc = "Center cursor" })
 
-map("n", "<C-d>", "<C-d>zz")
-map("n", "<C-u>", "<C-u>zz")
-map("n", "<C-f>", "<C-d>zz")
-map("n", "<C-b>", "<C-u>zz")
+map("n", "<C-d>", "<C-d>zz", { desc = "Center Cursor Half-page" })
+map("n", "<C-u>", "<C-u>zz", { desc = "Center Cursor Half-page" })
+map("n", "<C-f>", "<C-d>zz", { desc = "Center Cursor Full-page" })
+map("n", "<C-b>", "<C-u>zz", { desc = "Center Cursor Full-page" })
 
-map("n", "n", "nzzzv")
-map("n", "N", "Nzzzv")
+map("n", "n", "nzzzv", { desc = "Center cursor next search" })
+map("n", "N", "Nzzzv", { desc = "Center cursor next search" })
 
 map("x", "p", '"_dP', { desc = "Paste w/o Clipboard" })
 map("x", "<leader>p", '"+p', { desc = "Paste and copy into Clipboard" })
 
-map("n", "<leader>rp", ":%s/")
-map("n", "<leader>rP", ":%s/<c-r><c-w>/")
-map("v", "<leader>rp", ":'<,'>s/")
-map("v", "<leader>rP", ":'<,'>s/<c-r><c-w>")
+map("n", "<leader>rp", ":%s/", { desc = "Current file search and replace" })
+map("n", "<leader>rP", ":%s/<c-r><c-w>/", { desc = "Current file search and replace <cword>" })
+map("v", "<leader>rp", ":'<,'>s/", { desc = "Current file search and replace (V)" })
+map("v", "<leader>rP", ":'<,'>s/<c-r><c-w>", { desc = "Current file search and replace <cword> (v)" })

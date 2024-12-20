@@ -13,9 +13,9 @@ return {
       load_on_setup = false,
     }
 
-    map("n", "<leader>ws", "<cmd>SessionSave<cr>")
-    map("n", "<leader>wr", "<cmd>SessionRestore<cr>")
-    map("n", "<leader>wl", "<cmd>Autosession search<cr>")
-    map("n", "<leader>wd", "<cmd>Autosession delete<cr>")
+    map("n", "<leader>ws", "<cmd>SessionSave<cr>", { desc = "Save session" })
+    map("n", "<leader>wr", "<cmd>SessionRestore<cr>", { desc = "Restore session" })
+    map("n", "<leader>wl", "<cmd>Autosession search<cr>", { desc = "Search session" })
+    map("n", "<leader>wd", "<cmd>Autosession delete<cr>", { desc = "Delete session" })
   end,
 }

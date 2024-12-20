@@ -42,16 +42,13 @@ return {
           -- ["<space>-"] = "actions.parent",
           ["-"] = "actions.parent",
           ["_"] = "actions.open_cwd",
-          ["."] = "actions.cd", -- change project directory
+          ["."] = "actions.cd",  -- change project directory
           ["`"] = "actions.tcd", -- change current tab directory
           ["<leader>gs"] = "actions.change_sort",
           ["g."] = "actions.toggle_hidden",
           ["g\\"] = "actions.toggle_trash",
         },
       })
-      map("n", "<leader>-", function()
-        require("oil").open_float()
-      end, { desc = "Float oil" })
       map("n", "-", function()
         require("oil").open()
       end, { desc = "Oil -> Directory" })
@@ -59,7 +56,7 @@ return {
   },
   {
     "chrishrb/gx.nvim",
-    keys = { { "gx", "<cmd>Browse<cr>", mode = { "n", "x" } } },
+    keys = { { "gx", "<cmd>Browse<cr>", mode = { "n", "x" }, desc = "Browse current word" } },
     cmd = { "Browse" },
     init = function()
       vim.g.netrw_nogx = 1

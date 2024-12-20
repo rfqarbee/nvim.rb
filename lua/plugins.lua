@@ -11,23 +11,6 @@ return {
     end,
   },
   {
-    "stevearc/dressing.nvim",
-    enabled = true,
-    event = "VeryLazy",
-    opts = {
-      input = {
-        get_config = function(opts)
-          if opts.kind == nil then
-            return {
-              relative = "editor",
-              title_pos = "left",
-            }
-          end
-        end,
-      },
-    },
-  },
-  {
     "mbbill/undotree",
     keys = {
       { "<leader>u", vim.cmd.UndotreeToggle, desc = "Undo Tree" },
