@@ -4,9 +4,9 @@ return {
   cmd = "Trouble",
   keys = {
     { "<leader>qd", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Current diagnostics" },
-    { "<leader>qw", "<cmd>Trouble diagnostics toggle<cr>",              desc = "Project diagnostics" },
-    { "<M-]>",      "<cmd>Trouble diagnostics next focus=1<cr>",        desc = "Project diagnostics" },
-    { "<M-[>",      "<cmd>Trouble diagnostics prev focus=1<cr>",        desc = "Project diagnostics" },
+    { "<leader>qw", "<cmd>Trouble diagnostics toggle<cr>", desc = "Project diagnostics" },
+    { "<M-]>", "<cmd>Trouble diagnostics next focus=1<cr>", desc = "Project diagnostics" },
+    { "<M-[>", "<cmd>Trouble diagnostics prev focus=1<cr>", desc = "Project diagnostics" },
   },
   opts = {
     auto_close = true,

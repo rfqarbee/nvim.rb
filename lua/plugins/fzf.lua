@@ -11,21 +11,21 @@ return {
       keymap = {
         builtin = {
           false,
-          ["<M-p>"]   = "toggle-preview",
-          ["<Tab>"]   = "preview-page-down",
+          ["<M-p>"] = "toggle-preview",
+          ["<Tab>"] = "preview-page-down",
           ["<S-Tab>"] = "preview-page-up",
         },
         fzf = {
           false, -- do not inherit from defaults
           ["shift-tab"] = "preview-page-up",
-          ["tab"]       = "preview-page-down",
-          ["ctrl-o"]    = "unix-line-discard",
-          ["ctrl-c"]    = "abort",
-          ["ctrl-d"]    = "half-page-down",
-          ["ctrl-u"]    = "half-page-up",
-          ["ctrl-f"]    = "toggle",
-          ["ctrl-y"]    = "toggle-all",
-          ["alt-p"]     = "toggle-preview",
+          ["tab"] = "preview-page-down",
+          ["ctrl-o"] = "unix-line-discard",
+          ["ctrl-c"] = "abort",
+          ["ctrl-d"] = "half-page-down",
+          ["ctrl-u"] = "half-page-up",
+          ["ctrl-f"] = "toggle",
+          ["ctrl-y"] = "toggle-all",
+          ["alt-p"] = "toggle-preview",
         },
       },
       actions = {
@@ -52,7 +52,7 @@ return {
           ["alt-q"] = actions.file_sel_to_qf,
           ["ctrl-a"] = actions.file_sel_to_ll,
           ["ctrl-q"] = { fn = actions.file_edit_or_qf, prefix = "select-all+" },
-        }
+        },
       },
       builtin = {
         winopts = { fullscreen = false },
@@ -70,8 +70,8 @@ return {
       },
       git = {
         files = {
-          cmd = "git ls-files --exclude-standard --recurse-submodules"
-        }
+          cmd = "git ls-files --exclude-standard --recurse-submodules",
+        },
       },
       oldfiles = {
         cwd_only = true,

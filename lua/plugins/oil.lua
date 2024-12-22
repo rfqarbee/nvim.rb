@@ -42,7 +42,7 @@ return {
           -- ["<space>-"] = "actions.parent",
           ["-"] = "actions.parent",
           ["_"] = "actions.open_cwd",
-          ["."] = "actions.cd",  -- change project directory
+          ["."] = "actions.cd", -- change project directory
           ["`"] = "actions.tcd", -- change current tab directory
           ["<leader>gs"] = "actions.change_sort",
           ["g."] = "actions.toggle_hidden",

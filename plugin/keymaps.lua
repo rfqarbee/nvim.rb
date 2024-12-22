@@ -15,6 +15,7 @@ end, { desc = "Copen" })
 map("n", "<C-q>", "<cmd>qa<CR>", { desc = "Quit" })
 map("n", "<M-q>", "<cmd>bd<CR>", { desc = "Delete Buffer" })
 map({ "i", "s" }, "<c-c>", "<Esc>", { desc = "<Esc> alias" })
+map({ "i", "s" }, "jk", "<Esc>", { desc = "<Esc> alias" })
 
 map("n", "<m-j>", "<cmd>cnext<cr>zz", { desc = "Next qf" })
 map("n", "<m-k>", "<cmd>cprev<cr>zz", { desc = "Prev qf" })

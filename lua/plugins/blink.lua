@@ -7,7 +7,7 @@ return {
     dependencies = { "rafamadriz/friendly-snippets" },
     build = "make install_jsregexp",
   },
-  version = "v0.*",
+  version = "*",
   opts = {
     snippets = {
       expand = function(snippet)
@@ -55,7 +55,6 @@ return {
       menu = {
         border = "single",
         draw = {
-          treesitter = true,
           columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },
         },
       },

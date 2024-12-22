@@ -10,7 +10,7 @@ return {
       root_dir = function()
         local root = vim.fs.root(0, ".git")
         if root == nil then
-          return vim.fs.root(0, 'index.js')
+          return vim.fs.root(0, "index.js")
         else
           return root
         end
