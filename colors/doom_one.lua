@@ -372,7 +372,7 @@ local groups = {
   FzfLuaCursor = { bg = palettes.red, style = "bold" },
   FzfLuaSearch = { bg = palettes.red, style = "bold" },
   FzfLuaFzfPointer = { fg = palettes.green, bg = palettes.bg2 },
-  FzfLuaFzfNormal = { fg = palettes.white, bg = palettes.bg0 },
+  FzfLuaFzfNormal = { fg = palettes.blue, bg = palettes.bg0 },
 
   -- Nvim dap
   DapBreakpoint = { fg = palettes.red },

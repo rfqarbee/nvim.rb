@@ -4,11 +4,15 @@ map({ "n", "v" }, "Q", "<nop>")
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
 
 map("n", "<leader>ql", function()
-  local qf_win = vim.fn.getqflist({ winid = 0 }).winid
-  if qf_win ~= 0 then
-    vim.cmd("cclose")
+  local qf_win = vim.fn.getqflist({ size = 0, winid = 0 })
+  if qf_win.size == 0 then
+    vim.notify("Quickfix is empty", vim.log.levels.WARN)
   else
-    vim.cmd("bot copen")
+    if qf_win.winid ~= 0 then
+      vim.cmd("cclose")
+    else
+      vim.cmd("bot copen")
+    end
   end
 end, { desc = "Copen" })
 
