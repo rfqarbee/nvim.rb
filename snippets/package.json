@@ -1,0 +1,19 @@
+{
+  "name": "snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "lua",
+        "path": "./lua.json"
+      },
+      {
+        "language": "go",
+        "path": "./go.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./typescript.json"
+      }
+    ]
+  }
+}

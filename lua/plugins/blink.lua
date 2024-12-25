@@ -1,36 +1,16 @@
 return {
   "saghen/blink.cmp",
   lazy = false,
-  dependencies = {
-    "L3MON4D3/LuaSnip",
-    version = "v2.*",
-    dependencies = { "rafamadriz/friendly-snippets" },
-    build = "make install_jsregexp",
-  },
   version = "*",
   opts = {
-    snippets = {
-      expand = function(snippet)
-        require("luasnip").lsp_expand(snippet)
-      end,
-      active = function(filter)
-        if filter and filter.direction then
-          return require("luasnip").jumpable(filter.direction)
-        end
-        return require("luasnip").in_snippet()
-      end,
-      jump = function(direction)
-        require("luasnip").jump(direction)
-      end,
-    },
     keymap = {
       preset = "default",
     },
     sources = {
-      default = { "lsp", "path", "luasnip", "buffer" },
-      per_filetype = {
-        sql = { "vim-dadbod-completion", "path" },
-      },
+      default = { "lsp", "path", "snippets", "buffer" },
+      -- per_filetype = {
+      --   sql = { "vim-dadbod-completion", "path" },
+      -- },
       providers = {
         snippets = {
           module = "blink.cmp.sources.snippets",
@@ -47,13 +27,18 @@ return {
       },
     },
     completion = {
+      list = {
+        selection = function(ctx)
+          return ctx.mode == "cmdline" and "auto_insert" or "preselect"
+        end,
+      },
       accept = {
         auto_brackets = {
           enabled = true,
         },
       },
       menu = {
-        border = "single",
+        border = "rounded",
         draw = {
           columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },
         },
@@ -61,7 +46,7 @@ return {
       documentation = {
         auto_show = true,
         window = {
-          border = "single",
+          border = "rounded",
         },
       },
     },
