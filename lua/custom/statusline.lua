@@ -171,6 +171,11 @@ function Statusline.oil()
   return "%#StatusLine#   " .. dirPath
 end
 
+function Statusline.emptyBuf()
+  local dirPath = "Empty: [No name] - Load a file"
+  return "%#StatusLine#   " .. dirPath
+end
+
 function Statusline.fzf()
   return "%#StatusLine#   Fzf"
 end

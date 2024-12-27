@@ -16,8 +16,9 @@ map("n", "<leader>ql", function()
   end
 end, { desc = "Copen" })
 
-map("n", "<C-q>", "<cmd>qa<CR>", { desc = "Quit" })
-map("n", "<M-q>", "<cmd>bd<CR>", { desc = "Delete Buffer" })
+map("n", "<leader>wq", "<cmd>qa<CR>", { desc = "Quit" })
+map("n", "<C-q>", "<cmd>bdelete<CR>", { desc = "Delete buffer" })
+map("n", "<M-q>", "<cmd>bun<CR>", { desc = "Unload Buffer" })
 map({ "i", "s" }, "<c-c>", "<Esc>", { desc = "<Esc> alias" })
 map({ "i", "s" }, "jk", "<Esc>", { desc = "<Esc> alias" })
 
@@ -27,9 +28,10 @@ map("n", "<m-k>", "<cmd>cprev<cr>zz", { desc = "Prev qf" })
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "[b", "<cmd>bprev<cr>", { desc = "Prev Buffer" })
 
-map("n", "<leader>t.", "<cmd>+tabmove<cr>", { desc = "Tab to right" })
-map("n", "<leader>t,", "<cmd>-tabmove<cr>", { desc = "Tab to left" })
-map("n", "<leader>tn", "<cmd>tabnew<cr>", { desc = "New Tab" })
+map("n", "<leader>w.", "<cmd>+tabmove<cr>", { desc = "Tab to right" })
+map("n", "<leader>w,", "<cmd>-tabmove<cr>", { desc = "Tab to left" })
+map("n", "<leader>wn", "<cmd>tabnew<cr>", { desc = "New Tab" })
+map("n", "<leader>wt", "<cmd>wincmd T<cr>", { desc = "Move to new tab" })
 
 map({ "n", "v" }, "L", "$", { desc = "End of line" })
 map({ "n", "v" }, "H", "^", { desc = "Start of line" })

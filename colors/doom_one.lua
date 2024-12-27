@@ -70,6 +70,9 @@ local palettes = {
   variable = "#a9b7d1",
 }
 
+--[[ TODO: rendermakrdown coloring
+--]]
+
 local groups = {
   ["@variable"] = { fg = palettes.variable },
   ["@variable.member"] = { fg = palettes.variable },
@@ -204,6 +207,12 @@ local groups = {
   htmlH5 = { fg = palettes.blue, style = "bold" },
 
   -- Markdown
+  RenderMarkdownBullet = { fg = palettes.dark_orange, style = "bold" },
+  RenderMarkdownUnchecked = { fg = palettes.yellow, style = "bold" },
+  RenderMarkdownChecked = { fg = palettes.info_fg, style = "bold" },
+  RenderMarkdownTableRow = { fg = palettes.hint_fg },
+  RenderMarkdownTableFill = { fg = palettes.hint_fg },
+  RenderMarkdownInlineHighlight = { fg = palettes.yellow, bg = palettes.bg3 },
   ["@markup.heading.1.markdown"] = { fg = palettes.h1_md, style = "bold" },
   ["@markup.heading.2.markdown"] = { fg = palettes.h2_md, style = "bold" },
   ["@markup.heading.3.markdown"] = { fg = palettes.h3_md, style = "bold" },
@@ -211,6 +220,7 @@ local groups = {
   ["@markup.heading.5.markdown"] = { fg = palettes.h5_md, style = "bold" },
   ["@markup.heading.6.markdown"] = { fg = palettes.h6_md, style = "bold" },
   ["@markup.quote.markdown"] = { fg = palettes.fg, style = "bold" },
+  ["@markup.strikethrough"] = { fg = palettes.gray_alt, style = "strikethrough" },
   ["@markup.raw.markdown_inline"] = { fg = palettes.doom_purp, bg = palettes.bg4, style = "bold" },
   ["@markup.list.markdown"] = { fg = palettes.dark_orange, style = "bold" },
   ["@markup.list.checked.markdown"] = { fg = palettes.info_fg, style = "bold" },
@@ -361,7 +371,8 @@ local groups = {
   GitSignsDelete = { fg = palettes.diff_change },
   GitSignsDeleteNr = { fg = palettes.diff_change },
   GitSignsDeleteLn = { fg = palettes.diff_change },
-
+  GitSignsUntracked = { fg = palettes.gray_alt },
+  GitSignsUntrackedNr = { fg = palettes.gray_alt },
   -- fzf lua
   FzfLuaBorder = { fg = palettes.disabled },
   FzfLuaTitle = { fg = palettes.blue },
