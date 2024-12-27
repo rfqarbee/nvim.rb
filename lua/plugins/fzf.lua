@@ -104,9 +104,7 @@ return {
     map("n", "<leader>pW", fzf.grep_cWORD, { desc = "Grep cWORD" })
     map("n", "<leader>pw", fzf.grep_cword, { desc = "Grep cword" })
     map("v", "<leader>ps", fzf.grep_visual, { desc = "Grep visual" })
-    map("n", "<leader>ps", function()
-      fzf.live_grep_glob({ resume = true })
-    end, { desc = "Live Grep" })
+    map("n", "<leader>ps", fzf.live_grep_glob, { desc = "Live Grep" })
     map("n", "<leader>/", fzf.grep_curbuf, { desc = "Current Buffer Grep" })
     map("n", "<leader>sl", fzf.lines, { desc = "Current Buffer lines" })
     -- misc

@@ -8,14 +8,7 @@ return {
     },
     sources = {
       default = { "lsp", "snippets", "buffer", "path" },
-      per_filetype = {
-        markdown = { "buffer", "path", "markdown" },
-      },
       providers = {
-        markdown = {
-          name = "RenderMarkdown",
-          module = "render-markdown.integ.blink",
-        },
         snippets = {
           module = "blink.cmp.sources.snippets",
           opts = {
