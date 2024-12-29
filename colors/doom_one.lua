@@ -29,7 +29,8 @@ local palettes = {
   bg0 = "#282c34",
   bg1 = "#202328",
   bg2 = "#1c1f24",
-  bg3 = "#3f444a",
+  bg3_a = "#3f444a",
+  bg3 = "#35383d",
   bg4 = "#23272e",
   normal_bg_m = "#2c2e36",
   disabled = "#676e95",
@@ -70,9 +71,6 @@ local palettes = {
   variable = "#a9b7d1",
 }
 
---[[ TODO: rendermakrdown coloring
---]]
-
 local groups = {
   ["@variable"] = { fg = palettes.variable },
   ["@variable.member"] = { fg = palettes.variable },
@@ -84,7 +82,7 @@ local groups = {
   EndOfBuffer = { fg = palettes.disabled }, -- ~ lines at the end of a buffer
   NormalFloat = { fg = palettes.variable, bg = palettes.bg0 }, -- normal text and background color for floating windows
   FloatBorder = { fg = palettes.disabled, bg = palettes.bg0 },
-  ColorColumn = { fg = palettes.none, bg = palettes.bg3 }, --  used for the columns set with 'colorcolumn'
+  ColorColumn = { fg = palettes.none, bg = palettes.bg1 }, --  used for the columns set with 'colorcolumn'
   Conceal = { fg = palettes.gray }, -- placeholder characters substituted for concealed text (see 'conceallevel')
   Cursor = { fg = palettes.white, bg = palettes.bg0, style = "reverse" }, -- the character under the cursor
   CursorIM = { fg = palettes.cyan, bg = palettes.none, style = "reverse" }, -- like Cursor, but used when in IME mode
@@ -96,9 +94,9 @@ local groups = {
   ErrorMsg = { fg = palettes.error_fg, style = "bold" }, -- error messages
   Folded = { fg = palettes.h3_md, bg = palettes.h1_bg, style = "italic" },
   FoldColumn = { fg = palettes.blue },
-  IncSearch = { fg = palettes.dark_pink, style = "reverse,bold", bg = palettes.none },
+  IncSearch = { fg = palettes.dark_pink, style = "reverse", bg = palettes.none },
   LineNr = { fg = palettes.disabled },
-  CursorLineNr = { fg = palettes.cyan },
+  CursorLineNr = { fg = palettes.white },
   MatchParen = { fg = palettes.dark_pink, bg = palettes.bg_hl },
   Delimiter = { fg = palettes.dark_cyan },
   ModeMsg = { fg = palettes.cyan, style = "bold" },
@@ -111,16 +109,16 @@ local groups = {
   Question = { fg = palettes.green, style = "bold" },
   QuickFixLine = { fg = palettes.blue, bg = palettes.white, style = "bold,italic" },
   qfLineNr = { fg = palettes.blue, bg = palettes.bg1 },
-  Search = { fg = palettes.dark_pink, style = "bold", bg = palettes.h2_bg },
+  Search = { fg = palettes.dark_pink, bg = palettes.h2_bg },
   SpecialKey = { fg = palettes.bg_hl },
   SpellBad = { fg = palettes.red, bg = palettes.none, style = "italic,undercurl" },
   SpellCap = { fg = palettes.blue, bg = palettes.none, style = "italic,undercurl" },
   SpellLocal = { fg = palettes.cyan, bg = palettes.none, style = "italic,undercurl" },
   SpellRare = { fg = palettes.cyan, bg = palettes.none, style = "italic,undercurl" },
-  StatusLineQF = { fg = palettes.purple },
+  StatusLineQF = { fg = palettes.purple, bg = palettes.bg1 },
   StatusLine = { fg = palettes.h1_md, bg = palettes.bg1 },
   StatusLineCustom = { fg = palettes.bg1, bg = palettes.h1_md },
-  StatusLineNormal = { fg = palettes.yellow, bg = palettes.bg0 },
+  StatusLineNormal = { fg = palettes.white, bg = palettes.bg1 },
   StatusLineInsert = { fg = palettes.bg1, bg = palettes.green },
   StatusLineExtra = { fg = palettes.none, bg = palettes.none },
   StatusLineVisual = { fg = palettes.bg1, bg = palettes.yellow },
@@ -138,7 +136,7 @@ local groups = {
   WarningMsg = { fg = palettes.orange, style = "bold" },
   WildMenu = { fg = palettes.bg, bg = palettes.blue, style = "bold" },
   CursorColumn = { fg = palettes.none, bg = palettes.fg },
-  CursorLine = { fg = palettes.none, bg = palettes.bg4, style = nil, "underline" },
+  CursorLine = { fg = palettes.none, bg = palettes.bg3 },
   ToolbarLine = { fg = palettes.fg, bg = palettes.bg1 },
   ToolbarButton = { fg = palettes.fg, bg = palettes.none, style = "bold" },
   VertSplit = { fg = "#1d1d1d" },
@@ -212,7 +210,7 @@ local groups = {
   RenderMarkdownChecked = { fg = palettes.info_fg, style = "bold" },
   RenderMarkdownTableRow = { fg = palettes.hint_fg },
   RenderMarkdownTableFill = { fg = palettes.hint_fg },
-  RenderMarkdownInlineHighlight = { fg = palettes.yellow, bg = palettes.bg3 },
+  RenderMarkdownInlineHighlight = { fg = palettes.yellow, bg = palettes.bg3_a },
   ["@markup.heading.1.markdown"] = { fg = palettes.h1_md, style = "bold" },
   ["@markup.heading.2.markdown"] = { fg = palettes.h2_md, style = "bold" },
   ["@markup.heading.3.markdown"] = { fg = palettes.h3_md, style = "bold" },
@@ -303,32 +301,34 @@ local groups = {
   TSTitle = { fg = palettes.fg, bg = palettes.none, style = "bold" }, -- Text that is part of a title.
   TSLiteral = { fg = palettes.fg }, -- Literal text.
   TSURI = { fg = palettes.purple }, -- Any URL like a link or email.
-  --TSNone =                    { },    -- TODO: docs
 
   -- Lsp highlight groups
   LspDiagnosticsDefaultError = { fg = palettes.error_fg, style = "undercurl" },
   LspDiagnosticsSignError = { fg = palettes.error_fg }, -- used for "Error" diagnostic signs in sign column
-  LspDiagnosticsFloatingError = { fg = palettes.error_fg, style = "bold" }, -- used for "Error" diagnostic messages in the diagnostics float
+  LspDiagnosticsFloatingError = { fg = palettes.error_fg }, -- used for "Error" diagnostic messages in the diagnostics float
   LspDiagnosticsVirtualTextError = { fg = palettes.error_fg, style = "undercurl" },
   LspDiagnosticsUnderlineError = { fg = palettes.error_fg, style = "undercurl", sp = palettes.error_fg }, -- used to underline "Error" diagnostics.
   LspDiagnosticsDefaultWarning = { fg = palettes.warn_fg }, -- used for "Warning" diagnostic signs in sign column
   LspDiagnosticsSignWarning = { fg = palettes.warn_fg }, -- used for "Warning" diagnostic signs in sign column
-  LspDiagnosticsFloatingWarning = { fg = palettes.warn_fg, style = "undercurl" },
-  LspDiagnosticsVirtualTextWarning = { fg = palettes.warn_fg, style = "bold" }, -- Virtual text "Warning"
-  LspDiagnosticsUnderlineWarning = { fg = palettes.warn_fg, style = "undercurl", sp = palettes.warn_fg }, -- used to underline "Warning" diagnostics.
+  LspDiagnosticsFloatingWarning = { fg = palettes.warn_fg, style = "underline" },
+  LspDiagnosticsVirtualTextWarning = { fg = palettes.warn_fg }, -- Virtual text "Warning"
+  LspDiagnosticsUnderlineWarning = { fg = palettes.warn_fg, style = "underline", sp = palettes.warn_fg }, -- used to underline "Warning" diagnostics.
   LspDiagnosticsDefaultInformation = { fg = palettes.info_fg }, -- used for "Information" diagnostic virtual text
   LspDiagnosticsSignInformation = { fg = palettes.info_fg }, -- used for "Information" diagnostic signs in sign column
-  LspDiagnosticsFloatingInformation = { fg = palettes.info_fg, style = "bold" }, -- used for "Information" diagnostic messages in the diagnostics float
-  LspDiagnosticsVirtualTextInformation = { fg = palettes.info_fg, style = "bold" }, -- Virtual text "Information"
-  LspDiagnosticsUnderlineInformation = { fg = palettes.info_fg, style = "undercurl", sp = palettes.info_fg }, -- used to underline "Information" diagnostics.
+  LspDiagnosticsFloatingInformation = { fg = palettes.info_fg }, -- used for "Information" diagnostic messages in the diagnostics float
+  LspDiagnosticsVirtualTextInformation = { fg = palettes.info_fg }, -- Virtual text "Information"
+  LspDiagnosticsUnderlineInformation = { fg = palettes.info_fg, style = "underline", sp = palettes.info_fg }, -- used to underline "Information" diagnostics.
   LspDiagnosticsDefaultHint = { fg = palettes.hint_fg }, -- used for "Hint" diagnostic virtual text
   LspDiagnosticsSignHint = { fg = palettes.hint_fg }, -- used for "Hint" diagnostic signs in sign column
-  LspDiagnosticsFloatingHint = { fg = palettes.hint_fg, style = "bold" }, -- used for "Hint" diagnostic messages in the diagnostics float
-  LspDiagnosticsVirtualTextHint = { fg = palettes.hint_fg, style = "bold" }, -- Virtual text "Hint"
-  LspDiagnosticsUnderlineHint = { fg = palettes.hint_fg, style = "undercurl", sp = palettes.hint_fg }, -- used to underline "Hint" diagnostics.
-  LspReferenceText = { fg = palettes.none, bg = palettes.bg_hl }, -- used for highlighting "text" references
-  LspReferenceRead = { fg = palettes.none, bg = palettes.bg_hl }, -- used for highlighting "read" references
-  LspReferenceWrite = { fg = palettes.none, bg = palettes.bg_hl }, -- used for highlighting "write" references
+  LspDiagnosticsFloatingHint = { fg = palettes.hint_fg }, -- used for "Hint" diagnostic messages in the diagnostics float
+  LspDiagnosticsVirtualTextHint = { fg = palettes.hint_fg }, -- Virtual text "Hint"
+  LspDiagnosticsUnderlineHint = { fg = palettes.hint_fg, style = "underdashed", sp = palettes.hint_fg }, -- used to underline "Hint" diagnostics.
+  -- LspReferenceText = { fg = palettes.none, bg = palettes.bg_hl }, -- used for highlighting "text" references
+  -- LspReferenceRead = { fg = palettes.none, bg = palettes.bg_hl }, -- used for highlighting "read" references
+  -- LspReferenceWrite = { fg = palettes.none, bg = palettes.bg_hl }, -- used for highlighting "write" references
+  LspReferenceText = { fg = palettes.none, bg = palettes.none },
+  LspReferenceRead = { fg = palettes.none, bg = palettes.none },
+  LspReferenceWrite = { fg = palettes.none, bg = palettes.none },
 
   DiagnosticError = { fg = palettes.error_fg },
   DiagnosticUnderlineError = { fg = palettes.error_fg, style = "undercurl" },

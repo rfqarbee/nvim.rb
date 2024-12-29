@@ -165,8 +165,8 @@ return {
 
       local next_hunk_repeat, prev_hunk_repeat = ts_repeat_move.make_repeatable_move_pair(gs.next_hunk, gs.prev_hunk)
 
-      vim.keymap.set({ "n", "x", "o" }, "<M-p>", next_hunk_repeat, { desc = "Git Next hunk" })
-      vim.keymap.set({ "n", "x", "o" }, "<M-n>", prev_hunk_repeat, { desc = "Git Prev hunk" })
+      vim.keymap.set({ "n", "x", "o" }, "<M-n>", next_hunk_repeat, { desc = "Git Next hunk" })
+      vim.keymap.set({ "n", "x", "o" }, "<M-p>", prev_hunk_repeat, { desc = "Git Prev hunk" })
 
       vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move, { desc = "Repeat Last Move" })
       vim.keymap.set(

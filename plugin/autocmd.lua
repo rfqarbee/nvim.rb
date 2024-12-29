@@ -59,7 +59,12 @@ autocmd(status_events, {
     elseif vim.bo.filetype == "fzf" then
       vim.opt_local.statusline = "%!v:lua.Statusline.fzf()"
     elseif vim.bo.filetype == "" then
-      vim.opt_local.statusline = "%!v:lua.Statusline.emptyBuf()"
+      local filename = vim.fn.expand("%:t")
+      if filename ~= "" then
+        vim.opt_local.statusline = "%!v:lua.Statusline.active()"
+      else
+        vim.opt_local.statusline = "%!v:lua.Statusline.emptyBuf()"
+      end
     else
       vim.opt_local.statusline = "%!v:lua.Statusline.active()"
     end

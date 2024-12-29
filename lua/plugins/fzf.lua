@@ -64,6 +64,16 @@ return {
           return (regex or query), flags
         end,
       },
+      diagnostics = {
+        winopts = {
+          split = "belowright new",
+          fullscreen = false,
+          backdrop = 100,
+          preview = {
+            hidden = "hidden",
+          },
+        },
+      },
       files = {
         cwd_prompt = false,
         prompt = "Files > ",
@@ -99,14 +109,16 @@ return {
     map("n", "<leader>pC", fzf.git_commits, { desc = "Project Commits" })
     -- qf
     map("n", "<leader>pq", fzf.quickfix_stack, { desc = "Quickfix stack" })
-    map("n", "<leader>pl", fzf.loclist_stack, { desc = "Location list stack" })
     map("n", "<leader>pS", fzf.grep, { desc = "Grep string" })
     map("n", "<leader>pW", fzf.grep_cWORD, { desc = "Grep cWORD" })
     map("n", "<leader>pw", fzf.grep_cword, { desc = "Grep cword" })
     map("v", "<leader>ps", fzf.grep_visual, { desc = "Grep visual" })
     map("n", "<leader>ps", fzf.live_grep_glob, { desc = "Live Grep" })
     map("n", "<leader>/", fzf.grep_curbuf, { desc = "Current Buffer Grep" })
-    map("n", "<leader>sl", fzf.lines, { desc = "Current Buffer lines" })
+    map("n", "<leader>pl", fzf.lines, { desc = "Current Buffer lines" })
+    -- diagnostics
+    map("n", "<leader>qd", fzf.diagnostics_document, { desc = "Diagnostics" })
+    map("n", "<leader>qw", fzf.diagnostics_workspace, { desc = "Diagnostics" })
     -- misc
     map("n", "<leader>pp", fzf.builtin, { desc = "FzfLua Builtin" })
     map("n", "<leader>pr", fzf.resume, { desc = "Resume last FzfLua Action" })
