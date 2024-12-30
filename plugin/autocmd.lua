@@ -4,7 +4,8 @@ require("custom.tabline")
 
 local autocmd = vim.api.nvim_create_autocmd
 local usercmd = vim.api.nvim_create_user_command
-local WhiteSpace = vim.api.nvim_create_augroup("replaceGroup", { clear = true })
+local HttpGroup = vim.api.nvim_create_augroup("replaceGroup", { clear = true })
+local WhiteSpace = vim.api.nvim_create_augroup("httpGroup", { clear = true })
 local YankGroup = vim.api.nvim_create_augroup("HiglightYank", { clear = true })
 local Quickfix = vim.api.nvim_create_augroup("Quickfix", { clear = true })
 local Statusline = vim.api.nvim_create_augroup("Statusline", { clear = true })
@@ -39,6 +40,15 @@ autocmd("QuickFixCmdPost", {
     if qflist then
       vim.cmd([[bot copen]])
     end
+  end,
+})
+
+-- json file mainly http files response
+autocmd("FileType", {
+  group = HttpGroup,
+  pattern = { "json" },
+  callback = function()
+    vim.api.nvim_set_option_value("formatprg", "jq", { scope = "local" })
   end,
 })
 
