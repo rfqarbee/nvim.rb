@@ -17,8 +17,8 @@ map("n", "<leader>ql", function()
 end, { desc = "Copen" })
 
 map("n", "<leader>wq", "<cmd>qa<CR>", { desc = "Quit" })
-map("n", "<C-q>", "<cmd>bdelete<CR>", { desc = "Delete buffer" })
-map("n", "<M-q>", "<cmd>bun<CR>", { desc = "Unload Buffer" })
+map("n", "<M-q>", "<cmd>bdelete<CR>", { desc = "Delete buffer" })
+map("n", "<C-q>", "<cmd>bun<CR>", { desc = "Unload Buffer" })
 map({ "i", "s" }, "<c-c>", "<Esc>", { desc = "<Esc> alias" })
 map({ "i", "s" }, "jk", "<Esc>", { desc = "<Esc> alias" })
 

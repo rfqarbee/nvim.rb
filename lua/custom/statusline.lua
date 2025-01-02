@@ -51,25 +51,26 @@ local function file()
   local gitfile = ""
   local fname = ""
   local ft = vim.bo.filetype
-  local fpath = vim.fn.fnamemodify(vim.fn.expand("%"), ":~:.:p")
-  local isgit = vim.api.nvim_call_function("FugitiveIsGitDir", {})
+  local fpath = vim.fn.fnamemodify(vim.fn.expand("%"), ":~:.:t")
+  -- local isGit = vim.api.nvim_call_function("FugitiveIsGitDir", {})
+  local isGit = vim.b.gitsigns_status_dict
 
   if fpath == "" or fpath == "." then
     return " "
   end
 
-  if isgit == 1 then
-    gitfile = vim.fn.fnamemodify(vim.api.nvim_call_function("FugitivePath", {}), ":~:.:p")
+  if isGit ~= nil then
+    -- local root = vim.fn.fnamemodify(vim.api.nvim_call_function("FugitiveGitDir", {}), ":~:.:t")
+    local root = vim.fn.fnamemodify(isGit.root, ":~:.:t")
+    gitfile = root .. " -> " .. fpath
+    -- fugitive
+    -- gitfile = .. " -> " .. fpath
   end
 
-  if ft == "oil" then
-    fname = vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
+  if gitfile == "" then
+    fname = fpath
   else
-    if gitfile == "" then
-      fname = fpath
-    else
-      fname = gitfile
-    end
+    fname = gitfile
   end
 
   return string.format(" %%<%s", fname)
@@ -117,21 +118,29 @@ local function fsize()
 end
 
 local function vcs()
-  local head = vim.api.nvim_call_function("FugitiveHead", {})
-  local detach = string.gsub(vim.api.nvim_call_function("FugitiveStatusline", {}), "%[.-%((.-)%)%]", "%1")
-  local isgit = vim.api.nvim_call_function("FugitiveIsGitDir", {})
+  local head = vim.b.gitsigns_head
 
-  if not isgit then
+  if head == nil then
     return ""
   else
-    if head == "" and detach == "" then
-      return ""
-    elseif head ~= "" then
-      return "  " .. head .. " "
-    else
-      return "  " .. detach .. " "
-    end
+    return "  " .. head .. " "
   end
+
+  -- local head = vim.api.nvim_call_function("FugitiveHead", {})
+  -- local detach = string.gsub(vim.api.nvim_call_function("FugitiveStatusline", {}), "%[.-%((.-)%)%]", "%1")
+  -- local isgit = vim.api.nvim_call_function("FugitiveIsGitDir", {})
+
+  -- if not isgit then
+  --   return ""
+  -- else
+  --   if head == "" and detach == "" then
+  --     return ""
+  --   elseif head ~= "" then
+  --     return "  " .. head .. " "
+  --   else
+  --     return "  " .. detach .. " "
+  --   end
+  -- end
 end
 
 Statusline = {}
@@ -167,7 +176,7 @@ function Statusline.inactive()
 end
 
 function Statusline.oil()
-  local dirPath = vim.fn.fnamemodify(vim.fn.expand("%"), ":s?oil://??:~:.")
+  local dirPath = vim.fn.fnamemodify(vim.fn.expand("%"), ":s?oil://??:~")
   return "%#StatusLine#   " .. dirPath
 end
 

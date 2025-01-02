@@ -4,7 +4,9 @@ require("custom.tabline")
 
 local autocmd = vim.api.nvim_create_autocmd
 local usercmd = vim.api.nvim_create_user_command
+local MiscGroup = vim.api.nvim_create_augroup("miscGroup", { clear = true })
 local HttpGroup = vim.api.nvim_create_augroup("replaceGroup", { clear = true })
+local git = vim.api.nvim_create_augroup("mygit", { clear = true })
 local WhiteSpace = vim.api.nvim_create_augroup("httpGroup", { clear = true })
 local YankGroup = vim.api.nvim_create_augroup("HiglightYank", { clear = true })
 local Quickfix = vim.api.nvim_create_augroup("Quickfix", { clear = true })
@@ -113,3 +115,33 @@ usercmd("ToggleDiagnostics", function()
     vim.diagnostic.enable(not vim.diagnostic.is_enabled())
   end
 end, {})
+
+autocmd("User", {
+  group = git,
+  pattern = "FugitiveEditor",
+  callback = function()
+    vim.keymap.set("n", "q", "<cmd>q<cr>", { buffer = 0, noremap = true })
+  end,
+})
+
+autocmd("FileType", {
+  pattern = "help,fugitive,DiffviewFiles",
+  group = MiscGroup,
+  callback = function()
+    local map = function(cmd, ft)
+      vim.keymap.set({ "n", "x" }, "q", cmd, { desc = "Quit " .. ft, buffer = true, noremap = true })
+    end
+    local ft = vim.bo.filetype
+
+    if ft == "DiffviewFiles" then
+      map("<cmd>DiffviewClose<cr>", ft)
+    else
+      map("<cmd>q<cr>", ft)
+    end
+
+    if ft == "help" then
+      vim.cmd("wincmd L")
+      vim.cmd("vert resize 90")
+    end
+  end,
+})

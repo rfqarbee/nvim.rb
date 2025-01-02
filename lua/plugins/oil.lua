@@ -17,15 +17,6 @@ return {
             return vim.startswith(name, ".")
           end,
         },
-        float = {
-          border = "single",
-          padding = 7,
-          max_width = 0,
-          max_height = 60,
-          win_options = {
-            winblend = 0,
-          },
-        },
         natural_order = false,
         use_default_keymaps = false,
         delete_to_trash = true, -- in $XDG_DATA_HOME/Trash
@@ -49,7 +40,7 @@ return {
           ["g\\"] = "actions.toggle_trash",
         },
       })
-      map("n", "-", function()
+      map("n", "<leader>-", function()
         require("oil").open()
       end, { desc = "Oil -> Directory" })
     end,

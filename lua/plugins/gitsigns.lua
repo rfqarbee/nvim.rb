@@ -1,7 +1,8 @@
 return {
   "lewis6991/gitsigns.nvim",
   config = function()
-    require("gitsigns").setup({
+    local gitsigns = require("gitsigns")
+    gitsigns.setup({
       attach_to_untracked = true,
       current_line_blame = true,
       current_line_blame_opts = {
@@ -9,7 +10,7 @@ return {
       },
     })
 
-    require("gitsigns").setup({
+    gitsigns.setup({
       on_attach = function(bufnr)
         local gitsigns = require("gitsigns")
         local map = require("custom.utils").map

@@ -9,7 +9,7 @@ local function tab_name()
       local tabname = bufname ~= "" and vim.fn.fnamemodify(bufname, ":t") or "[No Name]"
 
       if i == vim.fn.tabpagenr() then
-        if ft == "oil" or ft == "fzf" then
+        if ft == "oil" or ft == "fzf" or ft == "fugitive" then
           tabbufr = tabbufr .. "%#TabLineSel# " .. i .. ": " .. ft .. " "
         else
           tabbufr = tabbufr .. "%#TabLineSel# " .. i .. ": " .. tabname .. " "

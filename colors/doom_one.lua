@@ -361,6 +361,7 @@ local groups = {
 
   gitcommitBlank = { fg = palettes.doom_purp },
   gitbranch = { fg = palettes.h1_md, bg = palettes.info_bg },
+  gitHashAbbrev = { fg = palettes.gray },
   -- GitSigns
   GitSignsAdd = { fg = palettes.diff_new },
   GitSignsAddNr = { fg = palettes.diff_new },

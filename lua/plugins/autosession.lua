@@ -6,7 +6,7 @@ return {
 
     vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
     opts.enabled = true
-    opts.suppressed_dirs = { "~/", "~/repos/", "~/Downloads", "/" }
+    opts.suppressed_dirs = { "~/", "~/repos/", "~/Downloads", "/", "~/dev/http/" }
     opts.use_git_branch = true
     opts.log_level = "error"
     opts.session_lens = {
