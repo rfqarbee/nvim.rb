@@ -6,7 +6,7 @@ local autocmd = vim.api.nvim_create_autocmd
 local usercmd = vim.api.nvim_create_user_command
 local MiscGroup = vim.api.nvim_create_augroup("miscGroup", { clear = true })
 local HttpGroup = vim.api.nvim_create_augroup("replaceGroup", { clear = true })
-local git = vim.api.nvim_create_augroup("mygit", { clear = true })
+local gitGroup = vim.api.nvim_create_augroup("mygit", { clear = true })
 local WhiteSpace = vim.api.nvim_create_augroup("httpGroup", { clear = true })
 local YankGroup = vim.api.nvim_create_augroup("HiglightYank", { clear = true })
 local Quickfix = vim.api.nvim_create_augroup("Quickfix", { clear = true })
@@ -117,7 +117,7 @@ usercmd("ToggleDiagnostics", function()
 end, {})
 
 autocmd("User", {
-  group = git,
+  group = gitGroup,
   pattern = "FugitiveEditor",
   callback = function()
     vim.keymap.set("n", "q", "<cmd>q<cr>", { buffer = 0, noremap = true })
