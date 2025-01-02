@@ -125,7 +125,7 @@ autocmd("User", {
 })
 
 autocmd("FileType", {
-  pattern = "help,fugitive,DiffviewFiles",
+  pattern = "help,fugitive,DiffviewFiles,git",
   group = MiscGroup,
   callback = function()
     local map = function(cmd, ft)
