@@ -105,8 +105,8 @@ return {
     -- git
     map("n", "<C-p>", fzf.git_files, { desc = "Open Git files" })
     map("n", "<leader>pb", fzf.git_branches, { desc = "Git branches" })
-    map("n", "<leader>pc", fzf.git_bcommits, { desc = "Git Current Buffer/File Commits" })
-    map("n", "<leader>pC", fzf.git_commits, { desc = "Project Commits" })
+    map("n", "<leader>pC", fzf.git_bcommits, { desc = "Git Current Buffer/File Commits" })
+    map("n", "<leader>pc", fzf.git_commits, { desc = "Project Commits" })
     -- qf
     map("n", "<leader>pq", fzf.quickfix_stack, { desc = "Quickfix stack" })
     map("n", "<leader>pS", fzf.grep, { desc = "Grep string" })

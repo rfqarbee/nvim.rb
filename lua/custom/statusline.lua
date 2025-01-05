@@ -50,25 +50,21 @@ end
 local function file()
   local gitfile = ""
   local fname = ""
-  local ft = vim.bo.filetype
   local fpath = vim.fn.fnamemodify(vim.fn.expand("%"), ":~:.:t")
-  -- local isGit = vim.api.nvim_call_function("FugitiveIsGitDir", {})
-  local isGit = vim.b.gitsigns_status_dict
+  local isGit = vim.api.nvim_call_function("FugitiveIsGitDir", {})
 
   if fpath == "" or fpath == "." then
     return " "
   end
 
-  if isGit ~= nil then
-    -- local root = vim.fn.fnamemodify(vim.api.nvim_call_function("FugitiveGitDir", {}), ":~:.:t")
-    local root = vim.fn.fnamemodify(isGit.root, ":~:.:t")
+  if isGit == 1 then
+    local root = vim.fn.fnamemodify(vim.api.nvim_call_function("FugitiveFind", { ".git" }), ":~:h")
     gitfile = root .. " -> " .. fpath
-    -- fugitive
-    -- gitfile = .. " -> " .. fpath
   end
 
   if gitfile == "" then
-    fname = fpath
+    local root = vim.fn.fnamemodify(vim.fn.expand("%"), ":~:h")
+    fname = root .. " -> " .. fpath
   else
     fname = gitfile
   end
@@ -118,29 +114,21 @@ local function fsize()
 end
 
 local function vcs()
-  local head = vim.b.gitsigns_head
+  local head = vim.api.nvim_call_function("FugitiveHead", {})
+  local detach = string.gsub(vim.api.nvim_call_function("FugitiveStatusline", {}), "%[.-%((.-)%)%]", "%1")
+  local isgit = vim.api.nvim_call_function("FugitiveIsGitDir", {})
 
-  if head == nil then
+  if not isgit then
     return ""
   else
-    return "  " .. head .. " "
+    if head == "" and detach == "" then
+      return ""
+    elseif head ~= "" then
+      return "  " .. head .. " "
+    else
+      return "  " .. detach .. " "
+    end
   end
-
-  -- local head = vim.api.nvim_call_function("FugitiveHead", {})
-  -- local detach = string.gsub(vim.api.nvim_call_function("FugitiveStatusline", {}), "%[.-%((.-)%)%]", "%1")
-  -- local isgit = vim.api.nvim_call_function("FugitiveIsGitDir", {})
-
-  -- if not isgit then
-  --   return ""
-  -- else
-  --   if head == "" and detach == "" then
-  --     return ""
-  --   elseif head ~= "" then
-  --     return "  " .. head .. " "
-  --   else
-  --     return "  " .. detach .. " "
-  --   end
-  -- end
 end
 
 Statusline = {}
