@@ -75,7 +75,7 @@ return {
         map("gr", vim.lsp.buf.references, "Goto references")
         map("gI", vim.lsp.buf.implementation, "Goto implementation")
         map("<leader>ld", fzf.lsp_typedefs, "Type definition")
-        map("<leader>ls", fzf.lsp_document_symbols, "Document symbols")
+        map("<leader>sd", fzf.lsp_document_symbols, "Document symbols")
         map("<leader>lw", fzf.lsp_workspace_symbols, "Workspace symbols")
         map("<leader>rn", vim.lsp.buf.rename, "Rename var")
         map("<leader>ca", vim.lsp.buf.code_action, "Code action")

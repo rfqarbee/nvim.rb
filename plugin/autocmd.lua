@@ -121,11 +121,13 @@ autocmd("User", {
   pattern = "FugitiveEditor",
   callback = function()
     vim.keymap.set("n", "q", "<cmd>q<cr>", { buffer = 0, noremap = true })
+    vim.keymap.set("n", "<c-c><c-c>", "<cmd>wq<cr>", { buffer = 0, noremap = true })
+    vim.keymap.set("n", "<c-c><c-k>", "<cmd>q!<cr>", { buffer = 0, noremap = true })
   end,
 })
 
 autocmd("FileType", {
-  pattern = "help,fugitive,DiffviewFiles,git",
+  pattern = "help,fugitive,DiffviewFiles,git,fugitiveblame",
   group = MiscGroup,
   callback = function()
     local map = function(cmd, ft)
