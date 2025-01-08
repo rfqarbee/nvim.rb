@@ -6,5 +6,9 @@
   "TODO": {
     "body": "// ${1}: ${0}",
     "prefix": "td"
+  },
+  "Bson Body": {
+    "body": "`bson:\"${1}\" json:\"${1}\"`",
+    "prefix": "om"
   }
 }
