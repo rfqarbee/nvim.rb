@@ -27,6 +27,8 @@ return {
         "toml",
         "yaml",
 
+        -- qol
+        "comment",
         "bash",
         "luadoc",
         "vimdoc",
