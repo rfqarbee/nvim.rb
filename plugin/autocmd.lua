@@ -122,12 +122,11 @@ autocmd("User", {
   callback = function()
     vim.keymap.set("n", "q", "<cmd>q<cr>", { buffer = 0, noremap = true })
     vim.keymap.set("n", "<c-c>", "<cmd>wq<cr>", { buffer = 0, noremap = true })
-    vim.keymap.set("n", "<c-c><c-k>", "<cmd>q!<cr>", { buffer = 0, noremap = true })
   end,
 })
 
 autocmd("FileType", {
-  pattern = "help,fugitive,DiffviewFiles,git,fugitiveblame",
+  pattern = "help,fugitive,DiffviewFiles,git,fugitiveblame,rest_nvim_result",
   group = MiscGroup,
   callback = function()
     local map = function(cmd, ft)
