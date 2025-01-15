@@ -127,19 +127,11 @@ autocmd("User", {
 })
 
 autocmd("FileType", {
-  pattern = "help,fugitive,DiffviewFiles,git,fugitiveblame",
+  pattern = "help,fugitive,git,fugitiveblame,rest_nvim_result",
   group = MiscGroup,
   callback = function()
-    local map = function(cmd, ft)
-      vim.keymap.set({ "n", "x" }, "q", cmd, { desc = "Quit " .. ft, buffer = true, noremap = true })
-    end
     local ft = vim.bo.filetype
-
-    if ft == "DiffviewFiles" then
-      map("<cmd>DiffviewClose<cr>", ft)
-    else
-      map("<cmd>q<cr>", ft)
-    end
+    vim.keymap.set({ "n", "x" }, "q", "<cmd>bd<cr>", { desc = "Quit " .. ft, buffer = true, noremap = true })
 
     if ft == "help" then
       vim.cmd("wincmd L")

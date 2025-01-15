@@ -6,13 +6,9 @@ return {
     { "j-hui/fidget.nvim", opts = {} },
   },
   config = function()
-    local capabilities = nil
     local lspconfig = require("lspconfig")
+    local capabilities = nil
     local servers = require("plugins.lsp.config.customlsp").servers
-
-    -- if pcall(require, "cmp_nvim_lsp") then
-    --   capabilities = require("cmp_nvim_lsp").default_capabilities()
-    -- end
 
     if pcall(require, "blink.cmp") then
       capabilities = require("blink.cmp").get_lsp_capabilities()
@@ -38,17 +34,37 @@ return {
       "lua_ls",
       "ts_ls",
       "svelte",
-      "prismals",
     }
 
-    require("mason-lspconfig").setup({ ensure_installed = ensure_installed })
+    local masonlsp = require("mason-lspconfig")
 
+    local handlers = {
+      ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+      ["textDocument/signatureHelp"] = vim.lsp.with(
+        vim.lsp.handlers.signature_help,
+        { border = "rounded", title = "Signature Help" }
+      ),
+    }
+
+    masonlsp.setup({ ensure_installed = ensure_installed })
+    masonlsp.setup_handlers({
+      -- automatic setup
+      function(name)
+        lspconfig[name].setup({
+          capabilities = capabilities,
+          handlers = handlers,
+        })
+      end,
+    })
+
+    -- custom setup
     for name, config in pairs(servers) do
       if config == true then
         config = {}
       end
       config = vim.tbl_deep_extend("force", {}, {
         capabilities = capabilities,
+        handlers = handlers,
       }, config)
 
       lspconfig[name].setup(config)
@@ -69,11 +85,11 @@ return {
         end
 
         -- map("<leader>li", ":OrganizeImports<cr>", "Ts organize import") -- TODO: ts_ls
-        -- map("<leader>qd", vim.diagnostic.setqflist "test")
         map("gd", vim.lsp.buf.definition, "Goto defintion")
         map("gD", vim.lsp.buf.declaration, "Goto declaration")
         map("gr", vim.lsp.buf.references, "Goto references")
         map("gI", vim.lsp.buf.implementation, "Goto implementation")
+        map("<leader>sh", vim.lsp.buf.signature_help, "Signature help")
         map("<leader>ld", fzf.lsp_typedefs, "Type definition")
         map("<leader>sd", fzf.lsp_document_symbols, "Document symbols")
         map("<leader>lw", fzf.lsp_workspace_symbols, "Workspace symbols")
@@ -89,12 +105,6 @@ return {
         local filetype = vim.bo[bufnr].filetype
         if disable_semantic_tokens[filetype] then
           client.server_capabilities.semanticTokensProvider = nil
-        end
-
-        if client and client.server_capabilities.hoverProvider then
-          vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-            border = "rounded",
-          })
         end
 
         if client and client.server_capabilities.documentHighlightProvider then

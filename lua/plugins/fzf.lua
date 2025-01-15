@@ -87,7 +87,6 @@ return {
         cwd_only = true,
         include_current_session = true,
       },
-      helptags = { winopts = { fullscreen = false } },
       winopts = {
         fullscreen = true,
         preview = {
@@ -123,6 +122,8 @@ return {
     map("n", "<leader>pp", fzf.builtin, { desc = "FzfLua Builtin" })
     map("n", "<leader>pr", fzf.resume, { desc = "Resume last FzfLua Action" })
     map("n", "<leader><leader>", fzf.buffers, { desc = "Current Opened Buffers" })
-    map("n", "<leader>ph", fzf.helptags, { desc = "Help tags" })
+    map("n", "<leader>ph", function()
+      fzf.helptags({ winopts = { fullscreen = false } })
+    end, { desc = "Help tags" })
   end,
 }

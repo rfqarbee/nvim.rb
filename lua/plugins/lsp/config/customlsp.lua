@@ -1,3 +1,4 @@
+-- custom config for lsp
 local M = {}
 local lspconfig = require("lspconfig")
 
@@ -63,15 +64,11 @@ local clangd = {
   filetypes = { "c", "cpp" },
 }
 
-local csharp = true
-
 M.servers = {
   clangd = clangd,
-  csharp_ls = csharp,
   dartls = dartls,
   gopls = gopls,
   lua_ls = lua_ls,
-  prismals = true,
   svelte = svelte,
 }
 
