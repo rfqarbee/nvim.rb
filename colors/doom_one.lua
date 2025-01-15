@@ -133,6 +133,10 @@ local groups = {
   ["@variable"] = { fg = palettes.variable },
   ["@variable.member"] = { fg = palettes.variable },
   ["@tag.attribute"] = { fg = palettes.doom_purp },
+  ["@comment.todo"] = { fg = "#10b981", style = "bold" },
+  ["@comment.note"] = { fg = palettes.info_fg, style = "bold" },
+  ["@comment.warning"] = { fg = palettes.warn_fg, style = "bold" },
+  ["@comment.error"] = { fg = palettes.error_fg, style = "bold" },
 
   -- editor highlight groups
   Normal = { fg = palettes.fg, bg = palettes.bg0 }, -- normal text and background color

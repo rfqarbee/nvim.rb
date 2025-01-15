@@ -59,7 +59,7 @@ return {
       },
       grep = {
         rg_glob = true,
-        rg_glob_fn = function(query, opts)
+        rg_glob_fn = function(query)
           local regex, flags = query:match("^(.-)%s%-%-(.*)$")
           return (regex or query), flags
         end,

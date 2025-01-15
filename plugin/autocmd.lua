@@ -122,7 +122,6 @@ autocmd("User", {
   callback = function()
     vim.keymap.set("n", "q", "<cmd>q<cr>", { buffer = 0, noremap = true })
     vim.keymap.set("n", "<c-c>", "<cmd>wq<cr>", { buffer = 0, noremap = true })
-    vim.keymap.set("n", "<c-c><c-k>", "<cmd>q!<cr>", { buffer = 0, noremap = true })
   end,
 })
 
