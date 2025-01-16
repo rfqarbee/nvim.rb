@@ -8,6 +8,9 @@ vim.filetype.add({
   extension = {
     ["http"] = "http",
   },
+  pattern = {
+    ["%.env%.[%w_.-]+"] = "sh",
+  },
 })
 
 opt.showtabline = 1

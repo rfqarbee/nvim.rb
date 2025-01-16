@@ -32,7 +32,6 @@ return {
       "csharp_ls",
       "gopls",
       "lua_ls",
-      "ts_ls",
       "svelte",
     }
 
