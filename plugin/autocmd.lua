@@ -132,6 +132,8 @@ autocmd("FileType", {
     local ft = vim.bo.filetype
     vim.keymap.set({ "n", "x" }, "q", "<cmd>bd<cr>", { desc = "Quit " .. ft, buffer = true, noremap = true })
 
+    vim.keymap.set("n", "-", "<nop>", { buffer = true, noremap = true })
+
     if ft == "help" then
       vim.cmd("wincmd L")
       vim.cmd("vert resize 90")

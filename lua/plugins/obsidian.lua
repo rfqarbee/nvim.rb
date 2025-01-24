@@ -21,14 +21,6 @@ return {
         {
           name = "notesidian",
           path = "~/Documents/Vaults",
-          -- overrides = {
-          --   daily_notes = {
-          --     folder = "notes",
-          --     date_format = "%Y-%m-%d",
-          --     alias_format = "%B %-d,%Y",
-          --     default_tags = { "scratch notes" },
-          --   },
-          -- },
         },
       },
       daily_notes = {

@@ -40,7 +40,7 @@ return {
           ["g\\"] = "actions.toggle_trash",
         },
       })
-      map("n", "<leader>-", function()
+      map("n", "-", function()
         require("oil").open()
       end, { desc = "Oil -> Directory" })
     end,
