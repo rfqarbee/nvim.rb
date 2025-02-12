@@ -32,6 +32,7 @@ map("n", "<leader>w.", "<cmd>+tabmove<cr>", { desc = "Tab to right" })
 map("n", "<leader>w,", "<cmd>-tabmove<cr>", { desc = "Tab to left" })
 map("n", "<leader>wn", "<cmd>tabnew<cr>", { desc = "New Tab" })
 map("n", "<leader>wt", "<cmd>wincmd T<cr>", { desc = "Move to new tab" })
+map("n", "<leader>wo", "<cmd>tabonly<cr>", { desc = "Move to new tab" })
 
 map({ "n", "v" }, "L", "$", { desc = "End of line" })
 map({ "n", "v" }, "H", "^", { desc = "Start of line" })
