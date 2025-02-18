@@ -33,7 +33,12 @@ return {
       "gopls",
       "lua_ls",
       "svelte",
+      "jdtls",
     }
+
+    -- tools
+    -- java-debug-tool
+    -- java-test
 
     local masonlsp = require("mason-lspconfig")
 
