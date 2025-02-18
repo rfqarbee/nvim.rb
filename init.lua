@@ -22,6 +22,7 @@ require("lazy").setup({
     { import = "plugins" },
     { import = "plugins.config" },
     { import = "plugins.lsp" },
+    { import = "plugins.dap" },
   },
   change_detection = { notify = false },
   checker = {

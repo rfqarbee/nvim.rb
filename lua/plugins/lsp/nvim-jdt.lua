@@ -6,7 +6,7 @@ return {
 
     local jdtls = require("jdtls")
     local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-    local workspace_dir = home .. "/dev/java/" .. project_name
+    local workspace_dir = home .. "/dev/java/jgdev/" .. project_name
 
     local system_os = ""
 
@@ -144,7 +144,7 @@ return {
         },
       },
       -- Needed for auto-completion with method signatures and placeholders
-      capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      capabilities = require("blink.cmp").get_lsp_capabilities(),
       flags = {
         allow_incremental_sync = true,
       },
