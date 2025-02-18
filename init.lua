@@ -29,4 +29,4 @@ require("lazy").setup({
   },
 })
 
-vim.cmd("colorscheme doom_one") -- i'll use mine after im done actually creating the colorscheme
+vim.cmd("colorscheme doom_one")

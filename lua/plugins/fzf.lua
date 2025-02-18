@@ -91,7 +91,7 @@ return {
         fullscreen = true,
         preview = {
           vertical = "down:35%",
-          horizontal = "right:40%",
+          horizontal = "right:35%",
         },
       },
     })
