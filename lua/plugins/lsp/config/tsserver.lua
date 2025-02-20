@@ -1,3 +1,4 @@
+-- TODO: do oneday
 local lsp_utils = require("lspconfig.util").root_pattern(".git")
 local M = {}
 

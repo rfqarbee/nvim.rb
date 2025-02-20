@@ -34,9 +34,9 @@ return {
           ["ctrl-s"] = actions.file_split,
           ["ctrl-v"] = actions.file_vsplit,
           ["ctrl-t"] = actions.file_tabedit,
-          ["alt-q"] = actions.file_sel_to_qf,
+          ["ctrl-q"] = actions.file_sel_to_qf,
           ["ctrl-a"] = actions.file_sel_to_ll,
-          ["ctrl-q"] = { fn = actions.file_edit_or_qf, prefix = "select-all+" },
+          ["alt-q"] = { fn = actions.file_edit_or_qf, prefix = "select-all+" },
         },
       },
       buffers = {
@@ -49,9 +49,9 @@ return {
       },
       lines = {
         actions = {
-          ["alt-q"] = actions.file_sel_to_qf,
+          ["ctrl-q"] = actions.file_sel_to_qf,
           ["ctrl-a"] = actions.file_sel_to_ll,
-          ["ctrl-q"] = { fn = actions.file_edit_or_qf, prefix = "select-all+" },
+          ["alt-q"] = { fn = actions.file_edit_or_qf, prefix = "select-all+" },
         },
       },
       builtin = {
@@ -74,10 +74,6 @@ return {
           },
         },
       },
-      files = {
-        cwd_prompt = false,
-        prompt = "Files > ",
-      },
       git = {
         files = {
           cmd = "git ls-files --exclude-standard --recurse-submodules",
@@ -91,7 +87,7 @@ return {
         fullscreen = true,
         preview = {
           vertical = "down:35%",
-          horizontal = "right:35%",
+          horizontal = "right:40%",
         },
       },
     })
@@ -109,10 +105,8 @@ return {
     -- qf
     map("n", "<leader>pq", fzf.quickfix_stack, { desc = "Quickfix stack" })
     map("n", "<leader>pS", fzf.grep, { desc = "Grep string" })
-    map("n", "<leader>pW", fzf.grep_cWORD, { desc = "Grep cWORD" })
     map("n", "<leader>pw", fzf.grep_cword, { desc = "Grep cword" })
-    map("v", "<leader>ps", fzf.grep_visual, { desc = "Grep visual" })
-    map("n", "<leader>ps", fzf.live_grep_glob, { desc = "Live Grep" })
+    map("v", "<leader>pw", fzf.grep_visual, { desc = "Grep visual" })
     map("n", "<leader>/", fzf.grep_curbuf, { desc = "Current Buffer Grep" })
     map("n", "<leader>pl", fzf.lines, { desc = "Current Buffer lines" })
     -- diagnostics
@@ -122,8 +116,5 @@ return {
     map("n", "<leader>pp", fzf.builtin, { desc = "FzfLua Builtin" })
     map("n", "<leader>pr", fzf.resume, { desc = "Resume last FzfLua Action" })
     map("n", "<leader><leader>", fzf.buffers, { desc = "Current Opened Buffers" })
-    map("n", "<leader>ph", function()
-      fzf.helptags({ winopts = { fullscreen = false } })
-    end, { desc = "Help tags" })
   end,
 }

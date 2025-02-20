@@ -5,20 +5,17 @@ return {
     build = ":TSUpdate",
     config = function()
       local ensure_installed = {
-        -- sadly this is for work
         "tsx",
         "typescript",
         "javascript",
         "graphql",
 
-        -- what i actually use
         "c",
         "c_sharp",
         "go",
         "lua",
         "sql",
 
-        "svelte",
         "dockerfile",
         "gitignore",
         "http",

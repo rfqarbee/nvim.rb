@@ -6,7 +6,7 @@ return {
       map("n", "gs", "<cmd>tab G<cr>", { silent = true, desc = "Git Fugitive" })
       map("n", "gS", "<cmd>G status<cr>", { silent = true, desc = "Git status cli" })
       map("n", "<leader>gm", "<cmd>Gvdiffsplit!<cr>", { desc = "Git merge 3 way" })
-      map("n", "<leader>gd", "<cmd>Gvdiffsplit<cr>", { desc = "Git diff %" })
+      map("n", "<leader>gv", "<cmd>Gvdiffsplit<cr>", { desc = "Git diff %" })
       map("n", "<leader>gb", "<cmd>G blame<cr>", { desc = "Git blame" })
       map("n", "gh", "<cmd>diffget //2<cr>", { desc = "changes from left" })
       map("n", "gl", "<cmd>diffget //3<cr>", { desc = "change from rigth" })
@@ -21,7 +21,7 @@ return {
         attach_to_untracked = true,
         current_line_blame = true,
         current_line_blame_opts = {
-          delay = 150,
+          delay = 300,
         },
       })
 

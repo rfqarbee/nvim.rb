@@ -22,7 +22,6 @@ return {
         delete_to_trash = true, -- in $XDG_DATA_HOME/Trash
         skip_confirm_for_simple_edits = true,
         keymaps = {
-          ["g?"] = "actions.show_help",
           ["<CR>"] = "actions.select",
           ["<C-v>"] = "actions.select_vsplit",
           ["<C-s>"] = "actions.select_split",
@@ -30,13 +29,10 @@ return {
           ["<M-p>"] = "actions.preview",
           ["q"] = "actions.close",
           ["<space>r"] = "actions.refresh", -- refresh list
-          -- ["<space>-"] = "actions.parent",
           ["-"] = "actions.parent",
           ["_"] = "actions.open_cwd",
-          ["."] = "actions.cd", -- change project directory
           ["`"] = "actions.tcd", -- change current tab directory
           ["<leader>gs"] = "actions.change_sort",
-          ["g."] = "actions.toggle_hidden",
           ["g\\"] = "actions.toggle_trash",
         },
       })

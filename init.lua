@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-field
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
