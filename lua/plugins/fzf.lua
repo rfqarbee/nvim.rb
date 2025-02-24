@@ -104,6 +104,7 @@ return {
     map("n", "<leader>pc", fzf.git_commits, { desc = "Project Commits" })
     -- qf
     map("n", "<leader>pq", fzf.quickfix_stack, { desc = "Quickfix stack" })
+    map("n", "<leader>ps", fzf.live_grep, { desc = "Grep string" })
     map("n", "<leader>pS", fzf.grep, { desc = "Grep string" })
     map("n", "<leader>pw", fzf.grep_cword, { desc = "Grep cword" })
     map("v", "<leader>pw", fzf.grep_visual, { desc = "Grep visual" })
