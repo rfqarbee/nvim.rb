@@ -20,7 +20,6 @@ map("n", "<leader>wq", "<cmd>qa<CR>", { desc = "Quit" })
 map("n", "<M-q>", "<cmd>bdelete<CR>", { desc = "Delete buffer" })
 map("n", "<C-q>", "<cmd>bun<CR>", { desc = "Unload Buffer" })
 map({ "i", "s" }, "<c-c>", "<Esc>", { desc = "<Esc> alias" })
-map({ "i", "s" }, "jk", "<Esc>", { desc = "<Esc> alias" })
 
 map("n", "<m-j>", "<cmd>cnext<cr>zz", { desc = "Next qf" })
 map("n", "<m-k>", "<cmd>cprev<cr>zz", { desc = "Prev qf" })
