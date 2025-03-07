@@ -28,11 +28,9 @@ return {
     require("mason").setup()
 
     local ensure_installed = {
-      "clangd",
       "csharp_ls",
       "gopls",
       "lua_ls",
-      "svelte",
       "jdtls",
     }
 
@@ -54,10 +52,12 @@ return {
     masonlsp.setup_handlers({
       -- automatic setup
       function(name)
-        lspconfig[name].setup({
-          capabilities = capabilities,
-          handlers = handlers,
-        })
+        if name ~= "ts_ls" then
+          lspconfig[name].setup({
+            capabilities = capabilities,
+            handlers = handlers,
+          })
+        end
       end,
     })
 

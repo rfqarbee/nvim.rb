@@ -1,16 +1,15 @@
 return {
   "mfussenegger/nvim-jdtls",
-  ft = "java",
+  lazy = true,
+  ft = { "java" },
   config = function()
     local home = vim.env.HOME
 
     local jdtls = require("jdtls")
     local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-    local workspace_dir = home .. "/dev/java/jgdev/" .. project_name
+    local workspace_dir = home .. "/.local/share/java-workspace/" .. project_name -- metadata
 
     local system_os = ""
-
-    -- Determine OS
     if vim.fn.has("mac") == 1 then
       system_os = "mac"
     elseif vim.fn.has("unix") == 1 then
@@ -50,25 +49,22 @@ return {
         "--add-opens",
         "java.base/java.lang=ALL-UNNAMED",
 
-        -- Eclipse jdtls location
         "-jar",
         home .. "/.local/share/nvim/mason/share/jdtls/plugins/org.eclipse.equinox.launcher.jar",
-        "-configuration",
+        "-configuration", -- change if install jdtls manually instead of mason
         home .. "/.local/share/nvim/mason/packages/jdtls/config_" .. system_os,
         "-data",
         workspace_dir,
       },
 
-      -- This is the default if not provided, you can remove it. Or adjust as needed.
-      -- One dedicated LSP server & client will be started per unique root_dir
       root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "pom.xml", "build.gradle" }),
 
       -- Here you can configure eclipse.jdt.ls specific settings
       -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
       settings = {
         java = {
-          -- TODO Replace this with the absolute path to your main java version (JDK 17 or higher)
-          home = "/usr/lib/jvm/jdk-23.0.2-oracle-x64",
+          -- Replace this with the absolute path to your main java version
+          -- home = "/usr/lib/jvm/jdk-23.0.2-oracle-x64",
           eclipse = {
             downloadSources = true,
           },
@@ -143,7 +139,6 @@ return {
           },
         },
       },
-      -- Needed for auto-completion with method signatures and placeholders
       capabilities = require("blink.cmp").get_lsp_capabilities(),
       flags = {
         allow_incremental_sync = true,
@@ -161,7 +156,6 @@ return {
       require("jdtls.dap").setup_dap_main_class_configs()
     end
 
-    -- This starts a new client & server, or attaches to an existing client & server based on the `root_dir`.
     jdtls.start_or_attach(config)
   end,
 }
