@@ -29,6 +29,6 @@
   },
   "Tag Close": {
     "body": "<${0} />",
-    "prefix": "tagc"
+    "prefix": "tagi"
   }
 }
