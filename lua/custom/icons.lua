@@ -1,5 +1,30 @@
 local M = {}
 
+
+local devicon = {
+  icon = ' ',
+  color = "#FAF743",
+  cterm_color = "227",
+  name = "Env"
+}
+
+local envs = {
+  ".env.local",
+  ".env.dev",
+  ".env.uat",
+  ".env.prod",
+  ".env.development",
+  ".env.production",
+  ".env.staging",
+}
+
+local lists = {}
+for _, env in pairs(envs) do
+  lists[env] = devicon
+end
+
+M.override = lists
+
 M.completion_icons = {
   kind_icons = {
     Text = "󰉿 ",
