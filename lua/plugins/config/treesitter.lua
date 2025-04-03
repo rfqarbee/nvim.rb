@@ -1,5 +1,26 @@
 return {
   {
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require('nvim-ts-autotag').setup({
+        opts = {
+          -- Defaults
+          enable_close = true,          -- Auto close tags
+          enable_rename = true,         -- Auto rename pairs of tags
+          enable_close_on_slash = false -- Auto close on trailing </
+        },
+        -- Also override individual filetype configs, these take priority.
+        -- Empty by default, useful if one of the "opts" global settings
+        -- doesn't work well in a specific filetype
+        per_filetype = {
+          ["html"] = {
+            enable_close = false
+          }
+        }
+      })
+    end
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     event = { "BufReadPre", "BufNewFile" },
     build = ":TSUpdate",
@@ -160,12 +181,6 @@ return {
       })
 
       local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
-      local gs = require("gitsigns")
-
-      local next_hunk_repeat, prev_hunk_repeat = ts_repeat_move.make_repeatable_move_pair(gs.next_hunk, gs.prev_hunk)
-
-      vim.keymap.set({ "n", "x", "o" }, "<M-n>", next_hunk_repeat, { desc = "Git Next hunk" })
-      vim.keymap.set({ "n", "x", "o" }, "<M-p>", prev_hunk_repeat, { desc = "Git Prev hunk" })
 
       vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move, { desc = "Repeat Last Move" })
       vim.keymap.set(

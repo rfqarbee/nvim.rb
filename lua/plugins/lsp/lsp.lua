@@ -3,7 +3,7 @@ return {
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    { "j-hui/fidget.nvim", opts = {} },
+    -- { "j-hui/fidget.nvim", opts = {} }, -- trying lualine lsp_status
   },
   config = function()
     local lspconfig = require("lspconfig")
@@ -28,7 +28,6 @@ return {
     require("mason").setup()
 
     local ensure_installed = {
-      "csharp_ls",
       "gopls",
       "lua_ls",
       "jdtls",
@@ -40,6 +39,7 @@ return {
 
     local masonlsp = require("mason-lspconfig")
 
+    -- TODO: i do this in sometime
     local handlers = {
       ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
       ["textDocument/signatureHelp"] = vim.lsp.with(
@@ -52,11 +52,20 @@ return {
     masonlsp.setup_handlers({
       -- automatic setup
       function(name)
-        if name ~= "ts_ls" then
+        if name ~= "ts_ls" and name ~= "vtsls" then
           lspconfig[name].setup({
             capabilities = capabilities,
             handlers = handlers,
           })
+        elseif name == 'vtsls' then
+          local loc = vim.fn.fnamemodify(vim.fn.getcwd(0), ":~:p:h")
+          local match = string.find(loc, 'contract')
+          if match == nil then
+            lspconfig[name].setup({
+              capabilities = capabilities,
+              handlers = handlers,
+            })
+          end
         end
       end,
     })
@@ -88,7 +97,30 @@ return {
           vim.keymap.set("n", keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
         end
 
-        -- map("<leader>li", ":OrganizeImports<cr>", "Ts organize import") -- TODO: ts_ls
+        map("<leader>li", function()
+          local ts = vim.lsp.get_clients({ name = "vtsls" })[1]
+          if ts then
+            return ts:exec_cmd(
+              {
+                title = "Remove unsued",
+                command = "typescript.removedUnusedImports",
+                arguments = { vim.api.nvim_get_current_buf() }
+              },
+              { bufnr = bufnr })
+          end
+        end, "lsp organize ?")
+        map("<leader>lo", function()
+          local ts = vim.lsp.get_clients({ name = "vtsls" })[1]
+          if ts then
+            return ts:exec_cmd(
+              {
+                title = "Organize Imports",
+                command = "typescript.organizeImports",
+                arguments = { vim.api.nvim_get_current_buf() }
+              },
+              { bufnr = bufnr })
+          end
+        end, "lsp organize")
         map("gd", vim.lsp.buf.definition, "Goto defintion")
         map("gD", vim.lsp.buf.declaration, "Goto declaration")
         map("gr", vim.lsp.buf.references, "Goto references")

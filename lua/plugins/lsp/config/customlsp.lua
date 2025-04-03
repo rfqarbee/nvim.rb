@@ -66,10 +66,10 @@ local clangd = {
 
 M.servers = {
   clangd = clangd,
-  dartls = dartls,
   gopls = gopls,
   lua_ls = lua_ls,
-  svelte = svelte,
+  -- dartls = dartls,
+  -- svelte = svelte,
 }
 
 return M

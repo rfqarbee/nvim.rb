@@ -9,7 +9,7 @@ M.qfix = function()
   if items ~= 0 then
     return "  " .. items .. " "
   else
-    return " "
+    return ""
   end
 end
 

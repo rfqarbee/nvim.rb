@@ -1,5 +1,6 @@
 -- stole this from reddit
 local qf_stats = require("custom.utils")
+
 local modes = {
   ["n"] = "NORMAL",
   ["no"] = "NORMAL",
@@ -58,13 +59,13 @@ local function file()
   end
 
   if isGit == 1 then
-    local root = vim.fn.fnamemodify(vim.api.nvim_call_function("FugitiveFind", { ".git" }), ":~:h")
-    gitfile = root .. " -> " .. fpath
+    local root = vim.fn.fnamemodify(vim.api.nvim_call_function("FugitiveFind", { ".git" }), ":~:h:t")
+    gitfile = root .. " " .. fpath
   end
 
   if gitfile == "" then
-    local root = vim.fn.fnamemodify(vim.fn.expand("%"), ":~:h")
-    fname = root .. " -> " .. fpath
+    local root = vim.fn.fnamemodify(vim.fn.expand("%"), ":~:h:t")
+    fname = root .. " " .. fpath
   else
     fname = gitfile
   end
@@ -141,6 +142,9 @@ Statusline.active = function()
     "%#StatusLineCustom#",
     update_mode_colors(),
     mode(),
+    "%#StatusLineNormal#",
+    file(),
+    "%#StatusLineNormal#",
     "%#StatusLineCustom#",
     "%#StatusLineQF#",
     qf_stats.qfix(),
@@ -149,13 +153,11 @@ Statusline.active = function()
     custominfo(),
     "%#Normal#",
     "%#StatusLineNormal#",
-    file(),
-    "%#StatusLineNormal#",
     "%=%#StatusLineExtra#",
     update_mode_colors(),
     filetype(),
     fsize(),
-    lineinfo(),
+    -- lineinfo(),
   })
 end
 
@@ -176,3 +178,9 @@ end
 function Statusline.fzf()
   return "%#StatusLine#   Fzf"
 end
+
+local M = {
+  custominfo = custominfo,
+  fsize = fsize
+}
+return M

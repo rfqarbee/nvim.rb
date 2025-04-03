@@ -3,6 +3,19 @@ local map = vim.keymap.set
 map({ "n", "v" }, "Q", "<nop>")
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
 
+map("n", "<leader>ll", function()
+  local ll_win = vim.fn.getloclist(0, { size = 0, winid = 0 })
+  if ll_win.size == 0 then
+    vim.notify("Loclist is empty", vim.log.levels.WARN)
+  else
+    if ll_win.winid ~= 0 then
+      vim.cmd("lclose")
+    else
+      vim.cmd("lopen")
+    end
+  end
+end, { desc = "lopen" })
+
 map("n", "<leader>ql", function()
   local qf_win = vim.fn.getqflist({ size = 0, winid = 0 })
   if qf_win.size == 0 then

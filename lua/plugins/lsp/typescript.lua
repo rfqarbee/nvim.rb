@@ -1,7 +1,15 @@
 -- temporarily using this
 return {
   "pmizio/typescript-tools.nvim",
-  enabled = true,
+  cond = function()
+    local location = vim.fn.fnamemodify(vim.fn.getcwd(0), ":~:p:h")
+    local match = string.find(location, 'contract')
+    if match ~= nil then
+      return true
+    else
+      return false
+    end
+  end,
   ft = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
   config = function()
