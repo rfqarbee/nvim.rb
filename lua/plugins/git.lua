@@ -29,6 +29,8 @@ return {
         on_attach = function(bufnr)
           local map = require("custom.utils").map
 
+          map("n", "<m-d>", function() gitsigns.nav_hunk('next') end)
+          map("n", "<m-u>", function() gitsigns.nav_hunk('prev') end)
           map("n", "<leader>hs", gitsigns.stage_hunk, { desc = "Stage Hunk", buffer = bufnr })
           map("v", "<leader>hs", function()
             gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
