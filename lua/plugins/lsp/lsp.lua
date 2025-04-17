@@ -30,12 +30,9 @@ return {
     local ensure_installed = {
       "gopls",
       "lua_ls",
-      "jdtls",
+      "csharp_ls",
+      "vtsls"
     }
-
-    -- tools
-    -- java-debug-tool
-    -- java-test
 
     local masonlsp = require("mason-lspconfig")
 
