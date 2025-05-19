@@ -3,6 +3,7 @@ local opt = vim.opt
 vim.g.have_nerd_font = true
 vim.g.loaded_netrw = 1 -- disable netrw
 vim.g.loaded_netrwPlugin = 1
+vim.o.winborder = 'single'
 
 vim.filetype.add({
   extension = {

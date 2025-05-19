@@ -4,14 +4,10 @@ return {
     config = function()
       require('nvim-ts-autotag').setup({
         opts = {
-          -- Defaults
           enable_close = true,          -- Auto close tags
           enable_rename = true,         -- Auto rename pairs of tags
           enable_close_on_slash = false -- Auto close on trailing </
         },
-        -- Also override individual filetype configs, these take priority.
-        -- Empty by default, useful if one of the "opts" global settings
-        -- doesn't work well in a specific filetype
         per_filetype = {
           ["html"] = {
             enable_close = false
@@ -94,7 +90,7 @@ return {
       end
 
       vim.keymap.set("n", "<leader>cb", function()
-        vim.print(ctx()) -- i dont like it in the statusline, too clutter
+        vim.print(ctx())
       end, { desc = "Show current code context" })
     end,
   },
@@ -112,15 +108,6 @@ return {
               ["<leader>,"] = "@parameter.inner",
             },
           },
-          lsp_interop = {
-            border = "single",
-            enable = true,
-            floating_preview_opts = {},
-            peek_definition_code = {
-              ["<leader>df"] = "@function.outer", -- default keymap
-              ["<leader>dF"] = "@class.outer",
-            },
-          },
           select = {
             enable = true,
             lookahead = true,
@@ -135,7 +122,6 @@ return {
               ["ai"] = "@conditional.outer",
               ["il"] = "@loop.inner",
               ["al"] = "@loop.outer",
-              ["it"] = "@comment.inner", -- this doesnt work
               ["at"] = "@comment.outer",
               ["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
             },

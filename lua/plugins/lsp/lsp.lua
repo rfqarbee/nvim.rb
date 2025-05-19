@@ -3,17 +3,8 @@ return {
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    -- { "j-hui/fidget.nvim", opts = {} }, -- trying lualine lsp_status
   },
   config = function()
-    local lspconfig = require("lspconfig")
-    local capabilities = nil
-    local servers = require("plugins.lsp.config.customlsp").servers
-
-    if pcall(require, "blink.cmp") then
-      capabilities = require("blink.cmp").get_lsp_capabilities()
-    end
-
     local signs = require("custom.icons").lsp_signs
     vim.diagnostic.config({
       signs = {
@@ -34,51 +25,21 @@ return {
       "vtsls"
     }
 
-    local masonlsp = require("mason-lspconfig")
-
-    -- TODO: i do this in sometime
-    local handlers = {
-      ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
-      ["textDocument/signatureHelp"] = vim.lsp.with(
-        vim.lsp.handlers.signature_help,
-        { border = "rounded", title = "Signature Help" }
-      ),
-    }
-
-    masonlsp.setup({ ensure_installed = ensure_installed })
-    masonlsp.setup_handlers({
-      -- automatic setup
-      function(name)
-        if name ~= "ts_ls" and name ~= "vtsls" then
-          lspconfig[name].setup({
-            capabilities = capabilities,
-            handlers = handlers,
-          })
-        elseif name == 'vtsls' then
-          local loc = vim.fn.fnamemodify(vim.fn.getcwd(0), ":~:p:h")
-          local match = string.find(loc, 'contract')
-          if match == nil then
-            lspconfig[name].setup({
-              capabilities = capabilities,
-              handlers = handlers,
-            })
-          end
-        end
-      end,
-    })
-
-    -- custom setup
-    for name, config in pairs(servers) do
-      if config == true then
-        config = {}
+    local function iscx()
+      local dir = vim.fn.fnamemodify(vim.fn.getcwd(0), ":~:p:h")
+      local match = string.find(dir, 'contract')
+      if match == nil then
+        return true
+      else
+        return false
       end
-      config = vim.tbl_deep_extend("force", {}, {
-        capabilities = capabilities,
-        handlers = handlers,
-      }, config)
-
-      lspconfig[name].setup(config)
     end
+
+
+    require("mason-lspconfig").setup({
+      ensure_installed = ensure_installed,
+      automatic_enable = iscx()
+    })
 
     local disable_semantic_tokens = {
       lua = true,
