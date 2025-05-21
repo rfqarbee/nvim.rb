@@ -32,17 +32,6 @@ M.winopts = {
   },
 }
 
-M.diagnostics = {
-  winopts = {
-    split = "belowright new",
-    fullscreen = false,
-    backdrop = 100,
-    preview = {
-      hidden = "hidden",
-    },
-  },
-}
-
 M.git = {
   files = {
     winopts = {

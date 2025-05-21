@@ -37,9 +37,6 @@ map({ "i", "s" }, "<c-c>", "<Esc>", { desc = "<Esc> alias" })
 map("n", "<m-n>", "<cmd>cnext<cr>zz", { desc = "Next qf" })
 map("n", "<m-p>", "<cmd>cprev<cr>zz", { desc = "Prev qf" })
 
-map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-map("n", "[b", "<cmd>bprev<cr>", { desc = "Prev Buffer" })
-
 map("n", "<leader>w.", "<cmd>+tabmove<cr>", { desc = "Tab to right" })
 map("n", "<leader>w,", "<cmd>-tabmove<cr>", { desc = "Tab to left" })
 map("n", "<leader>wn", "<cmd>tabnew<cr>", { desc = "New Tab" })
@@ -54,8 +51,8 @@ map("n", "<M-.>", "<C-w>5<", { desc = "Shift right window size" })
 map("n", "<M-->", "<C-w>2-", { desc = "Decrease Window Size" })
 map("n", "<M-=>", "<C-w>2+", { desc = "Increase Window Size" })
 
-map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Selected Line Below" })
 map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Selected Line Above" })
+map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Selected Line Below" })
 
 map("n", "J", "mzJ`z", { desc = "Center cursor" })
 

@@ -26,7 +26,6 @@ return {
       actions = custom.actions(actions),
       lines = custom.lines(actions),
       files = custom.files,
-      diagnostics = custom.diagnostics,
       git = custom.git,
       oldfiles = custom.oldfiles,
       winopts = custom.winopts,
@@ -54,9 +53,6 @@ return {
     map("n", "<leader>pl", function()
       fzf.lines({ winopts = { fullscreen = true } })
     end, { desc = "Current Buffer lines" })
-    -- diagnostics
-    map("n", "<leader>qd", fzf.diagnostics_document, { desc = "Diagnostics" })
-    map("n", "<leader>qw", fzf.diagnostics_workspace, { desc = "Diagnostics" })
     -- misc
     map("n", "<leader>pp", fzf.builtin, { desc = "FzfLua Builtin" })
     map("n", "<leader>pr", fzf.resume, { desc = "Resume last FzfLua Action" })

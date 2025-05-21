@@ -1,7 +1,3 @@
--- due to nvim load plugin/ first
--- require("custom.statusline")
--- require("custom.tabline")
-
 local autocmd = vim.api.nvim_create_autocmd
 local usercmd = vim.api.nvim_create_user_command
 local MiscGroup = vim.api.nvim_create_augroup("miscGroup", { clear = true })
@@ -10,30 +6,6 @@ local gitGroup = vim.api.nvim_create_augroup("mygit", { clear = true })
 local WhiteSpace = vim.api.nvim_create_augroup("httpGroup", { clear = true })
 local YankGroup = vim.api.nvim_create_augroup("HiglightYank", { clear = true })
 local Quickfix = vim.api.nvim_create_augroup("Quickfix", { clear = true })
--- local Statusline = vim.api.nvim_create_augroup("Statusline", { clear = true })
--- local TablineGroup = vim.api.nvim_create_augroup("Tabline", { clear = true })
-
--- local status_events = {
---   "BufEnter",
---   "WinEnter",
---   "FileType",
---   "VimResized",
---   "BufWritePost",
---   "FileChangedShellPost",
---   "SessionLoadPost",
---   "CursorMoved",
---   "CursorMovedI",
---   "ModeChanged",
--- }
--- local tab_events = {
---   "BufEnter",
---   "WinEnter",
---   "VimResized",
---   "SessionLoadPost",
---   "TabEnter",
---   "TabLeave",
---   "TabNew",
--- }
 
 autocmd("QuickFixCmdPost", {
   group = Quickfix,
@@ -54,35 +26,6 @@ autocmd("FileType", {
   end,
 })
 
--- autocmd(tab_events, {
---   desc = "Tab line",
---   group = TablineGroup,
---   callback = function()
---     vim.opt_local.tabline = "%!v:lua.Tabline.line()"
---   end,
--- })
-
--- autocmd(status_events, {
---   desc = "Status line",
---   group = Statusline,
---   callback = function()
---     if vim.bo.filetype == "oil" then
---       vim.opt_local.statusline = "%!v:lua.Statusline.oil()"
---     elseif vim.bo.filetype == "fzf" then
---       vim.opt_local.statusline = "%!v:lua.Statusline.fzf()"
---     elseif vim.bo.filetype == "" then
---       local filename = vim.fn.expand("%:t")
---       if filename ~= "" then
---         vim.opt_local.statusline = "%!v:lua.Statusline.active()"
---       else
---         vim.opt_local.statusline = "%!v:lua.Statusline.emptyBuf()"
---       end
---     else
---       vim.opt_local.statusline = "%!v:lua.Statusline.active()"
---     end
---   end,
--- })
-
 autocmd("BufWritePre", {
   desc = "Delete trailing whitespace",
   pattern = "*",
@@ -94,10 +37,7 @@ autocmd("TextYankPost", {
   desc = "Highlight when yank",
   group = YankGroup,
   callback = function()
-    vim.highlight.on_yank({
-      higroup = "Yank",
-      timeout = 50,
-    })
+    vim.hl.on_yank({ timeout = 100 })
   end,
 })
 
@@ -121,7 +61,6 @@ autocmd("User", {
   pattern = "FugitiveEditor",
   callback = function()
     vim.keymap.set("n", "q", "<cmd>q<cr>", { buffer = 0, noremap = true })
-    vim.keymap.set("n", "<c-c>", "<cmd>wq<cr>", { buffer = 0, noremap = true })
   end,
 })
 

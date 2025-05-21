@@ -314,6 +314,7 @@ local groups = {
 
   --NOTE: cuz treesitter plugin is not yet looaded, hence top takes precedence
   -- TreeSitter highlight groups
+  TreesitterContext = { bg = palettes.bg3 },
   TSComment = { fg = palettes.gray, bg = palettes.none, style = "italic" },    -- For comment blocks.
   TSConditional = { fg = palettes.light_blue },                                -- For keywords related to conditionnals.
   TSKeyword = { fg = palettes.blue },                                          -- For keywords that don't fall in previous categories.

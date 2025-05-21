@@ -5,7 +5,7 @@ return {
     local qf = require("custom.utils")
     require('lualine').setup({
       options = {
-        theme = require('custom.lualine_custom'),
+        -- theme = require('custom.lualine_custom'),
         always_divide_middle = false,
         always_show_tabline = false,
         globalstatus = true,
@@ -25,7 +25,7 @@ return {
       sections = {
         lualine_a = { 'mode' },
         lualine_b = { 'branch', "diff", "diagnostics" },
-        lualine_c = { qf.qfix, custom.custominfo, { 'filename', path = 4 } },
+        lualine_c = { qf.qfix, custom.custominfo, { 'filename', path = 1 } },
         lualine_x = { 'searchcount' },
         lualine_y = { 'filetype', 'filesize', 'progress' },
         lualine_z = { 'location', { 'lsp_status', symbols = { separator = "  " } } },
