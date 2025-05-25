@@ -1,8 +1,6 @@
 return {
   'nvim-lualine/lualine.nvim',
   config = function()
-    local custom = require("custom.statusline")
-    local qf = require("custom.utils")
     require('lualine').setup({
       options = {
         -- theme = require('custom.lualine_custom'),
@@ -23,14 +21,14 @@ return {
         lualine_c = { 'filename' },
       },
       sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { 'branch', "diff", "diagnostics" },
-        lualine_c = { qf.qfix, custom.custominfo, { 'filename', path = 1 } },
-        lualine_x = { 'searchcount' },
-        lualine_y = { 'filetype', 'filesize', 'progress' },
+        lualine_a = { 'mode', },
+        lualine_b = { "branch" },
+        lualine_c = { { 'filename', path = 1 } },
+        lualine_x = { 'diff', 'diagnostics' },
+        lualine_y = { 'filetype', 'filesize' },
         lualine_z = { 'location', { 'lsp_status', symbols = { separator = "  " } } },
       },
-      extensions = { 'quickfix', 'oil', 'fugitive', 'nvim-dap-ui' }
+      extensions = { 'quickfix', 'oil', 'fugitive', 'nvim-dap-ui', "trouble" }
     })
   end
 }

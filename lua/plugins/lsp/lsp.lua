@@ -7,6 +7,9 @@ return {
   config = function()
     local signs = require("custom.icons").lsp_signs
     vim.diagnostic.config({
+      underline = true,
+      virtual_text = true,
+      -- virtual_lines = { current_line = true },
       signs = {
         text = {
           [vim.diagnostic.severity.ERROR] = signs.Error,
@@ -16,6 +19,7 @@ return {
         },
       },
     })
+
     require("mason").setup()
 
     local ensure_installed = {

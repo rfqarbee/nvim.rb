@@ -45,7 +45,7 @@ opt.cursorline = true
 opt.signcolumn = "yes"
 opt.colorcolumn = "80"
 opt.showmode = false
-opt.laststatus = 2
+opt.laststatus = 3
 
 opt.clipboard:append("unnamedplus")
 

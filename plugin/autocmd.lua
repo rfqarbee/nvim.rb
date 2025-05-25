@@ -26,6 +26,13 @@ autocmd("FileType", {
   end,
 })
 
+-- stole from reddit
+-- autocmd("CursorHold", {
+--   callback = function()
+--     vim.diagnostic.open_float(nil, { focusable = false, source = "if_many" })
+--   end
+-- })
+
 autocmd("BufWritePre", {
   desc = "Delete trailing whitespace",
   pattern = "*",
