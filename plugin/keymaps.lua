@@ -3,7 +3,7 @@ local map = vim.keymap.set
 map({ "n", "v" }, "Q", "<nop>")
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
 
-map("n", "<leader>ll", function()
+map("n", "<leader>xl", function()
   local ll_win = vim.fn.getloclist(0, { size = 0, winid = 0 })
   if ll_win.size == 0 then
     vim.notify("Loclist is empty", vim.log.levels.WARN)
@@ -16,7 +16,7 @@ map("n", "<leader>ll", function()
   end
 end, { desc = "lopen" })
 
-map("n", "<leader>ql", function()
+map("n", "<leader>xq", function()
   local qf_win = vim.fn.getqflist({ size = 0, winid = 0 })
   if qf_win.size == 0 then
     vim.notify("Quickfix is empty", vim.log.levels.WARN)
@@ -30,12 +30,8 @@ map("n", "<leader>ql", function()
 end, { desc = "Copen" })
 
 map("n", "<leader>wq", "<cmd>qa<CR>", { desc = "Quit" })
-map("n", "<M-q>", "<cmd>bdelete<CR>", { desc = "Delete buffer" })
-map("n", "<C-q>", "<cmd>bun<CR>", { desc = "Unload Buffer" })
-map({ "i", "s" }, "<c-c>", "<Esc>", { desc = "<Esc> alias" })
-
-map("n", "<m-n>", "<cmd>cnext<cr>zz", { desc = "Next qf" })
-map("n", "<m-p>", "<cmd>cprev<cr>zz", { desc = "Prev qf" })
+map("n", "<S-M-q>", "<cmd>bdelete<CR>", { desc = "Delete buffer" })
+map("n", "<M-q>", "<cmd>bun<CR>", { desc = "Unload Buffer" })
 
 map("n", "<leader>w.", "<cmd>+tabmove<cr>", { desc = "Tab to right" })
 map("n", "<leader>w,", "<cmd>-tabmove<cr>", { desc = "Tab to left" })

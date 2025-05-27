@@ -62,7 +62,7 @@ M.actions = function(actions)
       ["ctrl-t"] = actions.file_tabedit,
       ["ctrl-q"] = actions.file_sel_to_qf,
       ["ctrl-a"] = actions.file_sel_to_ll,
-      ["alt-q"] = { fn = actions.file_edit_or_qf, prefix = "select-all+" },
+      ["alt-q"] = { fn = actions.file_sel_to_qf, prefix = "select-all+" },
     },
   }
 end

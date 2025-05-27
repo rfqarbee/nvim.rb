@@ -7,6 +7,10 @@ return {
     local custom = require("custom.fzf-custom")
 
     fzf.setup({
+      defaults = {
+        copen = false,
+        lopen = false,
+      },
       fzf_colors = true,
       grep = {
         winopts = {

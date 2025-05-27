@@ -5,17 +5,6 @@ local HttpGroup = vim.api.nvim_create_augroup("replaceGroup", { clear = true })
 local gitGroup = vim.api.nvim_create_augroup("mygit", { clear = true })
 local WhiteSpace = vim.api.nvim_create_augroup("httpGroup", { clear = true })
 local YankGroup = vim.api.nvim_create_augroup("HiglightYank", { clear = true })
-local Quickfix = vim.api.nvim_create_augroup("Quickfix", { clear = true })
-
-autocmd("QuickFixCmdPost", {
-  group = Quickfix,
-  callback = function()
-    local qflist = vim.fn.getqflist()
-    if qflist then
-      vim.cmd([[bot copen]])
-    end
-  end,
-})
 
 -- json file mainly http files response
 autocmd("FileType", {

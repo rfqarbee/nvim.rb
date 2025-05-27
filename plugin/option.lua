@@ -3,7 +3,7 @@ local opt = vim.opt
 vim.g.have_nerd_font = true
 vim.g.loaded_netrw = 1 -- disable netrw
 vim.g.loaded_netrwPlugin = 1
-vim.o.winborder = 'single'
+vim.o.winborder = 'rounded'
 vim.o.confirm = true
 
 vim.filetype.add({
@@ -45,7 +45,6 @@ opt.cursorline = true
 opt.signcolumn = "yes"
 opt.colorcolumn = "80"
 opt.showmode = false
-opt.laststatus = 3
 
 opt.clipboard:append("unnamedplus")
 

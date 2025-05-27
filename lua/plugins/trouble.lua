@@ -1,6 +1,11 @@
 return {
   "folke/trouble.nvim",
-  opts = {}, -- for default options, refer to the configuration section for custom setup.
+  opts = {
+    focus = true,
+    preview = {
+      border = "none"
+    }
+  },
   cmd = "Trouble",
   keys = {
     {
@@ -10,17 +15,17 @@ return {
     },
     {
       "<leader>qd",
-      "<cmd>Trouble diagnostics toggle filter.buf=0 focus=true<cr>",
+      "<cmd>Trouble diagnostics toggle filter.buf=0 <cr>",
       desc = "Buffer Diagnostics (Trouble)",
     },
     {
-      "<leader>xl",
-      "<cmd>Trouble loclist toggle<cr>",
+      "<leader>qL",
+      "<cmd>Trouble loclist toggle <cr>",
       desc = "Location List (Trouble)",
     },
     {
-      "<leader>xq",
-      "<cmd>Trouble qflist toggle<cr>",
+      "<leader>ql",
+      "<cmd>Trouble qflist toggle <cr>",
       desc = "Quickfix List (Trouble)",
     },
   },
