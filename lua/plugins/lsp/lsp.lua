@@ -56,6 +56,14 @@ return {
           local client = assert(vim.lsp.get_client_by_id(event.data.client_id), "Must have valid client")
           local fzf = require("fzf-lua")
 
+          map("n", "<leader>qd", function()
+            if vim.bo.filetype ~= 'qf' then
+              vim.diagnostic.setloclist()
+            end
+          end, { desc = "Buffer diagnostic" })
+          map("n", "<leader>qw", function()
+            vim.diagnostic.setqflist()
+          end, { desc = "Workspace diagnostic" })
           map("n", "<leader>li", function()
             local ts = vim.lsp.get_clients({ name = "vtsls" })[1]
             if ts then

@@ -6,17 +6,14 @@ return {
       formatters_by_ft = {
         lua = { "stylua" },
         c = { "clang_format" },
-        cpp = { "clang_format" },
-        go = { "goimports", "gofumpt" },
-        typescript = { "prettierd", "prettier" },
-        javascript = { "prettierd", "prettier" },
-        typescriptreact = { "prettierd", "prettier" },
-        javascriptreact = { "prettierd", "prettier" },
-        svelte = { "prettierd", "prettier" },
-        json = { "prettierd", "prettier" },
-        yaml = { "prettierd", "prettier" },
-        markdown = { "prettierd", "prettier" },
-        graphql = { "prettierd", "prettier" },
+        go = { "goimports", "gofumpt", stop_after_first = true },
+        svelte = { "prettierd", "prettier", stop_after_first = true },
+        typescript = { "prettierd", "prettier", stop_after_first = true },
+        typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+        graphql = { "prettierd", "prettier", stop_after_first = true },
+        json = { "jq" },
+        yaml = { "yamlfmt" },
+        http = { "kulala-fmt" }
       },
     })
 

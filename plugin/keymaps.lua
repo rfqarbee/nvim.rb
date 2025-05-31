@@ -3,32 +3,6 @@ local map = vim.keymap.set
 map({ "n", "v" }, "Q", "<nop>")
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
 
-map("n", "<leader>xl", function()
-  local ll_win = vim.fn.getloclist(0, { size = 0, winid = 0 })
-  if ll_win.size == 0 then
-    vim.notify("Loclist is empty", vim.log.levels.WARN)
-  else
-    if ll_win.winid ~= 0 then
-      vim.cmd("lclose")
-    else
-      vim.cmd("lopen")
-    end
-  end
-end, { desc = "lopen" })
-
-map("n", "<leader>xq", function()
-  local qf_win = vim.fn.getqflist({ size = 0, winid = 0 })
-  if qf_win.size == 0 then
-    vim.notify("Quickfix is empty", vim.log.levels.WARN)
-  else
-    if qf_win.winid ~= 0 then
-      vim.cmd("cclose")
-    else
-      vim.cmd("bot copen")
-    end
-  end
-end, { desc = "Copen" })
-
 map("n", "<leader>wq", "<cmd>qa<CR>", { desc = "Quit" })
 map("n", "<S-M-q>", "<cmd>bdelete<CR>", { desc = "Delete buffer" })
 map("n", "<M-q>", "<cmd>bun<CR>", { desc = "Unload Buffer" })
@@ -61,9 +35,5 @@ map("n", "n", "nzzzv", { desc = "Center cursor next search" })
 map("n", "N", "Nzzzv", { desc = "Center cursor next search" })
 
 map("x", "p", '"_dP', { desc = "Paste w/o Clipboard" })
-map("x", "<leader>p", '"+p', { desc = "Paste and copy into Clipboard" })
-
 map("n", "<leader>rp", ":%s/", { desc = "Current file search and replace" })
-map("n", "<leader>rP", ":%s/<c-r><c-w>/", { desc = "Current file search and replace <cword>" })
 map("v", "<leader>rp", ":'<,'>s/", { desc = "Current file search and replace (V)" })
-map("v", "<leader>rP", ":'<,'>s/<c-r><c-w>", { desc = "Current file search and replace <cword> (v)" })

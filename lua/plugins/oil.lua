@@ -12,7 +12,7 @@ return {
         },
         view_options = {
           show_hidden = true,
-          is_hidden_file = function(name, bufnr)
+          is_hidden_file = function(name)
             return vim.startswith(name, ".")
           end,
         },
@@ -39,15 +39,5 @@ return {
         require("oil").open()
       end, { desc = "Oil -> Directory" })
     end,
-  },
-  {
-    "chrishrb/gx.nvim",
-    keys = { { "gx", "<cmd>Browse<cr>", mode = { "n", "x" }, desc = "Browse current word" } },
-    cmd = { "Browse" },
-    init = function()
-      vim.g.netrw_nogx = 1
-    end,
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {},
   },
 }

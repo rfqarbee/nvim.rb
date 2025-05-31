@@ -1,5 +1,6 @@
 return {
   {
+
     "tpope/vim-fugitive",
     config = function()
       local map = require("custom.utils").map
@@ -27,8 +28,10 @@ return {
       gitsigns.setup({
         on_attach = function(bufnr)
           local map = require("custom.utils").map
-          map("n", "<m-d>", function() gitsigns.nav_hunk('next') end)
-          map("n", "<m-u>", function() gitsigns.nav_hunk('prev') end)
+          map("n", "<m-p>", function() gitsigns.nav_hunk('next') end)
+          map("n", "<m-n>", function() gitsigns.nav_hunk('prev') end)
+          map("n", "<leader>hs", function() gitsigns.stage_hunk() end)
+          map("n", "<leader>hS", function() gitsigns.stage_buffer() end)
           map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "Preview Hunk", buffer = bufnr })
         end,
       })

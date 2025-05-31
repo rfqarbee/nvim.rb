@@ -1,5 +1,17 @@
 local M = {}
 
+M.grep = {
+  winopts = {
+    fullscreen = true
+  },
+  rg_glob = true,
+  rg_glob_fn = function(query)
+    local regex, flags = query:match("^(.-)%s%-%-(.*)$")
+    return (regex or query), flags
+  end,
+
+}
+
 M.files = {
   winopts = {
     fullscreen = true
@@ -50,7 +62,6 @@ M.oldfiles = {
     fullscreen = true
   },
   cwd_only = true,
-  include_current_session = true,
 }
 
 M.actions = function(actions)

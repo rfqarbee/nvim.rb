@@ -7,21 +7,8 @@ return {
     local custom = require("custom.fzf-custom")
 
     fzf.setup({
-      defaults = {
-        copen = false,
-        lopen = false,
-      },
       fzf_colors = true,
-      grep = {
-        winopts = {
-          fullscreen = true
-        },
-        rg_glob = true,
-        rg_glob_fn = function(query)
-          local regex, flags = query:match("^(.-)%s%-%-(.*)$")
-          return (regex or query), flags
-        end,
-      },
+      grep = custom.grep,
       keymap = {
         builtin = custom.builtin,
         fzf = custom.fzf,
@@ -46,12 +33,12 @@ return {
     map("n", "<leader>pC", fzf.git_bcommits, { desc = "Git Current Buffer/File Commits" })
     map("n", "<leader>pc", fzf.git_commits, { desc = "Project Commits" })
     -- qf
-    map("n", "<leader>pq", fzf.quickfix_stack, { desc = "Quickfix stack" })
     map("n", "<leader>ps", fzf.live_grep, { desc = "Grep string" })
+    map("n", "<leader>pq", fzf.quickfix_stack, { desc = "Quickfix stack" })
     map("n", "<leader>pS", fzf.grep, { desc = "Grep string" })
     map("n", "<leader>pw", fzf.grep_cword, { desc = "Grep cword" })
-    map("n", "<leader>ph", fzf.help_tags, { desc = "Grep cword" })
     map("v", "<leader>pw", fzf.grep_visual, { desc = "Grep visual" })
+    map("n", "<leader>ph", fzf.help_tags, { desc = "Grep cword" })
     map("n", "<leader>/", function() fzf.grep_curbuf({ winopts = { fullscreen = true } }) end,
       { desc = "Current Buffer Grep" })
     map("n", "<leader>pl", function()
