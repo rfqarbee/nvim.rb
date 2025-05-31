@@ -13,6 +13,9 @@ return {
         builtin = custom.builtin,
         fzf = custom.fzf,
       },
+      diagnostics = {
+        previewer = false
+      },
       buffers = custom.buffers,
       actions = custom.actions(actions),
       lines = custom.lines(actions),
@@ -32,6 +35,9 @@ return {
     map("n", "<leader>pb", fzf.git_branches, { desc = "Git branches" })
     map("n", "<leader>pC", fzf.git_bcommits, { desc = "Git Current Buffer/File Commits" })
     map("n", "<leader>pc", fzf.git_commits, { desc = "Project Commits" })
+    -- diagnostic
+    map("n", "<leader>qw", fzf.diagnostics_workspace, { desc = "Workspace Diagnostics" })
+    map("n", "<leader>qd", fzf.diagnostics_document, { desc = "Buffer Diagnostics" })
     -- qf
     map("n", "<leader>ps", fzf.live_grep, { desc = "Grep string" })
     map("n", "<leader>pq", fzf.quickfix_stack, { desc = "Quickfix stack" })
