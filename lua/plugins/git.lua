@@ -31,6 +31,8 @@ return {
           map("n", "<m-p>", function() gitsigns.nav_hunk('next') end)
           map("n", "<m-n>", function() gitsigns.nav_hunk('prev') end)
           map("n", "<leader>hs", function() gitsigns.stage_hunk() end)
+          map("n", "<leader>hr", function() gitsigns.reset_hunk() end)
+          map("n", "<leader>hR", function() gitsigns.reset_buffer() end)
           map("n", "<leader>hS", function() gitsigns.stage_buffer() end)
           map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "Preview Hunk", buffer = bufnr })
         end,

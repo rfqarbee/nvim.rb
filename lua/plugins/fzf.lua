@@ -13,9 +13,6 @@ return {
         builtin = custom.builtin,
         fzf = custom.fzf,
       },
-      diagnostics = {
-        previewer = false
-      },
       buffers = custom.buffers,
       actions = custom.actions(actions),
       lines = custom.lines(actions),
