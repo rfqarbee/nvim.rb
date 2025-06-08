@@ -28,8 +28,8 @@ return {
       gitsigns.setup({
         on_attach = function(bufnr)
           local map = require("custom.utils").map
-          map("n", "<m-p>", function() gitsigns.nav_hunk('next') end)
-          map("n", "<m-n>", function() gitsigns.nav_hunk('prev') end)
+          map("n", "<m-n>", function() gitsigns.nav_hunk('next') end)
+          map("n", "<m-p>", function() gitsigns.nav_hunk('prev') end)
           map("n", "<leader>hs", function() gitsigns.stage_hunk() end)
           map("n", "<leader>hr", function() gitsigns.reset_hunk() end)
           map("n", "<leader>hR", function() gitsigns.reset_buffer() end)
