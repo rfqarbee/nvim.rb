@@ -20,22 +20,22 @@ M.files = {
 
 M.builtin = {
   false,
-  ["<M-p>"] = "toggle-preview",
-  ["<Tab>"] = "preview-page-down",
-  ["<S-Tab>"] = "preview-page-up",
+  ["<M-=>"] = "toggle-preview",
+  ["<m-n>"] = "preview-page-down",
+  ["<m-p>"] = "preview-page-up",
 }
 
 M.fzf = {
   false, -- do not inherit from defaults
-  ["shift-tab"] = "preview-page-up",
-  ["tab"] = "preview-page-down",
+  ["alt-p"] = "preview-page-up",
+  ["alt-n"] = "preview-page-down",
   ["ctrl-o"] = "unix-line-discard",
   ["ctrl-c"] = "abort",
   ["ctrl-d"] = "half-page-down",
   ["ctrl-u"] = "half-page-up",
-  ["ctrl-f"] = "toggle",
+  ["ctrl-g"] = "toggle",
   ["ctrl-y"] = "toggle-all",
-  ["alt-p"] = "toggle-preview",
+  ["alt-="] = "toggle-preview",
 }
 M.winopts = {
   preview = {

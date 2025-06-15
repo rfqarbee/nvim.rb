@@ -30,4 +30,4 @@ require("lazy").setup({
   },
 })
 
-vim.cmd("colorscheme onedark")
+vim.cmd("colorscheme rose-pine-moon")

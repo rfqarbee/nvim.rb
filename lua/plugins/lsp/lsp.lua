@@ -8,7 +8,6 @@ return {
     config = function()
       local signs = require("custom.icons").lsp_signs
       local map = require("custom.utils").map
-
       vim.diagnostic.config({
         underline = true,
         signs = {

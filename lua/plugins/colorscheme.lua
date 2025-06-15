@@ -1,7 +1,10 @@
 return {
-  "navarasu/onedark.nvim",
-  priority = 1000,
-  opts = {
-    style = 'dark'
-  }
+  "rose-pine/neovim",
+  name = "rose-pine",
+  config = function()
+    require("rose-pine").setup({
+      dim_inactive_windows = true,
+    })
+  end
+
 }

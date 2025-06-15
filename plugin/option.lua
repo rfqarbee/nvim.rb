@@ -15,7 +15,7 @@ vim.filetype.add({
   },
 })
 
-opt.showtabline = 1
+opt.showtabline = 0
 
 opt.termguicolors = true
 opt.background = "dark"
