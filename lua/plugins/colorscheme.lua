@@ -1,10 +1,7 @@
 return {
-  "rose-pine/neovim",
-  name = "rose-pine",
-  config = function()
-    require("rose-pine").setup({
-      dim_inactive_windows = true,
-    })
-  end
-
+  {
+    'deparr/tairiki.nvim',
+    lazy = false,
+    priority = 1000, -- recommended if you use tairiki as your default theme
+  },
 }

@@ -2,20 +2,19 @@ local M = {}
 
 M.grep = {
   winopts = {
-    fullscreen = true
+    fullscreen = true,
   },
   rg_glob = true,
   rg_glob_fn = function(query)
     local regex, flags = query:match("^(.-)%s%-%-(.*)$")
     return (regex or query), flags
   end,
-
 }
 
 M.files = {
   winopts = {
-    fullscreen = true
-  }
+    fullscreen = true,
+  },
 }
 
 M.builtin = {
@@ -33,7 +32,7 @@ M.fzf = {
   ["ctrl-c"] = "abort",
   ["ctrl-d"] = "half-page-down",
   ["ctrl-u"] = "half-page-up",
-  ["ctrl-g"] = "toggle",
+  ["ctrl-r"] = "toggle",
   ["ctrl-y"] = "toggle-all",
   ["alt-="] = "toggle-preview",
 }
@@ -47,7 +46,7 @@ M.winopts = {
 M.git = {
   files = {
     winopts = {
-      fullscreen = true
+      fullscreen = true,
     },
     cmd = "git ls-files --exclude-standard --recurse-submodules",
   },
@@ -59,7 +58,7 @@ M.buffers = {
 
 M.oldfiles = {
   winopts = {
-    fullscreen = true
+    fullscreen = true,
   },
   cwd_only = true,
 }
@@ -87,6 +86,5 @@ M.lines = function(actions)
     },
   }
 end
-
 
 return M
