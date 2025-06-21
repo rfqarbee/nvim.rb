@@ -30,4 +30,4 @@ require("lazy").setup({
   },
 })
 
-vim.cmd("colorscheme tairiki")
+vim.cmd("colorscheme onedark")

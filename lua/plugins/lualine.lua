@@ -3,9 +3,8 @@ return {
   config = function()
     require('lualine').setup({
       options = {
+        -- theme = "ayu_mirage",
         always_show_tabline = false,
-        component_separators = { left = "", right = "" },
-        section_separators = { left = '', right = '' },
         disabled_filetypes = {
           statusline = { "fugitiveblame", "qf", "quifckfix", "fugitive" },
         }
@@ -13,18 +12,17 @@ return {
       sections = {
         lualine_a = { 'mode' },
         lualine_b = {
-          { 'filename', path = 1 },
-        },
-        lualine_c = {
           {
             'tabs',
-            mode = 2,
-            -- tabs_color = { active = 'lualine_a_insert' }
+            mode = 0,
           }
         },
+        lualine_c = {
+          { 'filename', path = 0 },
+        },
         lualine_x = { "diagnostics", "diff" },
-        lualine_y = { 'branch', 'filetype', { 'lsp_status', symbols = { separator = "  " } } },
-        lualine_z = { 'location' },
+        lualine_y = { 'filetype', { 'lsp_status', symbols = { separator = "  " } } },
+        lualine_z = { 'location', 'branch' },
       },
       extensions = { 'oil', 'fugitive', 'nvim-dap-ui', "trouble", "fzf" }
     })
