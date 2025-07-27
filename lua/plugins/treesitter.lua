@@ -7,6 +7,8 @@ return {
     config = function()
       local ensure_installed = {
         "tsx",
+        "html",
+        "vue",
         "typescript",
         "javascript",
         "graphql",

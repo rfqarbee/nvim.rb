@@ -7,8 +7,15 @@ return {
   },
   {
     'windwp/nvim-autopairs',
+    dependencies = { 'windwp/nvim-ts-autotag', opts = {} },
     event = "InsertEnter",
     opts = {}
+  },
+  {
+    'windwp/nvim-ts-autotag',
+    config = function()
+      require('nvim-ts-autotag').setup({})
+    end
   },
   {
     "kylechui/nvim-surround",
