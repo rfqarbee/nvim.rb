@@ -76,13 +76,7 @@ return {
             },
           },
           swap = {
-            enable = true,
-            swap_next = {
-              ["<leader>."] = "@parameter.inner",
-            },
-            swap_previous = {
-              ["<leader>,"] = "@parameter.inner",
-            },
+            enable = false,
           },
         },
       })
@@ -90,7 +84,6 @@ return {
   },
   {
     'aaronik/treewalker.nvim',
-    enabled = false,
     config = function()
       local km = require("custom.utils").map
       require("treewalker").setup({

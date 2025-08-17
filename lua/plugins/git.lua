@@ -15,6 +15,7 @@ return {
   },
   {
     "lewis6991/gitsigns.nvim",
+    enabled = false,
     config = function()
       local gitsigns = require("gitsigns")
       gitsigns.setup({
@@ -25,6 +26,7 @@ return {
         },
       })
 
+      -- tst
       gitsigns.setup({
         on_attach = function(bufnr)
           local map = require("custom.utils").map
