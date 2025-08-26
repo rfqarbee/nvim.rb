@@ -1,20 +1,5 @@
 return {
   {
-    "navarasu/onedark.nvim",
-    priority = 1000,
-    opts = {
-      style = "dark",
-      toggle_style_key = "<space>cl",
-      toggle_style_list = { 'warm', 'dark', 'light' },
-      code_style = {
-        -- comments
-        comments = 'italic',
-        keywords = 'italic,bold',
-        functions = 'italic,bold',
-      }
-    },
-  },
-  {
     'NTBBloodbath/doom-one.nvim',
     config = function()
       vim.g.doom_one_italic_comments = true
@@ -34,5 +19,16 @@ return {
       })
     end
   },
-
+  {
+    'luisiacc/gruvbox-baby', branch = 'main'
+  },
+  {
+    'kaiuri/nvim-juliana',
+    lazy = false,
+    opts = { --[=[ configuration --]=] },
+    config = true,
+  },
+  {
+    "sainnhe/gruvbox-material"
+  }
 }

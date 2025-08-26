@@ -4,7 +4,6 @@ map({ "n", "v" }, "Q", "<nop>")
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
 
 map("n", "<leader>wq", "<cmd>qa<CR>", { desc = "Quit" })
-map("n", "<S-M-q>", "<cmd>bdelete<CR>", { desc = "Delete buffer" })
 map("n", "<M-q>", "<cmd>bun<CR>", { desc = "Unload Buffer" })
 
 map("n", "<leader>w.", "<cmd>+tabmove<cr>", { desc = "Tab to right" })
@@ -37,3 +36,5 @@ map("n", "N", "Nzzzv", { desc = "Center cursor next search" })
 map("x", "p", '"_dP', { desc = "Paste w/o Clipboard" })
 map("n", "<leader>rp", ":%s/", { desc = "Current file search and replace" })
 map("v", "<leader>rp", ":'<,'>s/", { desc = "Current file search and replace (V)" })
+map('x', 'z/', '<C-\\><C-n>`</\\%V', { desc = 'Search forward within visual selection' })
+map('x', 'z?', '<C-\\><C-n>`>?\\%V', { desc = 'Search backward within visual selection' })

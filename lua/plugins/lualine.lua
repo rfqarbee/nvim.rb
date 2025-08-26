@@ -3,10 +3,9 @@ return {
   config = function()
     require('lualine').setup({
       options = {
-        -- theme = "ayu_mirage",
         always_show_tabline = false,
         disabled_filetypes = {
-          statusline = { "fugitiveblame", "qf", "quifckfix", "fugitive" },
+          statusline = { "fugitiveblame", "qf", "quifckfix" },
         }
       },
       sections = {
@@ -15,7 +14,11 @@ return {
           {
             'tabs',
             mode = 0,
-          }
+            tabs_color = {
+              active = 'lualine_a_insert',
+              inactive = 'lualine_b_normal'
+            }
+          },
         },
         lualine_c = {
           { 'filename', path = 0 },

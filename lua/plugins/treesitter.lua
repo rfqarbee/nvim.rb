@@ -1,5 +1,14 @@
 return {
   {
+    'Bekaboo/dropbar.nvim',
+    config = function()
+      local dropbar_api = require('dropbar.api')
+      vim.keymap.set('n', '<Leader>;', dropbar_api.pick, { desc = 'Pick symbols in winbar' })
+      vim.keymap.set('n', '[;', dropbar_api.goto_context_start, { desc = 'Go to start of current context' })
+      vim.keymap.set('n', '];', dropbar_api.select_next_context, { desc = 'Select next context' })
+    end,
+  },
+  {
     "nvim-treesitter/nvim-treesitter-textobjects",
     dependencies = { "nvim-treesitter/nvim-treesitter", },
     event = { "BufReadPre", "BufNewFile" },
@@ -81,25 +90,5 @@ return {
         },
       })
     end,
-  },
-  {
-    'aaronik/treewalker.nvim',
-    config = function()
-      local km = require("custom.utils").map
-      require("treewalker").setup({
-        highlight = true,
-        highlight_duration = 250,
-        highlight_group = 'CursorLine',
-        jumplist = true,
-      })
-      km({ 'n', 'v' }, '<M-k>', '<cmd>Treewalker Up<cr>', { silent = true })
-      km({ 'n', 'v' }, '<M-j>', '<cmd>Treewalker Down<cr>', { silent = true })
-      km({ 'n', 'v' }, '<M-h>', '<cmd>Treewalker Left<cr>', { silent = true })
-      km({ 'n', 'v' }, '<M-l>', '<cmd>Treewalker Right<cr>', { silent = true })
-      km('n', '<leader>=', '<cmd>Treewalker SwapDown<cr>', { silent = true })
-      km('n', '<leader>-', '<cmd>Treewalker SwapUp<cr>', { silent = true })
-      km('n', '<leader>,', '<cmd>Treewalker SwapLeft<cr>', { silent = true })
-      km('n', '<leader>.', '<cmd>Treewalker SwapRight<cr>', { silent = true })
-    end
   },
 }

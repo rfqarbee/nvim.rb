@@ -13,32 +13,31 @@ return {
       map("n", "gl", "<cmd>G log -n 30 --oneline --graph<cr>")
     end,
   },
-  {
-    "lewis6991/gitsigns.nvim",
-    enabled = false,
-    config = function()
-      local gitsigns = require("gitsigns")
-      gitsigns.setup({
-        attach_to_untracked = true,
-        current_line_blame = true,
-        current_line_blame_opts = {
-          delay = 300,
-        },
-      })
-
-      -- tst
-      gitsigns.setup({
-        on_attach = function(bufnr)
-          local map = require("custom.utils").map
-          map("n", "<m-n>", function() gitsigns.nav_hunk('next') end)
-          map("n", "<m-p>", function() gitsigns.nav_hunk('prev') end)
-          map("n", "<leader>hs", function() gitsigns.stage_hunk() end)
-          map("n", "<leader>hr", function() gitsigns.reset_hunk() end)
-          map("n", "<leader>hR", function() gitsigns.reset_buffer() end)
-          map("n", "<leader>hS", function() gitsigns.stage_buffer() end)
-          map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "Preview Hunk", buffer = bufnr })
-        end,
-      })
-    end,
-  },
+  -- {
+  --   "lewis6991/gitsigns.nvim",
+  --   config = function()
+  --     local gitsigns = require("gitsigns")
+  --     gitsigns.setup({
+  --       attach_to_untracked = true,
+  --       current_line_blame = true,
+  --       current_line_blame_opts = {
+  --         delay = 300,
+  --       },
+  --     })
+  --
+  --     -- tst
+  --     gitsigns.setup({
+  --       on_attach = function(bufnr)
+  --         local map = require("custom.utils").map
+  --         map("n", "<m-n>", function() gitsigns.nav_hunk('next') end)
+  --         map("n", "<m-p>", function() gitsigns.nav_hunk('prev') end)
+  --         map("n", "<leader>hs", function() gitsigns.stage_hunk() end)
+  --         map("n", "<leader>hr", function() gitsigns.reset_hunk() end)
+  --         map("n", "<leader>hR", function() gitsigns.reset_buffer() end)
+  --         map("n", "<leader>hS", function() gitsigns.stage_buffer() end)
+  --         map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "Preview Hunk", buffer = bufnr })
+  --       end,
+  --     })
+  --   end,
+  -- },
 }
