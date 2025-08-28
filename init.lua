@@ -30,5 +30,5 @@ require("lazy").setup({
   },
 })
 
--- vim.cmd("colorscheme onedark")
-vim.cmd("colorscheme doom-one")
+vim.cmd("colorscheme gruvbox-baby")
+-- vim.cmd("colorscheme doom-one")
