@@ -14,7 +14,8 @@ return {
         graphql = { "prettierd", "prettier", stop_after_first = true },
         json = { "jq" },
         yaml = { "yamlfmt" },
-        http = { "kulala-fmt" }
+        http = { "kulala-fmt" },
+        sql = { "sleek", "sql-formatter", stop_after_first = true },
       },
     })
 

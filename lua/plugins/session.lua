@@ -8,13 +8,13 @@ return {
   },
   lazy = false,
   opts = {
-    suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+    suppressed_dirs = { "~/", "~/Downloads", "/" },
     git_use_branch_name = true,
     session_lens = {
-      picker = nil, -- "telescope"|"snacks"|"fzf"|"select"|nil Pickers are detected automatically but you can also manually choose one. Falls back to vim.ui.select
+      picker = "fzf", -- "telescope"|"snacks"|"fzf"|"select"|nil Pickers are detected automatically but you can also manually choose one. Falls back to vim.ui.select
       mappings = {
         -- Mode can be a string or a table, e.g. {"i", "n"} for both insert and normal mode
-        delete_session = { "i", "<C-d>" },
+        delete_session = { "i", "<C-x>" },
         alternate_session = { "i", "<C-s>" },
         copy_session = { "i", "<C-y>" },
       },
