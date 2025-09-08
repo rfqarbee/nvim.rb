@@ -3,8 +3,8 @@ return {
   keys = {
     -- Will use Telescope if installed or a vim.ui.select picker otherwise
     { "<leader>wr", "<cmd>AutoSession search<CR>", desc = "Session search" },
+    { "<leader>wd", "<cmd>AutoSession deletePicker<CR>", desc = "Session search" },
     { "<leader>ws", "<cmd>AutoSession save<CR>", desc = "Save session" },
-    { "<leader>wa", "<cmd>AutoSession toggle<CR>", desc = "Toggle autosave" },
   },
   lazy = false,
   opts = {

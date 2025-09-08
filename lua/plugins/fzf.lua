@@ -26,7 +26,7 @@ return {
 
     -- files
     map("n", "<C-p>", fzf.files, { desc = "Project file" })
-    map("n", "<S-C-p>", fzf.git_files, { desc = "Open Git files" })
+    map("n", "<leader>pg", fzf.git_files, { desc = "Open Git files" })
     map("n", "<leader>po", fzf.oldfiles, { desc = "Old Files" })
     -- git
     map("n", "<leader>pb", fzf.git_branches, { desc = "Git branches" })
@@ -42,8 +42,9 @@ return {
     map("n", "<leader>pw", fzf.grep_cword, { desc = "Grep cword" })
     map("v", "<leader>pw", fzf.grep_visual, { desc = "Grep visual" })
     map("n", "<leader>ph", fzf.help_tags, { desc = "Grep cword" })
-    map("n", "<leader>/", function() fzf.grep_curbuf({ winopts = { fullscreen = true } }) end,
-      { desc = "Current Buffer Grep" })
+    map("n", "<leader>/", function()
+      fzf.grep_curbuf({ winopts = { fullscreen = true } })
+    end, { desc = "Current Buffer Grep" })
     map("n", "<leader>pl", function()
       fzf.lines({ winopts = { fullscreen = true } })
     end, { desc = "Current Buffer lines" })
