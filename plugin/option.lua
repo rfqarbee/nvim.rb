@@ -3,7 +3,7 @@ local opt = vim.opt
 vim.g.have_nerd_font = true
 vim.g.loaded_netrw = 1 -- disable netrw
 vim.g.loaded_netrwPlugin = 1
-vim.o.winborder = 'rounded'
+vim.o.winborder = "rounded"
 vim.o.confirm = true
 
 vim.filetype.add({
@@ -67,6 +67,4 @@ opt.updatetime = 50
 opt.spell = false
 opt.spelllang = { "en_us", "en" }
 
-opt.foldmethod = "expr"
-opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-opt.foldlevelstart = 99
+-- opt.foldmethod = "indent"
