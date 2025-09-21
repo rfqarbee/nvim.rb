@@ -2,17 +2,17 @@ return {
   {
     "nvim-tree/nvim-web-devicons",
     opts = {
-      override = require "custom.icons".override,
-    }
+      override = require("custom.icons").override,
+    },
   },
   {
-    'windwp/nvim-ts-autotag',
+    "windwp/nvim-ts-autotag",
     config = function()
-      require('nvim-ts-autotag').setup({})
-    end
+      require("nvim-ts-autotag").setup({})
+    end,
   },
   {
-    "NMAC427/guess-indent.nvim"
+    "NMAC427/guess-indent.nvim",
   },
   {
     "mbbill/undotree",

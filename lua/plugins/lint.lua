@@ -1,7 +1,7 @@
 return {
   "mfussenegger/nvim-lint",
   cond = function()
-    local work = os.getenv("WORK")
+    local work = os.getenv("DEVDIR")
     local exp = work .. "/contract-root"
     local cur = vim.fn.getcwd()
 

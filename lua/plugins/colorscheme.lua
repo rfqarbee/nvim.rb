@@ -1,7 +1,4 @@
 return {
-  -- {
-  --   "EdenEast/nightfox.nvim",
-  -- },
   {
     "darianmorat/gruvdark.nvim",
     lazy = false,
