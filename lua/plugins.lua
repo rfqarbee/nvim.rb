@@ -1,5 +1,12 @@
 return {
   {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = true,
+    -- use opts = {} for passing setup options
+    -- this is equivalent to setup({}) function
+  },
+  {
     "nvim-tree/nvim-web-devicons",
     opts = {
       override = require("custom.icons").override,
@@ -25,20 +32,14 @@ return {
       vim.g.undotree_DiffpanelHeight = 15
     end,
   },
-  -- {
-  --   "kylechui/nvim-surround",
-  --   version = "*", -- Use for stability; omit to use `main` branch for the latest features
-  --   event = "VeryLazy",
-  --   config = function()
-  --     require("nvim-surround").setup({
-  --       -- Configuration here, or leave empty to use defaults
-  --     })
-  --   end,
-  -- },
-  -- {
-  --   'windwp/nvim-autopairs',
-  --   dependencies = { 'windwp/nvim-ts-autotag', opts = {} },
-  --   event = "InsertEnter",
-  --   opts = {}
-  -- },
+  {
+    "kylechui/nvim-surround",
+    version = "^3.0.0", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end,
+  },
 }

@@ -8,7 +8,8 @@ vim.o.confirm = true
 
 vim.filetype.add({
   extension = {
-    ["http"] = "http",
+    http = "http",
+    curl = "curl",
   },
   pattern = {
     ["%.env%.[%w_.-]+"] = "sh",
