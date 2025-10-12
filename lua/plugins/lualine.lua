@@ -1,33 +1,38 @@
 return {
-  'nvim-lualine/lualine.nvim',
+  "nvim-lualine/lualine.nvim",
   config = function()
-    require('lualine').setup({
+    require("lualine").setup({
       options = {
         always_show_tabline = false,
+        component_separators = "",
+        section_separators = "",
         disabled_filetypes = {
           statusline = { "fugitiveblame", "qf", "quifckfix" },
-        }
+        },
       },
       sections = {
-        lualine_a = { 'mode' },
-        lualine_b = {
+        lualine_a = {
           {
-            'tabs',
+            "tabs",
             mode = 0,
             tabs_color = {
-              active = 'lualine_a_insert',
-              inactive = 'lualine_b_normal'
-            }
+              active = "lualine_a_insert",
+              inactive = "lualine_a_normal",
+            },
           },
         },
-        lualine_c = {
-          { 'filename', path = 0 },
+        lualine_b = {
+          "filesize",
         },
-        lualine_x = { "diagnostics", "diff" },
-        lualine_y = { 'filetype', { 'lsp_status', symbols = { separator = "  " } } },
-        lualine_z = { 'location', 'branch' },
+        lualine_c = {
+          { "filename", path = 0 },
+          "location",
+          "progress",
+        },
+        lualine_x = { { "diagnostics", always_visible = true } },
+        lualine_y = { { "lsp_status", symbols = { separator = "  " } } },
+        lualine_z = { "branch" },
       },
-      extensions = { 'oil', 'fugitive', 'nvim-dap-ui', "trouble", "fzf" }
     })
-  end
+  end,
 }

@@ -1,9 +1,9 @@
 local M = {}
 
 M.grep = {
-  winopts = {
-    fullscreen = true,
-  },
+  -- winopts = {
+  --   fullscreen = true,
+  -- },
   rg_glob = true,
   rg_glob_fn = function(query)
     local regex, flags = query:match("^(.-)%s%-%-(.*)$")
@@ -12,9 +12,9 @@ M.grep = {
 }
 
 M.files = {
-  winopts = {
-    fullscreen = true,
-  },
+  -- winopts = {
+  --   fullscreen = true,
+  -- },
 }
 
 M.builtin = {
@@ -43,23 +43,10 @@ M.winopts = {
   },
 }
 
-M.git = {
-  files = {
-    winopts = {
-      fullscreen = true,
-    },
-    cmd = "git ls-files --exclude-standard --recurse-submodules",
-  },
-}
-
-M.buffers = {
-  sort_lastused = false,
-}
-
 M.oldfiles = {
-  winopts = {
-    fullscreen = true,
-  },
+  -- winopts = {
+  --   fullscreen = true,
+  -- },
   cwd_only = true,
 }
 

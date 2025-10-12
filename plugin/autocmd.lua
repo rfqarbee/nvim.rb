@@ -5,11 +5,11 @@ local gitGroup = vim.api.nvim_create_augroup("mygit", { clear = true })
 local WhiteSpace = vim.api.nvim_create_augroup("httpGroup", { clear = true })
 local YankGroup = vim.api.nvim_create_augroup("HiglightYank", { clear = true })
 
--- stole from reddit
+-- -- stole from reddit
 -- autocmd("CursorHold", {
 --   callback = function()
 --     vim.diagnostic.open_float(nil, { focusable = false, source = "if_many" })
---   end
+--   end,
 -- })
 
 autocmd("BufWritePre", {

@@ -8,6 +8,9 @@ return {
 
     fzf.setup({
       fzf_colors = true,
+      fzf_opts = {
+        ["--layout"] = "default",
+      },
       grep = custom.grep,
       keymap = {
         builtin = custom.builtin,
@@ -25,32 +28,25 @@ return {
     fzf.register_ui_select({ winopts = { fullscreen = false } })
 
     -- files
-    map("n", "<C-p>", fzf.files, { desc = "Project file" })
-    map("n", "<leader>pg", fzf.git_files, { desc = "Open Git files" })
-    map("n", "<leader>po", fzf.oldfiles, { desc = "Old Files" })
+    map("n", "<leader><leader>", fzf.files, { desc = "Project file" })
+    map("n", "<leader>pr", fzf.oldfiles, { desc = "Recent Files" })
     -- git
     map("n", "<leader>pb", fzf.git_branches, { desc = "Git branches" })
     map("n", "<leader>pC", fzf.git_bcommits, { desc = "Git Current Buffer/File Commits" })
     map("n", "<leader>pc", fzf.git_commits, { desc = "Project Commits" })
     -- diagnostic
-    map("n", "<leader>qw", fzf.diagnostics_workspace, { desc = "Workspace Diagnostics" })
-    map("n", "<leader>qd", fzf.diagnostics_document, { desc = "Buffer Diagnostics" })
+    -- map("n", "<leader>qw", fzf.diagnostics_workspace, { desc = "Workspace Diagnostics" })
+    -- map("n", "<leader>qd", fzf.diagnostics_document, { desc = "Buffer Diagnostics" })
     -- qf
-    map("n", "<leader>ps", fzf.live_grep, { desc = "Grep string" })
+    map("n", "<leader>/", fzf.live_grep, { desc = "Grep string" })
     map("n", "<leader>pq", fzf.quickfix_stack, { desc = "Quickfix stack" })
-    map("n", "<leader>pS", fzf.grep, { desc = "Grep string" })
-    map("n", "<leader>pw", fzf.grep_cword, { desc = "Grep cword" })
-    map("v", "<leader>pw", fzf.grep_visual, { desc = "Grep visual" })
-    map("n", "<leader>ph", fzf.help_tags, { desc = "Grep cword" })
-    map("n", "<leader>/", function()
-      fzf.grep_curbuf({ winopts = { fullscreen = true } })
-    end, { desc = "Current Buffer Grep" })
-    map("n", "<leader>pl", function()
-      fzf.lines({ winopts = { fullscreen = true } })
-    end, { desc = "Current Buffer lines" })
+    map("n", "<leader>*", fzf.grep_cword, { desc = "Grep cword" })
+    map("v", "<leader>*", fzf.grep_visual, { desc = "Grep visual" })
+    map("n", "<leader>ss", fzf.grep_curbuf, { desc = "Current Buffer Grep" })
+    map("n", "<leader>sS", fzf.lines, { desc = "Current Buffer lines" })
     -- misc
     map("n", "<leader>pp", fzf.builtin, { desc = "FzfLua Builtin" })
-    map("n", "<leader>pr", fzf.resume, { desc = "Resume last FzfLua Action" })
-    map("n", "<leader><leader>", fzf.buffers, { desc = "Current Opened Buffers" })
+    map("n", "<leader>'", fzf.resume, { desc = "Resume last FzfLua Action" })
+    map("n", "<leader>,", fzf.buffers, { desc = "Current Opened Buffers" })
   end,
 }

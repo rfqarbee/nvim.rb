@@ -1,16 +1,5 @@
 return {
   "mfussenegger/nvim-lint",
-  cond = function()
-    local work = os.getenv("DEVDIR")
-    local exp = work .. "/contract-root"
-    local cur = vim.fn.getcwd()
-
-    if exp == cur then
-      return false
-    else
-      return true
-    end
-  end,
   lazy = true,
   event = { "BufReadPre", "BufNewFile" },
   config = function()
@@ -20,7 +9,7 @@ return {
       typescript = { "eslint_d", "eslint" },
       typescriptreact = { "eslint_d", "eslint" },
       javascriptreact = { "eslint_d", "eslint" },
-      svelte = { "eslint_d", "eslint" },
+      vue = { "eslint_d", "eslint" },
       c = { "cpplint" },
       go = { "golangcilint" },
     }
