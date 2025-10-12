@@ -1,5 +1,12 @@
 return {
   {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = true,
+    -- use opts = {} for passing setup options
+    -- this is equivalent to setup({}) function
+  },
+  {
     "nvim-tree/nvim-web-devicons",
     opts = {
       override = require("custom.icons").override,
