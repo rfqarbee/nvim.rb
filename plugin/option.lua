@@ -8,7 +8,8 @@ vim.o.confirm = true
 
 vim.filetype.add({
   extension = {
-    ["http"] = "http",
+    http = "http",
+    curl = "curl",
   },
   pattern = {
     ["%.env%.[%w_.-]+"] = "sh",
@@ -56,15 +57,11 @@ opt.fillchars:append({ eob = " " })
 opt.scrolloff = 6
 
 opt.completeopt = { "menuone", "noselect", "menu", "noinsert" }
-
 opt.swapfile = false
 opt.backup = false
 opt.undofile = true
-opt.undodir = os.getenv("HOME") .. "/.cache/undodir"
 opt.isfname:append("@-@")
 opt.updatetime = 50
 
 opt.spell = false
 opt.spelllang = { "en_us", "en" }
-
--- opt.foldmethod = "indent"

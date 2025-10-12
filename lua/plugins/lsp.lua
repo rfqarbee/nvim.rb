@@ -1,6 +1,10 @@
 return {
-  "williamboman/mason.nvim",
+  "neovim/nvim-lspconfig",
+  dependencies = {
+    "williamboman/mason.nvim",
+  },
   config = function()
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
     local signs = require("custom.icons").lsp_signs
     local map = require("custom.utils").map
     vim.diagnostic.config({
@@ -14,7 +18,7 @@ return {
         },
       },
     })
-    require("mason").setup()
+    require("mason").setup({})
 
     local disable_semantic_tokens = {
       lua = true,
@@ -34,11 +38,65 @@ return {
       end
     end
 
-    if #file ~= 0 then
-      for _, lsp in ipairs(file) do
-        vim.lsp.enable(lsp)
-      end
-    end
+    vim.lsp.config("omnisharp", {
+      cmd = {
+        "OmniSharp",
+        "-z",
+        "--hostPID",
+        tostring(vim.fn.getpid()),
+        "--encoding",
+        "utf-8",
+        "--language-server",
+      },
+      capabilities = capabilities,
+      settings = {
+        FormattingOptions = {
+          EnableEditorConfigSupport = true,
+        },
+        RoslynExtensionsOptions = {
+          EnableAnalyzersSupport = true,
+          EnableImportCompletion = true,
+          AnalyzeOpenDocumentsOnly = true,
+          EnableDecompilationSupport = true,
+        },
+      },
+    })
+
+    vim.lsp.config("vtsls", {
+      filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact", "vue" },
+      root_markers = {
+        {
+          "tsconfig.json",
+          "package.json",
+          "pnpm-lock.yaml",
+        },
+        ".git",
+      },
+      settings = {
+        vtsls = {
+          tsserver = {
+            globalPlugins = {
+              {
+                name = "@vue/typescript-plugin",
+                location = vim.fn.stdpath("data")
+                  .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+                languages = { "vue" },
+                configNamespace = "typescript",
+              },
+            },
+          },
+        },
+      },
+    })
+
+    vim.lsp.enable("omnisharp")
+    vim.lsp.enable("tailwindcss")
+    vim.lsp.enable("clangd")
+    vim.lsp.enable("gopls")
+    vim.lsp.enable("lua_ls")
+    vim.lsp.enable("svelte")
+    vim.lsp.enable("vtsls")
+    vim.lsp.enable("vue_ls")
 
     vim.api.nvim_create_autocmd({ "LspAttach" }, {
       group = vim.api.nvim_create_augroup("neovim-lsp-group", { clear = true }),
@@ -47,34 +105,10 @@ return {
         local client = assert(vim.lsp.get_client_by_id(event.data.client_id), "Must have valid client")
         local fzf = require("fzf-lua")
 
-        -- map("n", "<leader>li", function()
-        --   local ts = vim.lsp.get_clients({ name = "vtsls" })[1]
-        --   if ts then
-        --     return ts:exec_cmd(
-        --       {
-        --         title = "Remove unsued",
-        --         command = "typescript.removedUnusedImports",
-        --         arguments = { vim.api.nvim_get_current_buf() }
-        --       },
-        --       { bufnr = bufnr })
-        --   end
-        -- end, { desc = "lsp organize ?" })
-        -- map("n", "<leader>lo", function()
-        --   local ts = vim.lsp.get_clients({ name = "vtsls" })[1]
-        --   if ts then
-        --     return ts:exec_cmd(
-        --       {
-        --         title = "Organize Imports",
-        --         command = "typescript.organizeImports",
-        --         arguments = { vim.api.nvim_get_current_buf() }
-        --       },
-        --       { bufnr = bufnr })
-        --   end
-        -- end, { desc = "lsp organize" })
         map("n", "gd", vim.lsp.buf.definition, { desc = "Goto defintion" })
         map("n", "gD", vim.lsp.buf.declaration, { desc = "Goto declaration" })
         map("n", "grh", vim.lsp.buf.signature_help, { desc = "Signature help" })
-        map("n", "grs", fzf.lsp_document_symbols, { desc = "Document symbols" })
+        map("n", "gO", fzf.lsp_document_symbols, { desc = "Document symbols" })
         map("n", "grd", fzf.lsp_typedefs, { desc = "Type definition" })
         map("n", "grw", fzf.lsp_workspace_symbols, { desc = "Workspace symbols" })
         map("n", "<M-e>", function()

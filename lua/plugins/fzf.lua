@@ -41,7 +41,6 @@ return {
     map("n", "<leader>pS", fzf.grep, { desc = "Grep string" })
     map("n", "<leader>pw", fzf.grep_cword, { desc = "Grep cword" })
     map("v", "<leader>pw", fzf.grep_visual, { desc = "Grep visual" })
-    map("n", "<leader>ph", fzf.help_tags, { desc = "Grep cword" })
     map("n", "<leader>/", function()
       fzf.grep_curbuf({ winopts = { fullscreen = true } })
     end, { desc = "Current Buffer Grep" })
