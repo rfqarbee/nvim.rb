@@ -40,19 +40,25 @@ return {
     build = ":TSUpdate",
     config = function()
       local ensure_installed = {
+        -- html
+        "xml",
         "tsx",
         "html",
         "vue",
-        "typescript",
-        "javascript",
+        -- bs just for syntax highlighting
         "graphql",
         "sql",
-        "c_sharp",
-        "go",
-        "lua",
+        "yaml",
         "dockerfile",
         "json",
         "comment",
+        -- lang
+        "c",
+        "c_sharp",
+        "go",
+        "lua",
+        "typescript",
+        "javascript",
       }
 
       require("nvim-treesitter.configs").setup({
