@@ -94,11 +94,15 @@ return {
         local client = assert(vim.lsp.get_client_by_id(event.data.client_id), "Must have valid client")
         local fzf = require("fzf-lua")
 
-        map("n", "gd", vim.lsp.buf.definition, { desc = "Goto defintion" })
+        if client.name ~= "omnisharp" then
+          map("n", "gd", vim.lsp.buf.definition, { desc = "Goto defintion" })
+          map("n", "grd", fzf.lsp_typedefs, { desc = "Type definition" })
+          map("n", "grr", vim.lsp.buf.references, { desc = "References" })
+          map("n", "gI", vim.lsp.buf.implementation, { desc = "References" })
+        end
         map("n", "gD", vim.lsp.buf.declaration, { desc = "Goto declaration" })
         map("n", "grh", vim.lsp.buf.signature_help, { desc = "Signature help" })
         map("n", "gO", fzf.lsp_document_symbols, { desc = "Document symbols" })
-        map("n", "grd", fzf.lsp_typedefs, { desc = "Type definition" })
         map("n", "grw", fzf.lsp_workspace_symbols, { desc = "Workspace symbols" })
         map("n", "<leader>qw", function()
           vim.diagnostic.setqflist()
