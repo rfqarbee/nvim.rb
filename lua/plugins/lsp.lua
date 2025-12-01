@@ -39,20 +39,9 @@ return {
     end
 
     vim.lsp.config("omnisharp", {
-      cmd = {
-        "OmniSharp",
-        "-z",
-        "--hostPID",
-        tostring(vim.fn.getpid()),
-        "--encoding",
-        "utf-8",
-        "--language-server",
-      },
+      filetypes = { "cs", "vb" },
       capabilities = capabilities,
       settings = {
-        FormattingOptions = {
-          EnableEditorConfigSupport = true,
-        },
         RoslynExtensionsOptions = {
           EnableAnalyzersSupport = true,
           EnableImportCompletion = true,
