@@ -1,8 +1,16 @@
 return {
+  -- {
+  --   "darianmorat/gruvdark.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {},
+  -- },
   {
-    "darianmorat/gruvdark.nvim",
+    "sainnhe/sonokai",
     lazy = false,
     priority = 1000,
-    opts = {},
+    config = function()
+      vim.g.sonokai_enable_italic = true
+    end,
   },
 }

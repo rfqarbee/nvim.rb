@@ -44,6 +44,7 @@ M.winopts = {
 }
 
 M.oldfiles = {
+  prompt = "History❯",
   -- winopts = {
   --   fullscreen = true,
   -- },

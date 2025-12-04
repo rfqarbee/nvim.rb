@@ -29,7 +29,7 @@ return {
           "location",
           "progress",
         },
-        lualine_x = { { "diagnostics", always_visible = true } },
+        lualine_x = { "diff" },
         lualine_y = { { "lsp_status", symbols = { separator = "  " } } },
         lualine_z = { "branch" },
       },

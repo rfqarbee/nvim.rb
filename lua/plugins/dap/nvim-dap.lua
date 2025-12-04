@@ -1,7 +1,7 @@
 return {
   {
     "mfussenegger/nvim-dap",
-    -- lazy = true,
+    lazy = true,
     dependencies = {
       "rcarriga/nvim-dap-ui",
       "nvim-neotest/nvim-nio",
@@ -11,6 +11,7 @@ return {
       { "<leader>do", "<cmd>lua require('dapui').toggle()<cr>", desc = "Dap Ui" },
     },
     config = function()
+      require("dapui").setup()
       local dap = require("dap")
       local map = require("custom.utils").map
 
@@ -18,17 +19,28 @@ return {
         enabled = true,
       })
 
+      --dotnet
+      dap.adapters.coreclr = {
+        type = "executable",
+        command = vim.fn.stdpath("data") .. "/mason/packages/netcoredbg/netcoredbg",
+        args = { "--interpreter=vscode" },
+      }
+      dap.configurations.cs = {
+        {
+          type = "coreclr",
+          name = "launch - netcoredbg",
+          request = "launch",
+          program = function()
+            return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/", "file")
+          end,
+        },
+      }
+
       dap.adapters.cppdbg = {
         id = "cppdbg",
         type = "executable",
         command = vim.fn.stdpath("data") .. "/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7",
       }
-      -- test gdb
-      -- dap.adapters.gdb = {
-      --   type = "executable",
-      --   command = "gdb",
-      --   args = { "-i", "dap" },
-      -- }
       dap.configurations.c = {
         {
           name = "Launch",
@@ -51,29 +63,6 @@ return {
           program = function()
             return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
           end,
-        },
-      }
-      -- js
-      dap.adapters["pwa-node"] = {
-        type = "server",
-        host = "localhost",
-        port = "${port}",
-        executable = {
-          command = "node",
-          args = {
-            vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
-            "${port}",
-          },
-        },
-      }
-
-      dap.configurations.javascript = {
-        {
-          type = "pwa-node",
-          request = "launch",
-          name = "Launch file",
-          program = "${file}",
-          cwd = "${workspaceFolder}",
         },
       }
 

@@ -29,4 +29,4 @@ require("lazy").setup({
   },
 })
 
-vim.cmd("colorscheme gruvdark")
+vim.cmd("colorscheme sonokai")

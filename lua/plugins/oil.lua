@@ -7,7 +7,8 @@ return {
 
       oil.setup({
         columns = {
-          "icon",
+          "permissions",
+          "mtime",
         },
         view_options = {
           show_hidden = true,

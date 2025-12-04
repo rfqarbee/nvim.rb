@@ -44,7 +44,7 @@ opt.smartcase = true
 
 opt.cursorline = true
 opt.signcolumn = "yes"
-opt.colorcolumn = "80"
+-- opt.colorcolumn = "80"
 opt.showmode = true
 
 opt.clipboard:append("unnamedplus")

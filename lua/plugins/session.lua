@@ -4,7 +4,7 @@ return {
     keys = {
       { "<leader>wr", "<cmd>AutoSession search<CR>", desc = "Session search" },
       { "<leader>wd", "<cmd>AutoSession deletePicker<CR>", desc = "Session search" },
-      { "<leader>ws", "<cmd>AutoSession save<CR>", desc = "Save session" },
+      { "<leader>wp", "<cmd>AutoSession save<CR>", desc = "Save session" },
     },
     lazy = false,
     opts = {

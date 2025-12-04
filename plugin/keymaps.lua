@@ -44,7 +44,9 @@ map("n", "<C-b>", "<C-u>zz", { desc = "Center Cursor Full-page" })
 map("n", "n", "nzzzv", { desc = "Center cursor next search" })
 map("n", "N", "Nzzzv", { desc = "Center cursor next search" })
 
-map("x", "p", '"_dP', { desc = "Paste w/o Clipboard" })
+map("n", "<C-f>", "<cmd>silent !tmux neww tmux_session.sh<cr>")
+
+map("x", "<c-p>", '"_dP', { desc = "Paste w/o Clipboard" })
 map("n", "<leader>rp", ":%s/<C-r><C-w>/", { desc = "Current file search and replace" })
 map("x", "z/", "<C-\\><C-n>`</\\%V", { desc = "Search forward within visual selection" })
 map("x", "z?", "<C-\\><C-n>`>?\\%V", { desc = "Search backward within visual selection" })

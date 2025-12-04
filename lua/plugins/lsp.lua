@@ -23,20 +23,6 @@ return {
     local disable_semantic_tokens = {
       lua = true,
     }
-    local rtp = vim.fn.stdpath("config")
-    local nvim_config = vim.fn.expand(rtp)
-    local handle = vim.uv.fs_scandir(nvim_config .. "/lsp")
-    local file = {}
-
-    if handle ~= nil then
-      while true do
-        local fs = vim.uv.fs_scandir_next(handle)
-        if fs == nil then
-          break
-        end
-        table.insert(file, vim.fn.fnamemodify(fs, ":t:r"))
-      end
-    end
 
     vim.lsp.config("omnisharp", {
       filetypes = { "cs", "vb" },

@@ -29,7 +29,12 @@ return {
 
     -- files
     map("n", "<leader><leader>", fzf.files, { desc = "Project file" })
-    map("n", "<leader>pr", fzf.oldfiles, { desc = "Recent Files" })
+    map("n", "<leader>fd", function()
+      fzf.files({
+        fd_opts = [[--type d --exclude .git]],
+      })
+    end, { desc = "Project directories" })
+    map("n", "<leader>.", fzf.oldfiles, { desc = "Recent Files" })
     -- git
     map("n", "<leader>pb", fzf.git_branches, { desc = "Git branches" })
     map("n", "<leader>pC", fzf.git_bcommits, { desc = "Git Current Buffer/File Commits" })
