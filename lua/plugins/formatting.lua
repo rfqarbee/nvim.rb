@@ -5,8 +5,9 @@ return {
     require("conform").setup({
       formatters_by_ft = {
         lua = { "stylua" },
-        c = { "clang_format" },
+        c = { "clang-format" },
         go = { "goimports", "gofumpt", stop_after_first = true },
+        cs = { "csharpier" },
         css = { "prettierd", "prettier", stop_after_first = true },
         html = { "prettierd", "prettier", stop_after_first = true },
         vue = { "prettierd", "prettier", stop_after_first = true },

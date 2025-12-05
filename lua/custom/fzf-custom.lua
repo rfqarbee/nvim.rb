@@ -37,6 +37,11 @@ M.fzf = {
   ["alt-="] = "toggle-preview",
 }
 M.winopts = {
+  backdrop = 100,
+  height = 0.75,
+  width = 1,
+  row = 0.9,
+  col = 0,
   preview = {
     vertical = "down:35%",
     horizontal = "right:40%",
