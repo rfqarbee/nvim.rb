@@ -1,0 +1,10 @@
+vim.pack.add({ "https://github.com/tpope/vim-fugitive" })
+
+vim.keymap.set("n", "<leader>gg", "<cmd>G<cr>", { silent = true, desc = "Git Fugitive" })
+vim.keymap.set("n", "gm", "<cmd>Gvdiffsplit!<cr>", { desc = "Git merge 3 way" })
+vim.keymap.set("n", "<leader>gm", "<cmd>G mergetool<cr>", { desc = "Git mergetool" })
+vim.keymap.set("n", "dv", "<cmd>Gvdiffsplit<cr>", { desc = "Git diff %" })
+vim.keymap.set("n", "<leader>dv", "<cmd>Git! difftool<cr>", { desc = "Diff tool" })
+vim.keymap.set("n", "gb", "<cmd>G blame<cr>", { desc = "Git blame" })
+vim.keymap.set("n", "g,", "<cmd>diffget //2<cr>", { desc = "changes from left" })
+vim.keymap.set("n", "g.", "<cmd>diffget //3<cr>", { desc = "change from rigth" })

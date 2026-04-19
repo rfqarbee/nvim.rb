@@ -1,32 +1,44 @@
----@diagnostic disable: undefined-field
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
-      { "\nPress any key to exit..." },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
-end
-vim.opt.rtp:prepend(lazypath)
+-- init ui stuff
+vim.pack.add({
+  { src = "https://github.com/nvim-lualine/lualine.nvim" },
+  { src = "https://github.com/Yazeed1s/oh-lucy.nvim" },
+})
 
-require("lazy").setup({
-  spec = {
-    { import = "plugins" },
-    { import = "plugins.dap" },
+require("lualine").setup({
+  options = {
+    always_show_tabline = false,
+    component_separators = "",
+    section_separators = "",
+    disabled_filetypes = {
+      statusline = { "fugitiveblame", "qf", "quifckfix" },
+    },
   },
-  change_detection = { notify = false },
-  checker = {
-    enabled = false,
+  sections = {
+    lualine_a = {
+      {
+        "tabs",
+        mode = 0,
+        tabs_color = {
+          active = "lualine_a_insert",
+          inactive = "lualine_a_normal",
+        },
+      },
+    },
+    lualine_b = {
+      "filesize",
+    },
+    lualine_c = {
+      { "filename", path = 0 },
+      "location",
+      "progress",
+    },
+    lualine_x = { "diff" },
+    lualine_y = { { "lsp_status", symbols = { separator = "  " } } },
+    lualine_z = { "branch" },
   },
 })
 
-vim.cmd("colorscheme sonokai")
+vim.cmd("colorscheme oh-lucy")

@@ -1,4 +1,6 @@
 {
-  "diagnostics.globals": ["vim",
-        "toggle_background"]
+  "diagnostics.globals": [
+    "vim",
+    "toggle_background"
+  ]
 }

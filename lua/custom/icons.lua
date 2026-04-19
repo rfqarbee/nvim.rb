@@ -1,11 +1,10 @@
 local M = {}
 
-
 local devicon = {
-  icon = ' ',
+  icon = " ",
   color = "#FAF743",
   cterm_color = "227",
-  name = "Env"
+  name = "Env",
 }
 
 local envs = {

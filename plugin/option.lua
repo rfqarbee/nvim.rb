@@ -62,6 +62,3 @@ opt.backup = false
 opt.undofile = true
 opt.isfname:append("@-@")
 opt.updatetime = 50
-
-opt.spell = false
-opt.spelllang = { "en_us", "en" }
