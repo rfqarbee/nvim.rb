@@ -1,5 +1,4 @@
 vim.pack.add({
-  "https://github.com/williamboman/mason.nvim",
   "https://github.com/rafamadriz/friendly-snippets",
   { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") },
   "https://github.com/neovim/nvim-lspconfig",
@@ -8,89 +7,34 @@ vim.pack.add({
 require("blink.cmp").setup({
   completion = {
     documentation = { auto_show = true, auto_show_delay_ms = 300 },
-    list = { selection = { auto_insert = false, }, },
+    list = { selection = { auto_insert = false } },
     menu = {
       draw = {
         columns = {
-          { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 }
+          { "label", "label_description", gap = 1 },
+          { "kind_icon", "kind", gap = 1 },
         },
       },
     },
   },
 })
-
-
-local capabilities = require("blink.cmp").get_lsp_capabilities()
-local signs = require("custom.icons").lsp_signs
-local map = vim.keymap.set
-
-vim.diagnostic.config({
-  underline = true,
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = signs.Error,
-      [vim.diagnostic.severity.WARN] = signs.Warn,
-      [vim.diagnostic.severity.INFO] = signs.Info,
-      [vim.diagnostic.severity.HINT] = signs.Hint,
-    },
-  },
-})
-require("mason").setup({})
 
 local disable_semantic_tokens = {
   lua = true,
 }
 
-vim.lsp.config("omnisharp", {
-  filetypes = { "cs", "vb" },
-  capabilities = capabilities,
-  settings = {
-    RoslynExtensionsOptions = {
-      EnableAnalyzersSupport = true,
-      EnableImportCompletion = true,
-      AnalyzeOpenDocumentsOnly = true,
-      EnableDecompilationSupport = true,
-    },
-  },
-})
+-- vim.lsp.enable("vtsls") -- for work
+-- vim.lsp.enable("vue_ls") -- for work
+-- vim.lsp.enable("tailwindcss") -- for work
+-- vim.lsp.enable("gopls") -- for work
 
-vim.lsp.config("vtsls", {
-  filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact", "vue" },
-  root_markers = {
-    {
-      "tsconfig.json",
-      "package.json",
-      "pnpm-lock.yaml",
-    },
-    ".git",
-  },
-  settings = {
-    vtsls = {
-      tsserver = {
-        globalPlugins = {
-          {
-            name = "@vue/typescript-plugin",
-            location = vim.fn.stdpath("data")
-                .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
-            languages = { "vue" },
-            configNamespace = "typescript",
-          },
-        },
-      },
-    },
-  },
-})
-
-vim.lsp.enable("omnisharp")
-vim.lsp.enable("tailwindcss")
-vim.lsp.enable("clangd")
-vim.lsp.enable("gopls")
+-- vim.lsp.enable("omnisharp") -- monogame
+vim.lsp.enable("clangd") -- learn c
 vim.lsp.enable("lua_ls")
-vim.lsp.enable("svelte")
-vim.lsp.enable("vtsls")
-vim.lsp.enable("vue_ls")
+
 vim.lsp.enable("tsgo")
 vim.lsp.enable("svelte")
+vim.lsp.enable("sqls")
 
 vim.api.nvim_create_autocmd({ "LspAttach" }, {
   group = vim.api.nvim_create_augroup("neovim-lsp-group", { clear = true }),
@@ -100,22 +44,22 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
     local fzf = require("fzf-lua")
 
     if client.name ~= "omnisharp" then
-      map("n", "gd", vim.lsp.buf.definition, { desc = "Goto defintion" })
-      map("n", "grd", fzf.lsp_typedefs, { desc = "Type definition" })
-      map("n", "grr", vim.lsp.buf.references, { desc = "References" })
-      map("n", "gI", vim.lsp.buf.implementation, { desc = "References" })
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Goto defintion" })
+      vim.keymap.set("n", "grd", fzf.lsp_typedefs, { desc = "Type definition" })
+      vim.keymap.set("n", "grr", vim.lsp.buf.references, { desc = "References" })
+      vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "References" })
     end
-    map("n", "gD", vim.lsp.buf.declaration, { desc = "Goto declaration" })
-    map("n", "grh", vim.lsp.buf.signature_help, { desc = "Signature help" })
-    map("n", "gO", fzf.lsp_document_symbols, { desc = "Document symbols" })
-    map("n", "grw", fzf.lsp_workspace_symbols, { desc = "Workspace symbols" })
-    map("n", "<leader>qw", function()
+    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Goto declaration" })
+    vim.keymap.set("n", "grh", vim.lsp.buf.signature_help, { desc = "Signature help" })
+    vim.keymap.set("n", "gO", fzf.lsp_document_symbols, { desc = "Document symbols" })
+    vim.keymap.set("n", "grw", fzf.lsp_workspace_symbols, { desc = "Workspace symbols" })
+    vim.keymap.set("n", "<leader>qw", function()
       vim.diagnostic.setqflist()
     end)
-    map("n", "<leader>qd", function()
+    vim.keymap.set("n", "<leader>qd", function()
       vim.diagnostic.setloclist()
     end)
-    map("n", "<leader>cx", function()
+    vim.keymap.set("n", "<leader>cx", function()
       vim.diagnostic.open_float({ border = "rounded", source = "if_many" })
     end, { desc = "Diagnostics open float" })
 

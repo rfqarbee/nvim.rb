@@ -47,7 +47,7 @@ opt.signcolumn = "yes"
 -- opt.colorcolumn = "80"
 opt.showmode = true
 
-opt.clipboard:append("unnamedplus")
+-- opt.clipboard:append("unnamed")
 
 opt.splitright = true
 opt.splitbelow = true
@@ -62,3 +62,15 @@ opt.backup = false
 opt.undofile = true
 opt.isfname:append("@-@")
 opt.updatetime = 50
+
+vim.diagnostic.config({
+  underline = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.INFO] = " ",
+      [vim.diagnostic.severity.HINT] = "󰌶 ",
+    },
+  },
+})

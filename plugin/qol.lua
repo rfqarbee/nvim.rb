@@ -8,7 +8,7 @@ vim.pack.add({
   { src = "https://github.com/kylechui/nvim-surround", version = vim.version.range("^3.0.0") },
 })
 
-require("nvim-web-devicons").setup({ override = require("custom.icons").override })
+require("nvim-web-devicons").setup({})
 require("nvim-ts-autotag").setup()
 require("nvim-surround").setup()
 require("nvim-treesitter.configs").setup({

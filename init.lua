@@ -4,8 +4,10 @@ vim.g.maplocalleader = " "
 -- init ui stuff
 vim.pack.add({
   { src = "https://github.com/nvim-lualine/lualine.nvim" },
-  { src = "https://github.com/Yazeed1s/oh-lucy.nvim" },
+  { src = "https://github.com/ThorstenRhau/token" },
 })
+
+vim.cmd("colo token")
 
 require("lualine").setup({
   options = {
@@ -40,5 +42,3 @@ require("lualine").setup({
     lualine_z = { "branch" },
   },
 })
-
-vim.cmd("colorscheme oh-lucy")

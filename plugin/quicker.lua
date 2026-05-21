@@ -5,7 +5,7 @@ quicker.setup({
     enabled = true,
   },
 })
-vim.keymap.set("n", "<leader>ql", function()
+vim.keymap.set("n", "Q", function()
   quicker.toggle({ height = 10 })
 end, { desc = "Toggle quickfix" })
 vim.keymap.set("n", "<leader>qx", function()

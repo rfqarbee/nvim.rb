@@ -1,0 +1,29 @@
+# lsp
+clangd
+lua-language-server
+omnisharp
+sqls
+tsgo
+-- for work
+gopls
+vtsls
+vue-language-server
+tailwindcss-language-server
+
+# debugger
+delve
+netcoredbg
+
+# tools (formatter,lint etc.)
+clang-format
+cpplint
+cpptools
+csharpier
+eslint_d
+gofumpt
+goimports
+golangci-lint
+prettierd
+sleek
+stylua
+yamlfmt

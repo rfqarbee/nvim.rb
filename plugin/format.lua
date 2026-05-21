@@ -12,6 +12,7 @@ require("conform").setup({
     css = { "prettierd", "prettier", stop_after_first = true },
     html = { "prettierd", "prettier", stop_after_first = true },
     vue = { "prettierd", "prettier", stop_after_first = true },
+    svelte = { "prettierd", "prettier", stop_after_first = true },
     typescript = { "prettierd", "prettier", stop_after_first = true },
     typescriptreact = { "prettierd", "prettier", stop_after_first = true },
     json = { "jq" },
@@ -26,10 +27,12 @@ lint.linters_by_ft = {
   typescript = { "eslint_d", "eslint" },
   typescriptreact = { "eslint_d", "eslint" },
   javascriptreact = { "eslint_d", "eslint" },
+  svelte = { "eslint_d", "eslint" },
   vue = { "eslint_d", "eslint" },
   c = { "cpplint" },
   go = { "golangcilint" },
 }
+
 lint.linters.cpplint.args = {
   "--filter",
   "-whitespace",
