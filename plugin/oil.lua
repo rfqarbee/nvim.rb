@@ -39,7 +39,7 @@
 -- end, { desc = "directory" })
 
 -- yazi
-vim.pack.add({ "https://github.com/mikavilpas/yazi.nvim" })
+vim.pack.add({ "https://github.com/mikavilpas/yazi.nvim", "https://github.com/nvim-lua/plenary.nvim" })
 
 local yazi = require("yazi")
 yazi.setup({
