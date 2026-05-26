@@ -23,12 +23,12 @@ require("conform").setup({
 
 local lint = require("lint")
 lint.linters_by_ft = {
-  javascript = { "eslint_d", "eslint" },
-  typescript = { "eslint_d", "eslint" },
-  typescriptreact = { "eslint_d", "eslint" },
-  javascriptreact = { "eslint_d", "eslint" },
-  svelte = { "eslint_d", "eslint" },
-  vue = { "eslint_d", "eslint" },
+  javascript = { "eslint_d" },
+  typescript = { "eslint_d" },
+  typescriptreact = { "eslint_d" },
+  javascriptreact = { "eslint_d" },
+  svelte = { "eslint_d" },
+  vue = { "eslint_d" },
   c = { "cpplint" },
   go = { "golangcilint" },
 }

@@ -5,9 +5,10 @@ vim.g.maplocalleader = " "
 vim.pack.add({
   { src = "https://github.com/nvim-lualine/lualine.nvim" },
   { src = "https://github.com/ThorstenRhau/token" },
+  { src = "https://github.com/szymonwilczek/arete.nvim" },
 })
 
-vim.cmd("colo token")
+vim.cmd("colo ef-autumn")
 
 require("lualine").setup({
   options = {

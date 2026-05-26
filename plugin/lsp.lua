@@ -23,16 +23,16 @@ local disable_semantic_tokens = {
   lua = true,
 }
 
--- vim.lsp.enable("vtsls") -- for work
+vim.lsp.enable("vtsls") -- for work
 -- vim.lsp.enable("vue_ls") -- for work
--- vim.lsp.enable("tailwindcss") -- for work
+vim.lsp.enable("tailwindcss") -- for work
 -- vim.lsp.enable("gopls") -- for work
 
 -- vim.lsp.enable("omnisharp") -- monogame
 vim.lsp.enable("clangd") -- learn c
 vim.lsp.enable("lua_ls")
 
-vim.lsp.enable("tsgo")
+-- vim.lsp.enable("tsgo")
 vim.lsp.enable("svelte")
 vim.lsp.enable("sqls")
 
