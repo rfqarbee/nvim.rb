@@ -57,11 +57,15 @@ map("x", "z?", "<C-\\><C-n>`>?\\%V", { desc = "Search backward within visual sel
 map("n", "g?", function()
   vim.ui.open(("https://google.com/search?q=%s"):format(vim.fn.expand("<cword>")))
 end)
+
 map("x", "g?", function()
-  vim.ui.open(
-    ("https://google.com/search?q=%s"):format(
-      vim.trim(table.concat(vim.fn.getregion(vim.fn.getpos("."), vim.fn.getpos("v"), { type = vim.fn.mode() }), " "))
-    )
-  )
+  local normalStr =
+    vim.trim(table.concat(vim.fn.getregion(vim.fn.getpos("."), vim.fn.getpos("v"), { type = vim.fn.mode() }), " "))
+
+  if string.match(normalStr, "^https://") ~= nil then
+    vim.ui.open(normalStr)
+  else
+    vim.ui.open(("https://google.com/search?q=%s"):format(normalStr))
+  end
   vim.api.nvim_input("<esc>")
 end)

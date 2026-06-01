@@ -6,11 +6,13 @@ vim.pack.add({
   "https://github.com/mbbill/undotree",
   { src = "https://github.com/kylechui/nvim-surround", version = vim.version.range("^3.0.0") },
   "https://github.com/cbochs/grapple.nvim",
+  "https://github.com/nvim-mini/mini.ai",
 })
 
 require("nvim-web-devicons").setup({})
 require("nvim-ts-autotag").setup()
 require("nvim-surround").setup()
+require("mini.ai").setup()
 
 require("grapple").setup({
   scope = "git_branch",

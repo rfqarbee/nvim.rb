@@ -1,9 +1,5 @@
 {
   "plugins": {
-    "arete.nvim": {
-      "rev": "d141fbcec6c16ee85d4c93e3f14727d53263a1a3",
-      "src": "https://github.com/szymonwilczek/arete.nvim"
-    },
     "auto-session": {
       "rev": "daa7c996a0395e26342934843938647d0f1e87f4",
       "src": "https://github.com/rmagatti/auto-session"
@@ -41,6 +37,10 @@
       "rev": "131a558e13f9f28b15cd235557150ccb23f89286",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
+    "mini.ai": {
+      "rev": "268ee376924c4c6a75935e9be73d3db5ad2eec46",
+      "src": "https://github.com/nvim-mini/mini.ai"
+    },
     "nvim-dap": {
       "rev": "45a69eba683a2c448dd9ecfc4de89511f0646b5f",
       "src": "https://github.com/mfussenegger/nvim-dap"
@@ -75,6 +75,10 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
+    "nvim-treesitter-textobjects": {
+      "rev": "851e865342e5a4cb1ae23d31caf6e991e1c99f1e",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+    },
     "nvim-ts-autotag": {
       "rev": "88c1453db4ba7dd24131086fe51fdf74e587d275",
       "src": "https://github.com/windwp/nvim-ts-autotag"
@@ -82,6 +86,10 @@
     "nvim-web-devicons": {
       "rev": "7d8dad2c837fcdf2e65997e68657c1a21c568074",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
+    "oil.nvim": {
+      "rev": "b91ee5a77a6a9605d9c1aaf4fda74b66082c8297",
+      "src": "https://github.com/stevearc/oil.nvim"
     },
     "omnisharp-extended-lsp.nvim": {
       "rev": "51e407a46ddb15e49727139b5b1ae3650cd6a069",
@@ -99,17 +107,9 @@
       "rev": "51f39cbbb7154e08741de07996b34baf98703bdf",
       "src": "https://github.com/ThorstenRhau/token"
     },
-    "tokyonight.nvim": {
-      "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
-      "src": "https://github.com/folke/tokyonight.nvim"
-    },
     "undotree": {
       "rev": "6fa6b57cda8459e1e4b2ca34df702f55242f4e4d",
       "src": "https://github.com/mbbill/undotree"
-    },
-    "yazi.nvim": {
-      "rev": "ce56cb1534a4192eaf13a2f8fb2c1cdfc553e5f2",
-      "src": "https://github.com/mikavilpas/yazi.nvim"
     }
   }
 }

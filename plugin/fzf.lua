@@ -13,10 +13,16 @@ fzf.setup({
     end,
   },
   keymap = {
-    builtin = { false, ["<M-=>"] = "toggle-preview", ["<m-n>"] = "preview-page-down", ["<m-p>"] = "preview-page-up" },
+    builtin = {
+      false,
+      ["<M-=>"] = "toggle-preview",
+      ["<m-n>"] = "preview-page-down",
+      ["<m-p>"] = "preview-page-up",
+    },
     fzf = {
       true, -- do not inherit from defaults
       ["alt-p"] = "preview-page-up",
+      ["ctrl-q"] = "select-all+accept",
       ["alt-n"] = "preview-page-down",
       ["ctrl-o"] = "unix-line-discard",
       ["ctrl-c"] = "abort",
@@ -49,10 +55,10 @@ vim.keymap.set("n", "<leader>fd", function()
 end, { desc = "Project directories" })
 vim.keymap.set("n", "<leader>fr", fzf.oldfiles, { desc = "Recent Files" })
 -- git
-vim.keymap.set("n", "<leader>fb", fzf.git_branches, { desc = "Git branches" })
-vim.keymap.set("n", "<leader>fC", fzf.git_bcommits, { desc = "Git Current Buffer/File Commits" })
-vim.keymap.set("n", "<leader>fc", fzf.git_commits, { desc = "Project Commits" })
-vim.keymap.set("n", "<leader>fd", fzf.git_diff, { desc = "git diff" })
+vim.keymap.set("n", "<leader>pb", fzf.git_branches, { desc = "Git branches" })
+vim.keymap.set("n", "<leader>pC", fzf.git_bcommits, { desc = "Git Current Buffer/File Commits" })
+vim.keymap.set("n", "<leader>pc", fzf.git_commits, { desc = "Project Commits" })
+vim.keymap.set("n", "<leader>pd", fzf.git_diff, { desc = "git diff" })
 -- diagnostic
 -- vim.keymap.set("n", "<leader>qw", fzf.diagnostics_workspace, { desc = "Workspace Diagnostics" })
 -- vim.keymap.set("n", "<leader>qd", fzf.diagnostics_document, { desc = "Buffer Diagnostics" })
