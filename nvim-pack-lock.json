@@ -41,6 +41,10 @@
       "rev": "268ee376924c4c6a75935e9be73d3db5ad2eec46",
       "src": "https://github.com/nvim-mini/mini.ai"
     },
+    "mini.surround": {
+      "rev": "9fd5ebef2b34cc4ac3c0f1811a6726ea6d92fa91",
+      "src": "https://github.com/nvim-mini/mini.surround"
+    },
     "nvim-dap": {
       "rev": "45a69eba683a2c448dd9ecfc4de89511f0646b5f",
       "src": "https://github.com/mfussenegger/nvim-dap"
@@ -74,10 +78,6 @@
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
-    },
-    "nvim-treesitter-textobjects": {
-      "rev": "851e865342e5a4cb1ae23d31caf6e991e1c99f1e",
-      "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
     },
     "nvim-ts-autotag": {
       "rev": "88c1453db4ba7dd24131086fe51fdf74e587d275",

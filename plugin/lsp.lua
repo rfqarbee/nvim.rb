@@ -23,18 +23,20 @@ local disable_semantic_tokens = {
   lua = true,
 }
 
-vim.lsp.enable("vtsls") -- for work
--- vim.lsp.enable("vue_ls") -- for work
-vim.lsp.enable("tailwindcss") -- for work
--- vim.lsp.enable("gopls") -- for work
-
--- vim.lsp.enable("omnisharp") -- monogame
-vim.lsp.enable("clangd") -- learn c
-vim.lsp.enable("lua_ls")
-
--- vim.lsp.enable("tsgo")
-vim.lsp.enable("svelte")
-vim.lsp.enable("sqls")
+vim.lsp.enable({
+  "clangd",
+  "zls",
+  "basedpyright",
+  "omnisharp", -- monogame
+  -- "vtsls", -- for work
+  -- "vue_ls", -- for work
+  "tailwindcss", -- for work
+  "gopls", -- for work
+  "lua_ls",
+  -- "tsgo", -- experiment
+  "svelte", -- personal
+  "sqls",
+})
 
 vim.api.nvim_create_autocmd({ "LspAttach" }, {
   group = vim.api.nvim_create_augroup("neovim-lsp-group", { clear = true }),
@@ -43,12 +45,6 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
     local client = assert(vim.lsp.get_client_by_id(event.data.client_id), "Must have valid client")
     local fzf = require("fzf-lua")
 
-    if client.name ~= "omnisharp" then
-      vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Goto defintion" })
-      vim.keymap.set("n", "grd", fzf.lsp_typedefs, { desc = "Type definition" })
-      vim.keymap.set("n", "grr", vim.lsp.buf.references, { desc = "References" })
-      vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "References" })
-    end
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Goto declaration" })
     vim.keymap.set("n", "grh", vim.lsp.buf.signature_help, { desc = "Signature help" })
     vim.keymap.set("n", "gO", fzf.lsp_document_symbols, { desc = "Document symbols" })

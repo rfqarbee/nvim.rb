@@ -4,14 +4,21 @@ vim.pack.add({
   "https://github.com/windwp/nvim-ts-autotag",
   "https://github.com/NMAC427/guess-indent.nvim",
   "https://github.com/mbbill/undotree",
-  { src = "https://github.com/kylechui/nvim-surround", version = vim.version.range("^3.0.0") },
   "https://github.com/cbochs/grapple.nvim",
   "https://github.com/nvim-mini/mini.ai",
+  "https://github.com/nvim-mini/mini.surround",
 })
-
+-- Use `<Leader>ls` and `<Leader>lS` for incremental selection
+local copy_keymap = function(mode, from_lhs, to_lhs)
+  local keymap = vim.fn.maparg(from_lhs, mode, false, true)
+  local rhs = keymap.callback or keymap.rhs
+  vim.keymap.set(mode, to_lhs, rhs, { desc = keymap.desc })
+end
+copy_keymap("x", "an", "<Leader>ls")
+copy_keymap("x", "in", "<Leader>lS")
 require("nvim-web-devicons").setup({})
 require("nvim-ts-autotag").setup()
-require("nvim-surround").setup()
+require("mini.surround").setup()
 require("mini.ai").setup()
 
 require("grapple").setup({
