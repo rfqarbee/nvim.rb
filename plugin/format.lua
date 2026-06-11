@@ -17,6 +17,7 @@ require("conform").setup({
     typescriptreact = { "prettierd", "prettier", stop_after_first = true },
     json = { "jq" },
     yaml = { "yamlfmt" },
+    xml = { "xmlformat" },
     sql = { "sleek", "sql-formatter", stop_after_first = true },
     zig = { "zigfmt" },
   },

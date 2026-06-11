@@ -17,7 +17,13 @@ vim.api.nvim_create_autocmd({ "BufEnter", "TermEnter", "TermLeave" }, {
 vim.api.nvim_create_autocmd({ "QuickFixCmdPost" }, {
   desc = "open qf after populate",
   group = vim.api.nvim_create_augroup("qfpost", { clear = true }),
-  command = "bot copen",
+  callback = function()
+    local qflist = vim.fn.getqflist()
+
+    if vim.fn.len(qflist) ~= 0 then
+      vim.cmd("bot copen")
+    end
+  end,
 })
 
 -- vim.api.nvim_create_autocmd({ "CursorHold" }, {

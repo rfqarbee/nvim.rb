@@ -69,3 +69,5 @@ map("x", "g?", function()
   end
   vim.api.nvim_input("<esc>")
 end)
+
+map("n", "<leader>cc", "<cmd>make!<cr>")
