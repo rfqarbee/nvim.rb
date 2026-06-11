@@ -1,7 +1,6 @@
 vim.pack.add({ "https://github.com/ibhagwan/fzf-lua" })
 
 local fzf = require("fzf-lua")
-local actions = require("fzf-lua.actions")
 
 fzf.setup({
   fzf_colors = true,
@@ -53,7 +52,7 @@ vim.keymap.set("n", "<leader>fd", function()
     fd_opts = [[--type d --exclude .git]],
   })
 end, { desc = "Project directories" })
-vim.keymap.set("n", "<leader>fr", fzf.oldfiles, { desc = "Recent Files" })
+vim.keymap.set("n", "<leader>pe", fzf.oldfiles, { desc = "Recent Files" })
 -- git
 vim.keymap.set("n", "<leader>pb", fzf.git_branches, { desc = "Git branches" })
 vim.keymap.set("n", "<leader>pC", fzf.git_bcommits, { desc = "Git Current Buffer/File Commits" })
@@ -71,5 +70,5 @@ vim.keymap.set("n", "<leader>fs", fzf.grep_curbuf, { desc = "Current Buffer Grep
 vim.keymap.set("n", "<leader>fl", fzf.lines, { desc = "Current Buffer lines" })
 -- misc
 vim.keymap.set("n", "<leader>fp", fzf.builtin, { desc = "FzfLua Builtin" })
-vim.keymap.set("n", "<leader>'", fzf.resume, { desc = "Resume last FzfLua Action" })
-vim.keymap.set("n", "<leader>bb", fzf.buffers, { desc = "Current Opened Buffers" })
+vim.keymap.set("n", "<leader>pr", fzf.resume, { desc = "Resume last FzfLua Action" })
+vim.keymap.set("n", "<leader>'", fzf.buffers, { desc = "Current Opened Buffers" })

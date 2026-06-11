@@ -6,17 +6,11 @@ map("t", "<C-[><C-[>", "<C-\\><C-n>")
 
 map("n", "<M-q>", "<cmd>bd<CR>", { desc = "Quit" })
 map("n", "<leader>wq", "<cmd>qa<CR>", { desc = "Quit" })
-map("n", "<leader>wn", "<cmd>tabnew<cr>", { desc = "New Tab" })
-map("n", "<leader>wm", "<cmd>tabnew %<cr>", { desc = "Move to new tab" })
 
-map("n", "<leader>wh", "<C-w>h")
-map("n", "<leader>wl", "<C-w>l")
-map("n", "<leader>wj", "<C-w>j")
-map("n", "<leader>wk", "<C-w>k")
 map("n", "<leader>wv", "<C-w>v")
 map("n", "<leader>ws", "<C-w>s")
 map("n", "<leader>ww", "<C-w>w")
-map("n", "<leader>wc", "<C-w>c")
+map("n", "<leader>wc", "<C-w>o")
 -- i dont care gT, never have more than 3 anyways
 map("n", "<leader><tab>", "gt")
 
@@ -43,7 +37,7 @@ map("n", "N", "Nzzzv", { desc = "Center cursor next search" })
 map("n", "yY", 'gg"+yG``')
 map({ "n", "v", "o" }, "gy", '"+y', { desc = "Copy to clipboard" })
 map("x", "<c-p>", '"_dP', { desc = "Paste w/o Clipboard" })
-map({ "n", "v", "x" }, "<leader>p", '"+p')
+map({ "n", "v", "x" }, "gp", '"+p')
 map("n", "<leader>fy", function()
   local path = vim.fn.expand("%:p")
   vim.fn.setreg("+", path)
@@ -69,3 +63,5 @@ map("x", "g?", function()
   end
   vim.api.nvim_input("<esc>")
 end)
+
+map("n", "<leader>cc", "<cmd>make!<cr>")

@@ -5,6 +5,7 @@ vim.g.loaded_netrw = 1 -- disable netrw
 vim.g.loaded_netrwPlugin = 1
 vim.o.winborder = "rounded"
 vim.o.confirm = true
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 vim.filetype.add({
   extension = {

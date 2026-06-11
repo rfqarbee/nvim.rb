@@ -5,7 +5,6 @@ vim.pack.add({
 local oil = require("oil")
 oil.setup({
   columns = {
-    "icon",
     "mtime",
     "permissions",
   },

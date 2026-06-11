@@ -24,16 +24,12 @@ local disable_semantic_tokens = {
 }
 
 vim.lsp.enable({
-  "clangd",
-  "zls",
   "basedpyright",
-  "omnisharp", -- monogame
   -- "vtsls", -- for work
   -- "vue_ls", -- for work
   "tailwindcss", -- for work
   "gopls", -- for work
   "lua_ls",
-  -- "tsgo", -- experiment
   "svelte", -- personal
   "sqls",
 })

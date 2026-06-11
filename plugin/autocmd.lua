@@ -1,5 +1,5 @@
 local MiscGroup = vim.api.nvim_create_augroup("miscGroup", { clear = true })
-local WhiteSpace = vim.api.nvim_create_augroup("httpGroup", { clear = true })
+local WhiteSpace = vim.api.nvim_create_augroup("clearWhite", { clear = true })
 local YankGroup = vim.api.nvim_create_augroup("HiglightYank", { clear = true })
 
 vim.api.nvim_create_autocmd({ "BufEnter", "TermEnter", "TermLeave" }, {
@@ -17,14 +17,14 @@ vim.api.nvim_create_autocmd({ "BufEnter", "TermEnter", "TermLeave" }, {
 vim.api.nvim_create_autocmd({ "QuickFixCmdPost" }, {
   desc = "open qf after populate",
   group = vim.api.nvim_create_augroup("qfpost", { clear = true }),
-  command = "bot copen",
-})
+  callback = function()
+    local qflist = vim.fn.getqflist()
 
--- vim.api.nvim_create_autocmd({ "CursorHold" }, {
---   callback = function()
---     vim.diagnostic.open_float(nil, { focusable = false, source = "if_many", border = "rounded" })
---   end,
--- })
+    if vim.fn.len(qflist) ~= 0 then
+      vim.cmd("bot copen")
+    end
+  end,
+})
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   desc = "Delete trailing whitespace",
