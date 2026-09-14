@@ -25,6 +25,7 @@ local disable_semantic_tokens = {
 
 vim.lsp.enable({
   "basedpyright",
+  "ts_ls",
   -- "vtsls", -- for work
   -- "vue_ls", -- for work
   "tailwindcss", -- for work

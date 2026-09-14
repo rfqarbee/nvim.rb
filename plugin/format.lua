@@ -25,13 +25,12 @@ require("conform").setup({
 
 local lint = require("lint")
 lint.linters_by_ft = {
-  javascript = { "eslint_d" },
-  typescript = { "eslint_d" },
-  typescriptreact = { "eslint_d" },
-  javascriptreact = { "eslint_d" },
-  svelte = { "eslint_d" },
-  vue = { "eslint_d" },
-  c = { "cpplint" },
+  javascript = { "eslint_d", "eslint" },
+  typescript = { "eslint_d", "eslint" },
+  typescriptreact = { "eslint_d", "eslint" },
+  javascriptreact = { "eslint_d", "eslint" },
+  svelte = { "eslint_d", "eslint" },
+  vue = { "eslint_d", "eslint" },
   go = { "golangcilint" },
 }
 
@@ -59,11 +58,3 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     })
   end,
 })
-
-vim.keymap.set({ "n", "v" }, "<leader>lp", function()
-  require("conform").format({
-    lsp_fallback = true,
-    async = false,
-    timeout_ms = 500,
-  })
-end, { desc = "Format Code" })
