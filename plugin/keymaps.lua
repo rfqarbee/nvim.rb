@@ -10,9 +10,8 @@ map("n", "<leader>wq", "<cmd>qa<CR>", { desc = "Quit" })
 map("n", "<leader>wv", "<C-w>v")
 map("n", "<leader>ws", "<C-w>s")
 map("n", "<leader>ww", "<C-w>w")
-map("n", "<leader>wc", "<C-w>o")
--- i dont care gT, never have more than 3 anyways
-map("n", "<leader><tab>", "gt")
+map("n", "<leader>wc", "<C-w>c")
+map("n", "<leader>wo", "<C-w>o")
 
 map({ "n", "v" }, "L", "$", { desc = "End of line" })
 map({ "n", "v" }, "H", "^", { desc = "Start of line" })

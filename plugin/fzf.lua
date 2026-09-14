@@ -46,8 +46,8 @@ fzf.setup({
 fzf.register_ui_select({ winopts = { fullscreen = false } })
 
 -- files
-vim.keymap.set("n", "<leader><leader>", fzf.files, { desc = "Project file" })
-vim.keymap.set("n", "<leader>fd", function()
+vim.keymap.set("n", "<leader>pf", fzf.files, { desc = "Project file" })
+vim.keymap.set("n", "<leader>pd", function()
   fzf.files({
     fd_opts = [[--type d --exclude .git]],
   })
